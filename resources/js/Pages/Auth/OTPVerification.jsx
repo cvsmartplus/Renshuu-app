@@ -60,7 +60,7 @@ export default function OTPVerification({ email }) {
                     <div className="container">
                         <div className="row gy-4 align-items-center justify-content-center">
                             <div className="col-md-6 col-xl-7 d-flex justify-content-center">
-                                <img className="img-fluid" loading="lazy" src="../images/assets/OTP-CheckYourEmail.png" alt="OTP Banner" />
+                                <img className="img-fluid" loading="lazy" src="../images/assets/OtpIlustration.png" alt="OTP Banner" />
                             </div>
                             <div className="col-md-6 col-xl-5 d-flex justify-content-center">
                                 <div className="card p-4 border-1 rounded-3" style={{ maxWidth: "420px", width: "100%" }}>

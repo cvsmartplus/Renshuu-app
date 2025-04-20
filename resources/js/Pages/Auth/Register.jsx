@@ -31,7 +31,7 @@ export default function Register() {
                                         <div className="mt-3">
                                             <p className="text-center">
                                                 Sudah punya akun?{" "}
-                                                <a className="text-decoration-none text-darkblue" style={{ cursor: "pointer" }}>
+                                                <a className="text-decoration-none text-darkblue" data-bs-toggle="modal" data-bs-target="#loginModal" style={{ cursor: "pointer" }}>
                                                     Masuk
                                                 </a>
                                             </p>

@@ -6960,22 +6960,15 @@ progress {
   border: none;
   transition: all 0.3s ease-in-out;
 }
-
 .btn-darkblue:hover {
   background-color: #041C52;
   transform: translateY(-1px);
   color: white;
   box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
 }
-
-.btn-darkblue:active {
+.btn-darkblue:active, .btn-darkblue:focus {
   box-shadow: none;
 }
-
-.btn-darkblue:focus {
-  box-shadow: none;
-}
-
 .btn-darkblue:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -6983,6 +6976,31 @@ progress {
 
 .text-darkblue {
   color: #062A78;
+}
+
+.custom-check-blue:checked {
+  background-color: #062A78 !important;
+  border-color: #062A78 !important;
+}
+
+.custom-check-blue {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-check-blue:checked::before {
+  color: white;
+  position: absolute;
+  left: 0.25em;
+  top: 0;
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=app.css.map */

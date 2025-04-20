@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\Response as BaseResponse;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -27,18 +28,18 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request):  BaseResponse | RedirectResponse
     {
         $request->authenticate();
         $request->session()->regenerate();
 
         $user = Auth::user();
-
+        
         switch ($user->role) {
             case 'admin':
-                return redirect()->route('admin.dashboard');
+                return Inertia::location(route('admin.dashboard'));
             case 'company':
-                return redirect()->route('company.dashboard');
+                return Inertia::location(route('company.dashboard'));
             case 'user':
                 return redirect()->route('dashboard');
             default:

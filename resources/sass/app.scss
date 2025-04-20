@@ -25,39 +25,61 @@ $stroke: #BDBDBD;
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 .bg-bluesky {
-    background-color: $sidbar;
+  background-color: $sidbar;
 }
 
 .btn-darkblue {
-    background-color: $ctabtn;
-    color: #fff;
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .btn-darkblue:hover {
+  background-color: $ctabtn;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
     background-color: #041C52;
     transform: translateY(-1px);
     color: white;
     box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
   }
-  
-  .btn-darkblue:active {
+
+  &:active,
+  &:focus {
     box-shadow: none;
   }
-  
-  .btn-darkblue:focus {
-    box-shadow: none;
-  }
-  
-  .btn-darkblue:disabled {
+
+  &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
+}
 
-  .text-darkblue {
-    color: $ctabtn;
-  }
+.text-darkblue {
+  color: $ctabtn;
+}
+
+.custom-check-blue:checked {
+  background-color: #062A78 !important;
+  border-color: #062A78 !important;
+}
+
+.custom-check-blue {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-check-blue:checked::before {
+  color: white;
+  position: absolute;
+  left: 0.25em;
+  top: 0;
+  font-size: 0.8em;
+}
