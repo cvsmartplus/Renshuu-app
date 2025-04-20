@@ -4,7 +4,8 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "lint": "eslint resources/js --ext .js,.jsx --ignore-path .gitignore --fix"
+        "lint": "eslint resources/js --ext .js,.jsx --ignore-path .gitignore --fix",
+        "comp": "sass --watch .\\resources\\sass\\app.scss .\\resources\\css\\app.css" 
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
@@ -23,6 +24,7 @@
     "dependencies": {
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.5",
+        "framer-motion": "^12.7.4",
         "sass": "^1.86.3"
     }
 }
