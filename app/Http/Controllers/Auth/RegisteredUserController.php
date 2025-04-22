@@ -67,7 +67,7 @@ class RegisteredUserController extends Controller
      */
     public function createCompany()
     {
-        return view('companyAdmin.auth.register');
+        return view('company.auth.register');
     }
 
     /**

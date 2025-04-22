@@ -1,6 +1,12 @@
 import { Head } from '@inertiajs/react';
 import Layout from '@/Layouts/Layout';
-// import Banner from '@/Components/Landing/Banner';
+import Banner from '@/Components/Landing/Banner';
+import Features from '@/Components/Landing/Features';
+import Counter from '@/Components/Landing/Counter';
+import StepFlow from '@/Components/Landing/StepFlow';
+import CourseGrids from '@/Components/Landing/CourseGrid';
+import Partner from '@/Components/Landing/Partners';
+import ArticleGrid from '@/Components/Landing/ArticleGrid';
 
 export default function Welcome() {
     return (
@@ -9,10 +15,13 @@ export default function Welcome() {
                 <Head>
                     <title>Beranda</title>
                 </Head>
-                <div className="py-12 bg-bluesky"  >
-                    ini adalah landing page aplikasi
-                </div>
-                {/* <Banner /> */}
+                <Banner />
+                <Features />
+                <Counter />
+                <StepFlow />
+                <CourseGrids />
+                <Partner />
+                <ArticleGrid />
             </Layout>
         </>
     );

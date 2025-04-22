@@ -1,5 +1,3 @@
-// resources/js/Pages/Auth/Register.jsx
-
 import RegisterForm from "@/Components/UI/Forms/RegisterForm";
 import Layout from "@/Layouts/Layout";
 import { Head } from "@inertiajs/react";

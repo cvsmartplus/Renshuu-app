@@ -50,6 +50,7 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
                         className="form-check-input custom-check-blue"
                         type="checkbox"
                         id="remember"
+                        name='remember'
                         checked={data.remember}
                         onChange={(e) => setData("remember", e.target.checked)}
                     />
@@ -82,9 +83,9 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
                 <hr className="flex-grow-1" />
             </div>
 
-            <button type="button" className="btn-outline-cta p-1 rounded w-100">
+            <button type="button" className="btn-outline- p-1 rounded w-100">
                 <img
-                    src="./images/icons/google.png"
+                    src="./images/assets/icons/Google.png"
                     width="20"
                     height="20"
                     className="me-2"

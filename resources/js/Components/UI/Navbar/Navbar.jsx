@@ -49,7 +49,7 @@ export default function NavBar() {
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item border-end border-grey pe-3">
                                 <button type="button" className="btn position-relative">
-                                    <i className="fa-regular fa-bell"></i>
+                                    <i className="fa-solid fa-bell"></i>
                                     {user && (
                                         <span className="position-absolute translate-middle p-1 bg-danger rounded-circle">
                                             <span className="visually-hidden">New alerts</span>

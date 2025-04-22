@@ -1,4 +1,4 @@
-@extends('companyAdmin.layout.layoutCompany')
+@extends('company.layout.layoutCompany')
 
 @section('content')
     <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center py-5 px-4">

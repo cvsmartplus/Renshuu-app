@@ -1,10 +1,10 @@
-@extends('companyAdmin.layout.main')
+@extends('company.layout.main')
 
 @section('content')
 <section class="d-flex flex-wrap min-vh-100 bg-white">
     <div class="d-none d-lg-block col-lg-6 p-0">
-        <img src="{{ asset('assets/images/auth/auth-img.jpg') }}" 
-            alt="register banner" 
+        <img src="{{ asset('assets/images/auth/auth-img.jpg') }}"
+            alt="register banner"
             class="w-100 h-100 object-fit-cover">
     </div>
 
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-check d-flex align-items-center mb-3">
-                    <input class="form-check-input me-2" type="checkbox" id="condition" required>
+                    <input class="form-check-input custom-check-blue me-2" type="checkbox" id="condition" required>
                     <label class="form-check-label" for="condition">
                         Dengan ini saya setuju dengan
                         <a href="#" class="text-blue">Syarat dan Ketentuan</a> serta
@@ -83,7 +83,7 @@
                 <div class="mt-4 text-center">
                     <p class="mb-0 text-sm">
                         Sudah punya akun?
-                        <a href="#" class="text-blue fw-semibold">Masuk</a>
+                        <a href="/login" class="text-blue fw-semibold">Masuk</a>
                     </p>
                 </div>
             </form>

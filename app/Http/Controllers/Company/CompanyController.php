@@ -10,6 +10,6 @@ class CompanyController extends Controller
     //
     public function dashboard()
     {
-        return view('companyAdmin.dashboard');
+        return view('company.dashboard');
     }
 }

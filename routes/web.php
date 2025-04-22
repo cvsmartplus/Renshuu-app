@@ -3,13 +3,19 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Article;
+use App\Models\Course;
 
 Route::get('/', function () {
+    $articles = Article::latest()->take(4)->get();
+    $courses = Course::latest()->take(3)->get();
+
     return Inertia::render('Landing', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        'title' => 'Selamat Datang!',
+        'articles' => $articles,
+        'courses' => $courses,
     ]);
-})->name('landing');
+})->name('welcome');
 
 
 

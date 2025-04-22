@@ -5,8 +5,8 @@
         "build": "vite build",
         "dev": "vite",
         "lint": "eslint resources/js --ext .js,.jsx --ignore-path .gitignore --fix",
-        "comp": "sass --watch .\\resources\\sass\\app.scss .\\resources\\css\\app.css" 
-    },
+        "comp": "sass --watch resources/sass/app.scss resources/css/app.css"
+   },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
         "@inertiajs/react": "^2.0.0",
@@ -25,6 +25,7 @@
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.5",
         "framer-motion": "^12.7.4",
+        "react-countup": "^6.5.3",
         "sass": "^1.86.3"
     }
 }

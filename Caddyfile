@@ -1,0 +1,13 @@
+{
+    frankenphp {
+        worker /app/public/index.php index.php
+        watch
+    }
+}
+
+:8000 {
+    root * /app/public
+    encode zstd br gzip
+    php_fastcgi
+    file_server
+}

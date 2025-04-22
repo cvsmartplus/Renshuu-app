@@ -1,17 +1,11 @@
 import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
 import { resolve } from 'path';
-import { defineConfig } from 'vite';
 
-export default defineConfig({
-    root: '.', // tetap di root Laravel
+export default {
     plugins: [
         laravel({
-            input: [
-                'resources/js/app.jsx',
-                'resources/js/components/**/*.jsx',
-                'resources/js/Pages/**/*.jsx',
-            ],
+            input: ['resources/js/app.jsx'],
             refresh: true,
         }),
         react(),
@@ -22,7 +16,8 @@ export default defineConfig({
         },
     },
     server: {
-        port: 8080,
+        host: true,
+        port: 5173,
         strictPort: true,
     },
     build: {
@@ -36,4 +31,4 @@ export default defineConfig({
             },
         },
     },
-});
+};

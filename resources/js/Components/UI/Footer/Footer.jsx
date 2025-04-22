@@ -56,11 +56,11 @@ export default function Footer() {
                     <div className="container" style={{ borderTop: "1px solid #aaa" }}>
                         <div className="row align-items-center">
                             <div className="col-12">
-                                <p 
-                                    className="mb-0 text-center py-3" 
+                                <p
+                                    className="mb-0 text-center py-3"
                                     style={{ fontSize: "14px", color: "#666" }}
                                 >
-                                    Copyright &copy; {new Date().getFullYear()} Renshuu adalah merek dari <a href="https://cvsmartplus.com" target="_blank">CV Smartplus Indonesia</a>
+                                    Copyright &copy; {new Date().getFullYear()} Renshuu adalah merek dari <a href="https://cvsmartplus.com" target="_blank" className="text-darkblue">CV Smartplus Indonesia</a>
                                 </p>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ Route::middleware('guest')->group(function () {
     Route::get('register/company', [RegisteredUserController::class, 'createcompany'])
         ->name('register.company');
     Route::post('register/company', [RegisteredUserController::class, 'storecompany'])->name('register.company.post');
-    
+
     Route::get('OTP-verification', [OTPVerificationController::class, 'create'])->name('otp.verify');
 
     Route::post('OTP-verification', [OTPVerificationController::class, 'store'])->name('otp.verify.post');
@@ -44,6 +44,9 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+
+    Route::resource('article', ArticleController::class)->except(['show']);
+    Route::get('/article/{artikel:slug}', [ArticleController::class, 'show'])->name('article.show');
 });
 
 Route::middleware('auth')->group(function () {

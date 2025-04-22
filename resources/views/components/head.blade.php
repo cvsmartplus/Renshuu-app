@@ -43,5 +43,5 @@
     <link rel="stylesheet"  href="{{ asset('assets/css/style.css') }}">
 
     {{-- Load same CSS as React/Inertia --}}
-    @vite(['resources/css/App.css'])
+    @vite(['resources/css/app.css'])
 </head>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <section
-      className="d-flex align-items-center justify-content-center text-center py-3 py-md-5 py-xl-8 sidebar"
+      className="d-flex align-items-center justify-content-center text-center py-3 py-md-5 py-xl-8 bg-bluesky"
       style={{ minHeight: "85vh", overflow: "hidden" }}
     >
       <div className="container">
@@ -40,7 +40,7 @@ const FloatingHeader = () => (
     transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
   >
     <span className="d-block text-jost fw-bold" style={{ fontSize: "2.5rem", lineHeight: "1.2" }}>
-    Raih Peluang Karir dan 
+    Raih Peluang Karir dan
     </span>
     <span className="d-block text-jost" style={{ fontSize: "1.5rem", color: "#555" }}>
     Tingkatkan Keahlian Anda
