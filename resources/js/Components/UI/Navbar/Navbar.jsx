@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { Link, usePage } from "@inertiajs/react";
+import { FaRegBell } from "react-icons/fa6";
+import { GiHamburgerMenu } from "react-icons/gi";
 import NavLink from "./NavLink";
 import AuthenticatedMenu from "./AuthenticatedMenu";
 import GuestMenu from "./GuestMenu";
@@ -40,7 +42,7 @@ export default function NavBar() {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <i className="fas fa-bars"></i>
+                        <GiHamburgerMenu />
                     </button>
 
                     <NavLink />
@@ -49,7 +51,7 @@ export default function NavBar() {
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item border-end border-grey pe-3">
                                 <button type="button" className="btn position-relative">
-                                    <i className="fa-solid fa-bell"></i>
+                                    <FaRegBell />
                                     {user && (
                                         <span className="position-absolute translate-middle p-1 bg-danger rounded-circle">
                                             <span className="visually-hidden">New alerts</span>

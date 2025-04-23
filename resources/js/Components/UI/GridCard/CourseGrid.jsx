@@ -7,7 +7,7 @@ export default function CourseGrid({courses}){
                 <div className="row">
                     {courses.length > 0 ? (
                         courses.map((course) => (
-                            <div key={course.id} className="col-md-4 mb-3">
+                            <div key={course.id} className="col-md-6 col-xl-4 mb-3">
                                 <CourseCard course={course} />
                             </div>
                     ))) : (

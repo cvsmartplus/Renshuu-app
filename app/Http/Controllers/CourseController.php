@@ -44,13 +44,14 @@ class CourseController extends Controller
         $course = Course::where('slug', $slug)->first();
 
         if (!$course) {
-            return response()->json(['error' => 'Course not found'], 404);
+            return response()->json(['error' => 'Course tidak ada'], 404);
         }
 
         $relatedCourses = Course::where('id', '!=', $course->id)
-            ->take(3)
-            ->get(['id', 'slug', 'title', 'student' , 'description', 'price', 'image']);
+            ->take(4)
+            ->get(['id', 'slug', 'title', 'student', 'description', 'price', 'image']);
 
+        $trainer = $course->trainer;
         return Inertia::render('Course/SingleCourse', [
             'course' => [
                 'id' => $course->id,
@@ -60,24 +61,31 @@ class CourseController extends Controller
                 'description' => $course->description,
                 'price' => $course->price,
                 'discount' => $course->discount,
-                'trainers_name' => $course->trainers_name,
                 'level' => $course->level,
                 'duration' => $course->duration,
                 'student' => $course->student,
                 'image' => $course->image,
             ],
-            'relatedCourses' => $relatedCourses->map(function ($related) {
-                return [
-                    'id' => $related->id,
-                    'title' => $related->title,
-                    'slug' => $related->slug,
-                    'description' => $related->description,
-                    'student' => $related->student,
-                    'price' => $related->price,
-                    'image' => $related->image,
-                ];
-            })
+            'trainer' => $trainer ? [
+                'id' => $trainer->id,
+                'name' => $trainer->name,
+                'description' => $trainer->description,
+                'image' => $trainer->image,
+                'email' => $trainer->email,
+                'phone' => $trainer->phone,
+                'social_links' => $trainer->social_links,
+            ] : null,
+            'relatedCourses' => $relatedCourses->map(fn($related) => [
+                'id' => $related->id,
+                'title' => $related->title,
+                'slug' => $related->slug,
+                'description' => $related->description,
+                'student' => $related->student,
+                'price' => $related->price,
+                'image' => $related->image,
+            ]),
         ]);
+
     }
 
     /**

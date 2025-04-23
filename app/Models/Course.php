@@ -13,7 +13,7 @@ class Course extends Model
         'title',
         'description',
         'price',
-        'trainers_name',
+        'trainer_id', // ini yang benar, bukan trainers_id
         'group_chat_link',
         'course_admin_id',
         'image',
@@ -25,4 +25,9 @@ class Course extends Model
         'slug',
         'discount',
     ];
+
+    public function trainer()
+    {
+        return $this->belongsTo(Trainer::class);
+    }
 }

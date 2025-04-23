@@ -28,13 +28,24 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request):  BaseResponse | RedirectResponse
+    public function store(LoginRequest $request): BaseResponse | RedirectResponse
     {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|string',
+        ], [
+            'email.required' => 'Email tidak boleh kosong.',
+            'email.email' => 'Format email tidak valid.',
+            'email.exists' => 'Email ini belum terdaftar.',
+            'password.required' => 'Password tidak boleh kosong.',
+            'password.exists' => 'Password tidak valid.',
+        ]);
+
         $request->authenticate();
         $request->session()->regenerate();
 
         $user = Auth::user();
-        
+
         switch ($user->role) {
             case 'admin':
                 return Inertia::location(route('admin.dashboard'));

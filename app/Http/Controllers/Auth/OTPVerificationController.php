@@ -34,7 +34,7 @@ public function store(Request $request)
     $otp = (int) trim($request->otp);
     $user = User::where('otp', $otp)->first();
 
-    
+
     if ($user) {
         $user->update(['otp' => null]);
         Auth::login($user);
@@ -48,7 +48,7 @@ public function store(Request $request)
 
             case 'user':
             default:
-                return redirect()->route('landing');
+                return redirect()->route('welcome');
         }
     }
 

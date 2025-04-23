@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->decimal('price', 10, 2)->default(0.00);
-            $table->string('trainers_name');
+            $table->unsignedBigInteger('trainer_id');
+            $table->foreign('trainer_id')->references('id')->on('trainers')->onDelete('cascade');
             $table->string('group_chat_link')->nullable();
             $table->string('image')->nullable();
             $table->integer('duration')->default(0);

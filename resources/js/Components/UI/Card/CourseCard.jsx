@@ -1,4 +1,5 @@
 import { Link } from "@inertiajs/react";
+import { FaUser } from "react-icons/fa";
 
 export default function CourseCard({ course }) {
 
@@ -11,14 +12,14 @@ export default function CourseCard({ course }) {
         <h5 className="card-title fs-4 mb-3">{course.title}</h5>
         <p className="card-text flex-grow-1">{course.description}</p>
         <div className="d-flex align-items-center mb-2">
-          <i className="fas fa-user me-2"></i> {course.student}
+            <FaUser /> {course.student}
         </div>
         <hr />
         <div className="d-flex justify-content-between">
           <p className="text-dark">
             Harga: <b>Rp10.000</b>
           </p>
-          <Link href={route("course.show", { slug: course.slug })} className="text-dark text-decoration-none">
+          <Link href={route("course.show", { slug: course.slug })} className="text-darkblue text-decoration-none">
             Selengkapnya &gt;
           </Link>
         </div>

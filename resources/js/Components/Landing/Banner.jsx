@@ -66,16 +66,8 @@ const CTAButton = () => (
     transition={{ duration: 0.3, ease: "easeInOut" }}
   >
     <Link
-      className="link-cta py-3 px-5 rounded"
-      href="/"
-      style={{
-        boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.15)",
-        backgroundColor: "#062A78",
-        color: "#fff",
-        textDecoration: "none",
-        transition: "all 0.3s ease-in-out",
-      }}
-    >
+      className="btn-darkblue py-3 px-5 rounded"
+      href="/">
       Jelajahi Lebih Lanjut
     </Link>
   </motion.div>

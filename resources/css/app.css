@@ -6959,6 +6959,7 @@ progress {
   border-radius: 0.5rem;
   border: none;
   transition: all 0.3s ease-in-out;
+  text-decoration: none;
 }
 .btn-darkblue:hover {
   background-color: #041C52;
