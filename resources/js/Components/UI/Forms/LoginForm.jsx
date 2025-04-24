@@ -3,7 +3,7 @@ import React from 'react';
 import InputField from './ReusableFormComponents/InputField';
 
 export default function LoginForm({ onSuccess, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset, clearErrors } = useForm({
         email: '',
         password: '',
         remember: false,
@@ -28,9 +28,11 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
                 label="Email"
                 value={data.email}
                 onChange={(e) => setData('email', e.target.value)}
+                onFocus={() => clearErrors('email')}
                 error={errors.email}
                 placeholder="Masukkan email Anda"
                 autoComplete="off"
+                required
             />
 
             <InputField
@@ -39,9 +41,11 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
                 label="Kata Sandi"
                 value={data.password}
                 onChange={(e) => setData('password', e.target.value)}
+                onFocus={() => clearErrors('password')}
                 error={errors.password}
                 placeholder="Masukkan kata sandi"
                 autoComplete="off"
+                required
             />
 
             <div className="d-flex justify-content-between align-items-center mb-3">

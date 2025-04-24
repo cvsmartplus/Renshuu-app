@@ -11,7 +11,7 @@ export default function AuthenticatedMenu({ user }) {
                 dashboardRoute = route("company.dashboard");
                 break;
             default:
-                dashboardRoute = route("dashboard");
+                dashboardRoute = route("user.dashboard");
         }
     }
 

@@ -17,11 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
         $middleware->alias([
         'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'onlyUser' => \App\Http\Middleware\RedirectIfNotUser::class,
     ]);
 
         //
     })
-    
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

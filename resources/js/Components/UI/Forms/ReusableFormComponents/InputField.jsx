@@ -6,8 +6,11 @@ export default function InputField({
     type = "text",
     value,
     onChange,
+    onFocus,
     error,
     placeholder,
+    autoComplete,
+    required = false,
     ...props
 }) {
     return (
@@ -21,6 +24,9 @@ export default function InputField({
                 onChange={onChange}
                 placeholder={placeholder}
                 className={`form-control ${error ? "is-invalid" : ""}`}
+                onFocus={onFocus}
+                autoComplete={autoComplete}
+                required={required}
                 {...props}
             />
             {error && <div className="invalid-feedback">{error}</div>}

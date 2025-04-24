@@ -17,7 +17,7 @@ class RoleMiddleware
         $user = Auth::user();
 
         if (!in_array($user->role, $roles)) {
-            abort(403, 'Akses ditolak.');
+            return redirect()->back()->with('error', 'You do not have permission to access this page.');
         }
 
         return $next($request);

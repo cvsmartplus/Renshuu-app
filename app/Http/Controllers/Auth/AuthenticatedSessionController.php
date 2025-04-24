@@ -52,7 +52,7 @@ class AuthenticatedSessionController extends Controller
             case 'company':
                 return Inertia::location(route('company.dashboard'));
             case 'user':
-                return redirect()->route('dashboard');
+                return redirect()->route('user.dashboard');
             default:
                 Auth::logout();
                 return redirect()->route('login')->withErrors([

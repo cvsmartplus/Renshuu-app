@@ -14,7 +14,9 @@ Route::get('/', function () {
         'articles' => $articles,
         'courses' => $courses,
     ]);
-})->name('welcome');
+})->middleware('onlyUser')->name('welcome');
+
+
 
 
 require __DIR__ . '/auth.php';
