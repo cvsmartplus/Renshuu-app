@@ -30,7 +30,7 @@ export default function NavBar() {
                             id="Renshuu-logo"
                             alt="Renshuu Logo"
                             draggable="false"
-                            height="45"
+                            height="35"
                         />
                     </Link>
                     <button

@@ -1,12 +1,26 @@
 import { Link } from "@inertiajs/react";
 
 export default function AuthenticatedMenu({ user }) {
+    let dashboardRoute = "#";
+    if (user) {
+        switch (user.role) {
+            case "admin":
+                dashboardRoute = route("admin.dashboard");
+                break;
+            case "company":
+                dashboardRoute = route("company.dashboard");
+                break;
+            default:
+                dashboardRoute = route("dashboard");
+        }
+    }
+
     return (
         <>
             <li className="nav-item dropdown ms-3">
-                <Link className="nav-link mx-2" href="#">
+                <a className="nav-link mx-2" href={dashboardRoute}>
                     Dashboard
-                </Link>
+                </a>
             </li>
             <li className="nav-item dropdown ms-3">
                 <Link

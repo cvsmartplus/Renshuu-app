@@ -8,7 +8,7 @@
                     <img src="{{ asset('images/renshuu-logo.png') }}" alt="logo" style="max-width: 200px;">
                 </a>
                 <h4 class="mb-2 text-black">Dashboard</h4>
-                <p class="text-secondary text-base">
+                <p class="text-secondary text-base text-darkb">
                     Hai Company Admin! Selamat datang di dashboard
                 </p>
             </div>

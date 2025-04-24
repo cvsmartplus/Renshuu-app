@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaAward, FaGraduationCap, FaSearch } from 'react-icons/fa';
 
 class Features extends Component {
     constructor(props) {
@@ -7,19 +8,19 @@ class Features extends Component {
             features: [
                 {
                     id: 1,
-                    icon: 'fas fa-award',
+                    icon: <FaAward size={32} />,
                     title: 'Dapatkan Sertifikat',
                     text: 'Lorem ipsum dolor sit amet dui consectetuer adipiscing elit.',
                 },
                 {
                     id: 2,
-                    icon: 'fas fa-graduation-cap',
+                    icon: <FaGraduationCap size={32} />,
                     title: 'Tingkatkan Skill',
                     text: 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.',
                 },
                 {
                     id: 3,
-                    icon: 'fas fa-search',
+                    icon: <FaSearch size={32} />,
                     title: 'Temukan Pekerjaan',
                     text: 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.',
                 },
@@ -36,7 +37,7 @@ class Features extends Component {
                             <div className="col-md-4 col-sm-12 d-flex" key={feature.id}>
                                 <div className="d-flex align-items-center rounded p-3 w-100">
                                     <div className="me-3 d-flex align-items-center justify-content-center p-3" style={{ width: '60px', height: '60px' }}>
-                                        <i className={`${feature.icon} fs-1`}></i>
+                                        {feature.icon}
                                     </div>
                                     <div>
                                         <h6 className="fw-bold mb-1">{feature.title}</h6>
