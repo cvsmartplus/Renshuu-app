@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Article;
@@ -16,7 +15,6 @@ Route::get('/', function () {
         'courses' => $courses,
     ]);
 })->name('welcome');
-
 
 
 require __DIR__ . '/auth.php';

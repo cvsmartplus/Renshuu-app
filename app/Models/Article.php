@@ -14,10 +14,8 @@ class Article extends Model
         'title',
         'slug',
         'content',
-        'author_id',
         'media_path',
         'status',
-        'category_id',
         'excerpt'
     ];
 
@@ -43,9 +41,8 @@ class Article extends Model
         return $slug;
     }
 
-
-    public function author()
+    public function getRouteKeyName()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return 'slug';
     }
 }

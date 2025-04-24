@@ -20,7 +20,7 @@ export default function NavLink() {
                     </ResponsiveNavLink>
                 </li>
                 <li className="nav-item">
-                    <ResponsiveNavLink href="#">
+                    <ResponsiveNavLink href={route("article.index")} active={route().current("article.index")}>
                         Artikel
                     </ResponsiveNavLink>
                 </li>

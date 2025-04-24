@@ -1,3 +1,4 @@
+import ArticleCard from "../Card/ArticleCard";
 
 export default function ArticleGrids({ articles }) {
     return (

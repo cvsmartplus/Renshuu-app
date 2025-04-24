@@ -44,9 +44,6 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
-
-    Route::resource('article', ArticleController::class)->except(['show']);
-    Route::get('/article/{artikel:slug}', [ArticleController::class, 'show'])->name('article.show');
 });
 
 Route::middleware('auth')->group(function () {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaThLarge } from 'react-icons/fa';
 
 export default function SearchFilterBar({
   searchTerm,
@@ -35,7 +36,6 @@ export default function SearchFilterBar({
                   onChange={(e) => {
                       const value = e.target.value;
                       setSearchTerm(value);
-                      console.log("Search Term:", value);
                   }}
               />
 
@@ -62,7 +62,7 @@ export default function SearchFilterBar({
             )}
 
             <button className="btn btn-light">
-              <i className="fas fa-th-large text-muted"></i>
+              <FaThLarge className="text-muted" /> {/* Ganti elemen <i> dengan komponen React Icon */}
             </button>
 
           </div>
