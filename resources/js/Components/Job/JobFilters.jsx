@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '@/Components/UI/Forms/ReusableFormComponents/CheckBox';
 
-export default function JobFilters({ selectedTypes, handleTypeChange, selectedLocations, handleLocationChange }) {
+export default function JobFilters({ selectedTypes, handleTypeChange, selectedLocations, handleLocationChange, locations }) {
     return (
         <div className="list-group">
             <div className="mb-3">
@@ -19,7 +19,7 @@ export default function JobFilters({ selectedTypes, handleTypeChange, selectedLo
             </div>
             <div className="mb-3">
                 <h6>Lokasi</h6>
-                {["Jakarta", "Bandung"].map((location, index) => (
+                {locations.map((location, index) => (
                     <Checkbox
                         key={index}
                         id={`checkbox-${location}`}

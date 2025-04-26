@@ -19,6 +19,7 @@ class Company extends Model
         'phone',
         'address',
         'description',
+        'employment_count',
     ];
 
     protected $casts = [

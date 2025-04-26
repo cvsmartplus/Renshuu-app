@@ -30,7 +30,8 @@ class CompanySeeder extends Seeder
                 'province' => 'DKI Jakarta',
                 'postal_code' => '12345'
             ]),
-            'description' => 'Kami adalah perusahaan teknologi yang berfokus pada web development.'
+            'description' => 'Kami adalah perusahaan teknologi yang berfokus pada web development.',
+            'employment_count' => '50-100',
         ]);
     }
 }

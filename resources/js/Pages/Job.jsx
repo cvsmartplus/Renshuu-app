@@ -28,6 +28,8 @@ export default function Job() {
         );
     };
 
+    const uniqueLocations = [...new Set(Jobs.map(job => job.location).filter(Boolean))];
+
     const categories = ["Semua Pekerjaan", ...new Set(Jobs.map(job => job.title).filter(Boolean))];
 
     const filteredJobs = Jobs.filter(job => {
@@ -76,6 +78,7 @@ export default function Job() {
                             handleTypeChange={handleTypeChange}
                             selectedLocations={selectedLocations}
                             handleLocationChange={handleLocationChange}
+                            locations={uniqueLocations} 
                         />
                     </div>
                     <div className="col-md-8">
