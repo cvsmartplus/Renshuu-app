@@ -1,11 +1,12 @@
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import Layout from "@/Layouts/Layout";
 import TitlePage from "@/Components/UI/TitlePage"
 import SearchFilterBar from "@/Components/UI/Filter/SearchFilterBar";
 import ArticleGrids from "@/Components/UI/GridCard/ArticleGrid";
 
-export default function Article({ articles }) {
+export default function Article(){
+    const { articles } = usePage().props;
     const [searchTerm, setSearchTerm] = useState("");
     const [filter, setFilter] = useState("Semua");
 

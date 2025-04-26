@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaThLarge } from 'react-icons/fa';
+import { FaThLarge, FaSearch, FaFilter } from 'react-icons/fa';
 
 export default function SearchFilterBar({
   searchTerm,
@@ -24,7 +24,7 @@ export default function SearchFilterBar({
 
             <div className="input-group flex-grow-2">
               <label htmlFor='search' className="input-group-text bg-white">
-                <i className="fas fa-search text-muted"></i>
+                <FaSearch className="text-muted" />
               </label>
               <input
                   type="search"
@@ -38,13 +38,12 @@ export default function SearchFilterBar({
                       setSearchTerm(value);
                   }}
               />
-
             </div>
 
             {filters.length > 0 && (
               <div className="input-group w-50">
                 <label htmlFor='filter' className="input-group-text bg-white">
-                  <i className="fas fa-filter text-muted"></i>
+                  <FaFilter className="text-muted" />
                 </label>
                 <select
                   id="filter"
@@ -62,7 +61,7 @@ export default function SearchFilterBar({
             )}
 
             <button className="btn btn-light">
-              <FaThLarge className="text-muted" /> {/* Ganti elemen <i> dengan komponen React Icon */}
+              <FaThLarge className="text-muted" />
             </button>
 
           </div>

@@ -1,11 +1,12 @@
 import CourseGrid from "@/Components/UI/GridCard/CourseGrid";
 import TitlePage from "@/Components/UI/TitlePage";
 import Layout from "@/Layouts/Layout";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 
 
-export default function Course({courses}) {
-        const PageTitle = "Kursus";
+export default function Course() {
+    const { courses } = usePage().props;
+    const PageTitle = "Kursus";
 
     return(
         <>

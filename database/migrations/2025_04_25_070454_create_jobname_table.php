@@ -17,7 +17,10 @@ return new class extends Migration
             $table->text('description');
             $table->enum('job_model', ['Remote', 'On-Site', 'Flexible', 'Hybrid', 'Contract', 'Internship'])->default('Remote');
             $table->string('location');
+            $table->timestamp('posted_at')->useCurrent();
+            $table->string('slug')->nullable();
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
+
             $table->timestamps();
         });
 

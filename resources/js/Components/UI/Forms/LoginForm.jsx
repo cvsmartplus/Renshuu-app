@@ -1,6 +1,7 @@
 import { Link, useForm } from '@inertiajs/react';
 import React from 'react';
 import InputField from './ReusableFormComponents/InputField';
+import CheckBox from './ReusableFormComponents/CheckBox';
 
 export default function LoginForm({ onSuccess, canResetPassword }) {
     const { data, setData, post, processing, errors, reset, clearErrors } = useForm({
@@ -49,17 +50,13 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
             />
 
             <div className="d-flex justify-content-between align-items-center mb-3">
-                <div className="form-check">
-                    <input
-                        className="form-check-input custom-check-blue"
-                        type="checkbox"
-                        id="remember"
-                        name='remember'
-                        checked={data.remember}
-                        onChange={(e) => setData("remember", e.target.checked)}
-                    />
-                    <label className="form-check-label" htmlFor="remember">Ingatkan saya</label>
-                </div>
+                <CheckBox
+                    id="remember"
+                    name="remember"
+                    label="Ingatkan saya"
+                    checked={data.remember}
+                    onChange={(e) => setData("remember", e.target.checked)}
+                />
 
                 {canResetPassword && (
                     <Link

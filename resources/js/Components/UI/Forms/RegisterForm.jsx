@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import InputField from "./ReusableFormComponents/InputField";
+import CheckBox from "./ReusableFormComponents/CheckBox"; 
 
 export default function RegisterForm() {
     const { data, setData, post, processing, errors: inertiaErrors, reset } = useForm({
@@ -94,18 +95,13 @@ export default function RegisterForm() {
                 />
 
                 <div className="mb-3 d-flex align-items-center">
-                    <div className="form-check">
-                    <input
-                    className="form-check-input custom-check-blue"
-                    type="checkbox"
-                    id="terms"
-                    checked={data.terms}
-                    onChange={(e) => handleChange("terms", e.target.checked)}
+                    <CheckBox
+                        id="terms"
+                        name="terms"
+                        label="Saya menyetujui syarat & ketentuan"
+                        checked={data.terms}
+                        onChange={(e) => handleChange("terms", e.target.checked)}
                     />
-                        <label className="form-check-label" htmlFor="terms">
-                            Saya menyetujui syarat & ketentuan
-                        </label>
-                    </div>
                 </div>
 
                 <div className="mb-3">

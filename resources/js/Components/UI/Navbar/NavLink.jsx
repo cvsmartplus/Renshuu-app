@@ -15,7 +15,7 @@ export default function NavLink() {
                     </ResponsiveNavLink>
                 </li>
                 <li className="nav-item">
-                    <ResponsiveNavLink href="#">
+                    <ResponsiveNavLink href={route("job.index")} active={route().current("job.index")}>
                         Pekerjaan
                     </ResponsiveNavLink>
                 </li>

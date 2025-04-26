@@ -15,6 +15,14 @@ class JobPosition extends Model
         'job_model',
         'location',
         'company_id',
+        'posted_at',
+        'slug',
+        'salary_min',
+        'salary_max',
+        'employment_type',
+        'deadline_at',
+        'category',
+        'apply_url',
     ];
 
     public function company()
