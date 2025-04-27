@@ -1,4 +1,4 @@
-<footer class="d-footer">
+<footer class="d-footer container">
     <div class="row align-items-center justify-content-md-between justify-content-center">
         <div class="col-auto">
             <p class="mb-0">© 2025 CV Smart Plus Indonesia. Hak Cipta Dilindungi.</p>

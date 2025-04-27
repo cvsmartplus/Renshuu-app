@@ -29,7 +29,7 @@
                     <label for="company_name" class="form-label text-black">Nama Perusahaan</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white text-black">
-                            <iconify-icon icon="f7:person"></iconify-icon>
+                            <i class="text-secondary fas fa-building"></i>
                         </span>
                         <input type="text" name="name" id="company_name" class="form-control bg-white" placeholder="Nama Perusahaan" required>
                     </div>
@@ -39,7 +39,7 @@
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
-                            <iconify-icon icon="mage:email"></iconify-icon>
+                            <i class="text-secondary fas fa-envelope"></i>
                         </span>
                         <input type="email" name="email" id="email" class="form-control bg-white" placeholder="Email" required>
                     </div>
@@ -49,32 +49,41 @@
                     <label for="your-password" class="form-label">Kata Sandi</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
-                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
+                            <i class="text-secondary fas fa-lock"></i>
                         </span>
                         <input type="password" name="password" id="your-password" class="form-control bg-white" placeholder="Kata Sandi" required>
-                        <span class="input-group-text bg-white toggle-password cursor-pointer" data-toggle="#your-password">
-                            <i class="ri-eye-line"></i>
+                        <span class="input-group-text bg-white toggle-password cursor-pointer" data-toggle="#your-password" type="button">
+                            <i class="text-secondary fas fa-eye"></i>
                         </span>
                     </div>
                     <small class="text-secondary d-block mt-2">Buatlah kata sandi yang kuat dan unik</small>
+                    @error('password')
+                        <div class="text-danger mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
-                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
+                            <i class="text-secondary fas fa-lock"></i>
                         </span>
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control bg-white" placeholder="Konfirmasi Kata Sandi" required>
+                        <span class="input-group-text bg-white toggle-password cursor-pointer" data-toggle="#password_confirmation" type="button">
+                            <i class="text-secondary fas fa-eye"></i>
+                        </span>
                     </div>
+                    @error('password_confirmation')
+                        <div class="text-danger mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-check d-flex align-items-center mb-3">
                     <input class="form-check-input custom-check-blue me-2" type="checkbox" id="condition" required>
                     <label class="form-check-label" for="condition">
                         Dengan ini saya setuju dengan
-                        <a href="#" class="text-blue">Syarat dan Ketentuan</a> serta
-                        <a href="#" class="text-blue">Kebijakan Privasi</a>.
+                        <a href="#" class="text-darkblue text-decoration-none">Kebijakan Privasi</a> serta
+                        <a href="#" class="text-darkblue text-decoration-none">Syarat dan Ketentuan</a> Kami.
                     </label>
                 </div>
 
@@ -83,7 +92,7 @@
                 <div class="mt-4 text-center">
                     <p class="mb-0 text-sm">
                         Sudah punya akun?
-                        <a href="/login" class="text-blue fw-semibold">Masuk</a>
+                        <a href="/login" class="text-darkblue fw-semibold">Masuk</a>
                     </p>
                 </div>
             </form>
@@ -92,20 +101,28 @@
     </div>
 </section>
 
-@php
-    $script = '<script>
-        function initializePasswordToggle(toggleSelector) {
-            $(toggleSelector).on("click", function() {
-                $(this).find("i").toggleClass("ri-eye-line ri-eye-off-line");
-                var input = $($(this).attr("data-toggle"));
-                if (input.attr("type") === "password") {
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $(".toggle-password").on("click", function(event) {
+            event.preventDefault(); // Mencegah halaman refresh
+
+            var icon = $(this).find("i");
+            var input = $($(this).attr("data-toggle"));
+
+            if (input.length > 0) {
+                if (icon.hasClass("fa-eye")) {
+                    icon.removeClass("fa-eye").addClass("fa-eye-slash");
                     input.attr("type", "text");
                 } else {
+                    icon.removeClass("fa-eye-slash").addClass("fa-eye");
                     input.attr("type", "password");
                 }
-            });
-        }
-        initializePasswordToggle(".toggle-password");
-    </script>';
-@endphp
+            } else {
+                console.error("Input tidak ditemukan untuk selector:", $(this).attr("data-toggle"));
+            }
+        });
+    });
+</script>
+@endpush
 @endsection

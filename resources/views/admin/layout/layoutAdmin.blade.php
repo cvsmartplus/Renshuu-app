@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
-<x-head />
-
-<body class="custom-bg">
-
+<html lang="en">
+<head>
+    <x-head />
+</head>
+<body class="d-flex flex-column flex-lg-row vh-100 overflow-hidden">
     <x-admin.sidebar />
-
-    <main class="dashboard-main">
-
+    <div class="d-flex flex-column flex-grow-1">
         <x-admin.navbar />
-
-        <div class="dashboard-main-body">
-            @yield('content')
-        </div>
-
-        <x-admin.footer />
-        
-    </main>
-
+        <main id="main-content" class="flex-grow-1 overflow-auto">
+            <div class="container-fluid py-4">
+                @yield('content')
+            </div>
+            <x-admin.footer />
+        </main>
+    </div>
     <x-script script='{!! isset($script) ? $script : "" !!}' />
-
+    @include('partials.sidebarToggle')
 </body>
 </html>

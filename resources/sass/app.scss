@@ -60,6 +60,41 @@ $stroke: #BDBDBD;
   color: $ctabtn;
 }
 
+.nav-item {
+    display: block;
+    width: 100%;
+
+    .nav-bluelink {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0.6rem 1rem;
+        color: black;
+        text-decoration: none;
+        border-radius: 0.35rem;
+        transition: all 0.3s ease;
+
+        &.active {
+            background-color: $ctabtn;
+            color: white;
+        }
+
+        &:hover {
+            background-color: lighten($ctabtn, 5%);
+            color: white;
+        }
+    }
+
+    &:hover .nav-bluelink {
+        background-color: lighten($ctabtn, 10%);
+        color: white;
+    }
+}
+
+.sidebar-text {
+    font-size: 1rem;
+}
+
 .custom-check-blue {
   -webkit-appearance: none;
   appearance: none;

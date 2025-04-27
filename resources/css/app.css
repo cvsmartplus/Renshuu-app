@@ -6979,6 +6979,37 @@ progress {
   color: #062A78;
 }
 
+.nav-item {
+  display: block;
+  width: 100%;
+}
+.nav-item .nav-bluelink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  color: black;
+  text-decoration: none;
+  border-radius: 0.35rem;
+  transition: all 0.3s ease;
+}
+.nav-item .nav-bluelink.active {
+  background-color: #062A78;
+  color: white;
+}
+.nav-item .nav-bluelink:hover {
+  background-color: rgb(7.2142857143, 50.5, 144.2857142857);
+  color: white;
+}
+.nav-item:hover .nav-bluelink {
+  background-color: rgb(8.4285714286, 59, 168.5714285714);
+  color: white;
+}
+
+.sidebar-text {
+  font-size: 1rem;
+}
+
 .custom-check-blue {
   -webkit-appearance: none;
   appearance: none;
