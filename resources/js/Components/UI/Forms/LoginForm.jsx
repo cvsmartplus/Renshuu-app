@@ -3,7 +3,7 @@ import React from 'react';
 import InputField from './ReusableFormComponents/InputField';
 import CheckBox from './ReusableFormComponents/CheckBox';
 
-export default function LoginForm({ onSuccess, canResetPassword }) {
+export default function LoginForm({ onSuccess }) {
     const { data, setData, post, processing, errors, reset, clearErrors } = useForm({
         email: '',
         password: '',
@@ -57,19 +57,16 @@ export default function LoginForm({ onSuccess, canResetPassword }) {
                     checked={data.remember}
                     onChange={(e) => setData("remember", e.target.checked)}
                 />
-
-                {canResetPassword && (
-                    <Link
-                        href={route('password.request')}
-                        className="text-decoration-none text-danger"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.location.href = route('password.request');
-                        }}
-                    >
-                        Lupa Kata Sandi?
-                    </Link>
-                )}
+                <Link
+                    href={route('password.request')}
+                    className="text-decoration-none text-danger"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = route('password.request');
+                    }}
+                >
+                    Lupa Kata Sandi?
+                </Link>
             </div>
 
             <div className="mb-3">

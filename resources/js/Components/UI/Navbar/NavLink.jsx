@@ -5,7 +5,7 @@ export default function NavLink() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto align-items-center">
                 <li className="nav-item">
-                    <ResponsiveNavLink href="/" active={route().current("/")}>
+                    <ResponsiveNavLink href="/" active={route().current("/")} className="nav-link mx-2">
                         Beranda
                     </ResponsiveNavLink>
                 </li>

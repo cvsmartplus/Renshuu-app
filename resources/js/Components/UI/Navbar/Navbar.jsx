@@ -9,7 +9,8 @@ import ApplicationLogo from "../AplicationLogo";
 import Logmod from "../Modal/LogModal";
 
 export default function NavBar() {
-    const { auth, canresetpassword } = usePage().props;
+    const { auth } = usePage().props;
+
     const user = auth?.user;
 
     useEffect(() => {
@@ -22,7 +23,7 @@ export default function NavBar() {
 
     return (
         <>
-            <Logmod canResetPassword={canresetpassword} />
+            <Logmod />
             <nav className="navbar navbar-expand-lg sticky-top bg-light shadow-md">
                 <div className="container">
                     <Link className="navbar-brand" href="/">
