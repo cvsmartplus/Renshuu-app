@@ -40,7 +40,7 @@ export default function AuthenticatedMenu({ user }) {
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
-                        <Link className="dropdown-item" href="#">
+                        <Link className="dropdown-item" href={route('profile.index')}>
                             Profil Saya
                         </Link>
                     </li>

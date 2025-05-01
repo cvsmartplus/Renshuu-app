@@ -17,7 +17,7 @@ export default function ResetPassword({ token, email }) {
 
             <div className="card-body">
                 <h4 className="card-title text-center text-blue mb-3">
-                    <FaUnlockAlt className="me-2" /> {/* Ganti ikon dengan React Icon */}
+                    <FaUnlockAlt className="me-2" />
                     Buat Kata Sandi Baru
                 </h4>
                 <ResetPasswordForm

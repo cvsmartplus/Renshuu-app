@@ -1,13 +1,14 @@
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
 import { resolve } from 'path';
 
-export default {
+export default defineConfig({
     plugins: [
         laravel({
             input: [
                 'resources/js/app.jsx',
-                'resources/css/app.css'
+                'views/**/*.blade.php',
             ],
             refresh: true,
         }),
@@ -19,7 +20,7 @@ export default {
         },
     },
     server: {
-        host: true,
+        host: '127.0.0.1',
         port: 5173,
         strictPort: true,
     },
@@ -34,4 +35,4 @@ export default {
             },
         },
     },
-};
+});

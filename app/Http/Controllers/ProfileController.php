@@ -13,6 +13,24 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+
+    public function index()
+    {
+        $user = Auth::user();
+        $profile = $user->profile;
+        $educations = $user->educations;     
+        $experiences = $user->experiences;   
+        $skills = $user->userSkills;              
+
+        return inertia('Profile/UserProfile', [
+            'auth' => ['user' => $user],
+            'profile' => $profile,
+            'educations' => $educations,
+            'experiences' => $experiences,
+            'skills' => $skills,
+        ]);
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -29,16 +47,34 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $fullName = trim($request->input('first_name') . ' ' . $request->input('last_name'));
+
+        $user->name = $fullName;
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user->save();
 
-        return Redirect::route('profile.edit');
+        $user->profile()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'phone'        => $request->input('phone'),
+                'birth_date'   => $request->input('birth_date'),
+                'gender'       => $request->input('gender'),
+                'city'         => $request->input('city'),
+                'province'     => $request->input('province'),
+                'website'      => $request->input('website'),
+                'social_links' => $request->input('social_links'),
+            ]
+        );
+
+        return Redirect::back()->with('success', 'Profil berhasil diperbarui.');
     }
+
 
     /**
      * Delete the user's account.

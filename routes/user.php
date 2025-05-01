@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ProfileController;
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::prefix('user')->group(function () {
@@ -18,6 +19,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     Route::get('Jobs', [JobController::class, 'index'])->name('job.index');
     Route::get('Jobs/{slug}', [JobController::class, 'show'])->name('job.show');
+
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::prefix('article')->group(function () {

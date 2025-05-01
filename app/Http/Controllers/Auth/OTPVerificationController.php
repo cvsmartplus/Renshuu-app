@@ -48,7 +48,7 @@ public function store(Request $request)
 
             case 'user':
             default:
-                return redirect()->route('welcome');
+                return redirect()->route('user.dashboard');
         }
     }
 

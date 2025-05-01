@@ -25,8 +25,8 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li class="dropdown-header">
-                        <strong>Shaidul Islam</strong><br>
-                        <small>Admin</small>
+                        <strong><?= Auth::user()->name; ?></strong><br>
+                        <small><?= Auth::user()->role; ?></small>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> My Profile</a></li>

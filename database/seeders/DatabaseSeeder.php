@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
             SkillSeeder::class,
             JobPositionSeeder::class,
             JobPositionSkillSeeder::class,
+            UserProfileSeeder::class,
+            UserSkillSeeder::class,
+            UserSkillUserSeeder::class,
+            UserEducationSeeder::class,
+            UserExperienceSeeder::class,
+            UserDocumentSeeder::class,
         ]);
     }
 }

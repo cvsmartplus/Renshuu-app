@@ -7074,4 +7074,23 @@ progress {
   z-index: 1;
 }
 
+.avatar-profile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .avatar-profile {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .avatar-profile {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 /*# sourceMappingURL=app.css.map */

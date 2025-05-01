@@ -3,7 +3,7 @@
 @section('content')
 <section class="d-flex flex-wrap min-vh-100 bg-white">
     <div class="d-none d-lg-block col-lg-6 p-0">
-        <img src="{{ asset('assets/images/auth/auth-img.jpg') }}"
+        <img src="{{ asset('images/assets/auth/auth-img.jpg') }}"
             alt="register banner"
             class="w-100 h-100 object-fit-cover">
     </div>
