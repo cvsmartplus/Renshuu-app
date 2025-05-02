@@ -28,7 +28,19 @@ class ProfileController extends Controller
             'educations' => $educations,
             'experiences' => $experiences,
             'skills' => $skills,
-        ]);
+            'avatarUrl' => $profile->avatar ? asset('storage/' . $profile->avatar) : null,
+            'avatarCrop' => [
+                'x' => $profile->avatar_crop_x,
+                'y' => $profile->avatar_crop_y,
+                'width' => $profile->avatar_crop_width,
+                'height' => $profile->avatar_crop_height,
+            ],
+            'avatarOriginalSize' => [
+                'width' => $profile->avatar_image_width,
+                'height' => $profile->avatar_image_height,
+            ],
+]);
+
     }
 
     /**
@@ -75,6 +87,49 @@ class ProfileController extends Controller
         return Redirect::back()->with('success', 'Profil berhasil diperbarui.');
     }
 
+    public function updateAvatar(Request $request): RedirectResponse
+{
+    $request->validate([
+        'avatar' => ['nullable', 'image', 'max:3548'],
+        'avatar_crop_x' => ['nullable', 'numeric'],
+        'avatar_crop_y' => ['nullable', 'numeric'],
+        'avatar_crop_width' => ['nullable', 'numeric'],
+        'avatar_crop_height' => ['nullable', 'numeric'],
+        'avatar_image_width' => ['nullable', 'numeric'],
+        'avatar_image_height' => ['nullable', 'numeric'],
+    ]);
+
+    $user = $request->user();
+    $profile = $user->profile ?? $user->profile()->create(['user_id' => $user->id]);
+
+    if ($request->hasFile('avatar')) {
+        $path = $request->file('avatar')->store('avatars', 'public');
+        $profile->avatar = $path;
+
+        // Simpan dimensi gambar jika tersedia
+        $profile->avatar_image_width = $request->input('avatar_image_width');
+        $profile->avatar_image_height = $request->input('avatar_image_height');
+
+        // ❗️Alternatif lebih aman (fallback dari file langsung):
+        if (!$profile->avatar_image_width || !$profile->avatar_image_height) {
+            $imagePath = storage_path("app/public/{$path}");
+            if (file_exists($imagePath)) {
+                [$width, $height] = getimagesize($imagePath);
+                $profile->avatar_image_width = $width;
+                $profile->avatar_image_height = $height;
+            }
+        }
+    }
+
+    $profile->avatar_crop_x = $request->input('avatar_crop_x');
+    $profile->avatar_crop_y = $request->input('avatar_crop_y');
+    $profile->avatar_crop_width = $request->input('avatar_crop_width');
+    $profile->avatar_crop_height = $request->input('avatar_crop_height');
+
+    $profile->save();
+
+    return Redirect::back()->with('success', 'Foto profil berhasil diperbarui.');
+}
 
     /**
      * Delete the user's account.

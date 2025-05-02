@@ -24,12 +24,28 @@ class UserProfile extends Model
         'district',
         'village',
         'address_detail',
+
+        'avatar_crop_x',
+        'avatar_crop_y',
+        'avatar_crop_width',
+        'avatar_crop_height',
+
+        'avatar_image_width',
+        'avatar_image_height',
     ];
 
     protected $casts = [
-        'social_links' => 'array',
-        'birth_date' => 'date',
-    ];
+    'social_links' => 'array',
+    'birth_date' => 'date',
+
+    'avatar_crop_x' => 'float',
+    'avatar_crop_y' => 'float',
+    'avatar_crop_width' => 'float',
+    'avatar_crop_height' => 'float',
+
+    'avatar_image_width' => 'float',
+    'avatar_image_height' => 'float',
+];
 
     public function user()
     {

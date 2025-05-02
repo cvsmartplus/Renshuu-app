@@ -55,6 +55,34 @@ $stroke: #BDBDBD;
     cursor: not-allowed;
   }
 }
+.btn-outline-darkblue {
+  background-color: transparent;
+  color: $ctabtn;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid $ctabtn;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #041C52;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
 
 .text-darkblue {
   color: $ctabtn;

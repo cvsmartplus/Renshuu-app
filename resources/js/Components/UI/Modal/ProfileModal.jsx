@@ -2,7 +2,7 @@ import { useForm, usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import UserDataForm from "../Forms/UserDataForm";
 
-export default function ssssProfileModal() {
+export default function ProfileModal() {
   const { auth, profile } = usePage().props;
 
   const fullName = auth?.user?.name || "";

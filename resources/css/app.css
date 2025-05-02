@@ -6975,6 +6975,30 @@ progress {
   cursor: not-allowed;
 }
 
+.btn-outline-darkblue {
+  background-color: transparent;
+  color: #062A78;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #062A78;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.btn-outline-darkblue:hover {
+  background-color: #041C52;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
+}
+.btn-outline-darkblue:active, .btn-outline-darkblue:focus {
+  box-shadow: none;
+}
+.btn-outline-darkblue:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .text-darkblue {
   color: #062A78;
 }

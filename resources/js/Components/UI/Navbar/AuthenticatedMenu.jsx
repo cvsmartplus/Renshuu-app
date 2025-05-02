@@ -15,6 +15,53 @@ export default function AuthenticatedMenu({ user }) {
         }
     }
 
+    const avatarFile = user?.profile?.avatar
+        ? `/storage/${user.profile.avatar}`
+        : "/images/placeholder/default-profile.jpg";
+
+    const hasAvatar = !!user?.profile?.avatar;
+    const crop = hasAvatar
+        ? {
+            x: user.profile.avatar_crop_x,
+            y: user.profile.avatar_crop_y,
+            width: user.profile.avatar_crop_width,
+            height: user.profile.avatar_crop_height,
+        }
+        : null;
+
+    const originalSize = hasAvatar
+        ? {
+            width: user.profile.avatar_image_width,
+            height: user.profile.avatar_image_height,
+        }
+        : null;
+
+    // Gaya default avatar
+    let avatarStyle = {
+        width: "30px",
+        height: "30px",
+        backgroundImage: `url(${avatarFile})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        borderRadius: "50%",
+    };
+
+    // Terapkan crop manual jika ada
+    if (hasAvatar && crop && originalSize) {
+        const scaleX = 30 / crop.width;
+        const scaleY = 30 / crop.height;
+
+        const bgSize = `${originalSize.width * scaleX}px ${originalSize.height * scaleY}px`;
+        const bgPosition = `-${crop.x * scaleX}px -${crop.y * scaleY}px`;
+
+        avatarStyle = {
+            ...avatarStyle,
+            backgroundSize: bgSize,
+            backgroundPosition: bgPosition,
+            backgroundRepeat: "no-repeat",
+        };
+    }
+
     return (
         <>
             <li className="nav-item dropdown ms-3">
@@ -30,17 +77,11 @@ export default function AuthenticatedMenu({ user }) {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
-                    <img
-                        src={user.profile_photo_url || "https://picsum.photos/150"}
-                        alt="User Profile"
-                        className="rounded-circle borstrok"
-                        width="30"
-                        height="30"
-                    />
+                    <div style={avatarStyle} />
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
-                        <Link className="dropdown-item" href={route('profile.index')}>
+                        <Link className="dropdown-item" href={route("profile.index")}>
                             Profil Saya
                         </Link>
                     </li>

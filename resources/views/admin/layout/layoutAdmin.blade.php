@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <x-head />
+    @stack('styles')
 </head>
 <body class="d-flex flex-column flex-lg-row vh-100 overflow-hidden">
     <x-admin.sidebar />
@@ -15,6 +16,7 @@
         </main>
     </div>
     <x-script script='{!! isset($script) ? $script : "" !!}' />
+    @stack('scripts')
     @include('partials.sidebarToggle')
 </body>
 </html>

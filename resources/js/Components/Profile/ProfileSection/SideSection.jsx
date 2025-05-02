@@ -70,11 +70,11 @@ export default function SideSection({ profile, auth, skills }) {
                 <hr />
                 <div className="mb-2">
                     <strong>Email:</strong>
-                    <p>{auth?.user?.email || "-"}</p>
+                    <p className="text-break">{auth?.user?.email || "-"}</p>
                 </div>
                 <div className="mb-2">
                     <strong>Alamat:</strong>
-                    <p>
+                    <p className="text-break">
                         {profile?.city && profile?.province
                             ? `${profile.city}, ${profile.province}`
                             : "-"}
@@ -82,19 +82,19 @@ export default function SideSection({ profile, auth, skills }) {
                 </div>
                 <div className="mb-2">
                     <strong>No. Telepon:</strong>
-                    <p>{profile?.phone || "-"}</p>
+                    <p className="text-break">{profile?.phone || "-"}</p>
                 </div>
                 <div className="mb-2">
                     <strong>Tanggal Lahir:</strong>
-                    <p>{formatDate(profile?.birth_date)}</p>
+                    <p className="text-break">{formatDate(profile?.birth_date)}</p>
                 </div>
                 <div className="mb-2">
                     <strong>Jenis Kelamin:</strong>
-                    <p>{formatGender(profile?.gender)}</p>
+                    <p className="text-break">{formatGender(profile?.gender)}</p>
                 </div>
                 <div className="mb-2">
                     <strong>Website:</strong>
-                    <p>
+                    <p className="text-break">
                         <a
                             href={profile?.website || "#"}
                             target="_blank"
