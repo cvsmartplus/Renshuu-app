@@ -55,7 +55,6 @@ export default function ProfileBanner({
       backgroundRepeat: "no-repeat",
     };
   }
-  console.log({ avatarCrop, avatarOriginalSize });
 
   return (
     <>

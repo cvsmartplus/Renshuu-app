@@ -82,7 +82,6 @@ export default function ImageUploadModal({ show, onClose, onSave }) {
         image_height: imageSize.height,
       });
   
-      // Memastikan onSave dipanggil dengan data yang benar
       onSave(file, {
         crop_x: x1,
         crop_y: y1,

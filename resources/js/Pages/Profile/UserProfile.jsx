@@ -5,6 +5,7 @@ import AboutSection from "@/Components/Profile/ProfileSection/AboutSection";
 import EducationSection from "@/Components/Profile/ProfileSection/EducationSection";
 import ExperienceSection from "@/Components/Profile/ProfileSection/ExperienceSection";
 import SideSection from "@/Components/Profile/ProfileSection/SideSection";
+import ProfileModal from "@/Components/UI/Modal/ProfileModal";
 
 export default function Profile() {
   const { auth, profile, educations, experiences, skills, avatarCrop, avatarOriginalSize } = usePage().props;
@@ -42,6 +43,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <ProfileModal />
     </DashboardLayout>
   );
 }

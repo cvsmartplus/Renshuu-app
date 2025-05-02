@@ -1,5 +1,5 @@
 import { getSocialIcon } from "@/Utils/socialIcons";
-import { FaGlobe } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 const formatGender = (gender) => {
     if (gender === "male") return "Laki-laki";
@@ -66,7 +66,21 @@ export default function SideSection({ profile, auth, skills }) {
     return (
         <>
             <div className="border rounded p-3">
-                <h3>Data Diri</h3>
+                <div className="row">
+                    <div className="col-md-4">
+                        <h3>Data Diri</h3>
+                    </div>
+                    <div className="col-md-8 text-end">
+                        <button
+                            className="btn btn-light p-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            type="button"
+                        >
+                            <FiEdit size={20} />
+                        </button>
+                    </div>
+                </div>
                 <hr />
                 <div className="mb-2">
                     <strong>Email:</strong>

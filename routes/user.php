@@ -24,7 +24,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar.update');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-
+    Route::put('profile', [ProfileController::class, 'updateBio'])->name('profile.bio');
 });
 
 Route::prefix('article')->group(function () {
