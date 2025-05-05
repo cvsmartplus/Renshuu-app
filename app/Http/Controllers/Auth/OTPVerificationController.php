@@ -36,7 +36,7 @@ public function store(Request $request)
 
 
     if ($user) {
-        $user->update(['otp' => null]);
+        $user->update(['otp' => null, 'email_verified_at' => now()]);
         Auth::login($user);
 
         switch ($user->role) {

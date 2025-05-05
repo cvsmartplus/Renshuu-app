@@ -67,7 +67,7 @@ export default function ProfileBanner({
         />
         <div className="position-absolute" style={{ bottom: "-40px", left: "30px" }}>
           <div
-            className="rounded-circle border border-white shadow"
+            className="rounded-circle border border-white"
             style={avatarStyle}
             title={hasAvatar ? "Ubah foto" : "Tambahkan foto"}
             onClick={() => setShowModal(true)}

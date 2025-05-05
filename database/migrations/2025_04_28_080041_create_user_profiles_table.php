@@ -60,17 +60,19 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
-        Schema::create('user_education', function (Blueprint $table) {
+        Schema::create('user_educations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-
-            $table->string('degree')->nullable();
+            $table->enum('degree', [
+            'SD', 'SMP', 'SMA', 'SMK', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'
+            ])->nullable();
+            $table->string('field_of_study')->nullable();
             $table->string('institution')->nullable();
+            $table->string('title')->nullable();
+            $table->string('grade')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->text('description')->nullable();
-
             $table->timestamps();
         });
 

@@ -1,4 +1,5 @@
 import { getSocialIcon } from "@/Utils/socialIcons";
+import { FaPlus } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 
 const formatGender = (gender) => {
@@ -17,7 +18,6 @@ const formatDate = (isoDate) => {
         year: "numeric",
     }).format(date);
 };
-
 
 const renderSocialIcons = (socialLinks) => {
     if (typeof socialLinks === "string") {
@@ -42,7 +42,7 @@ const renderSocialIcons = (socialLinks) => {
     }
 
     return (
-        <div className="d-flex gap-2 flex-wrap">
+        <div className="d-flex flex-wrap gap-3 mt-2">
             {validLinks.map(([platform, url]) => {
                 const Icon = getSocialIcon(platform);
                 return (
@@ -51,7 +51,7 @@ const renderSocialIcons = (socialLinks) => {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-dark fs-4"
+                        className="text-dark fs-5"
                         title={platform.charAt(0).toUpperCase() + platform.slice(1)}
                     >
                         <Icon />
@@ -65,80 +65,100 @@ const renderSocialIcons = (socialLinks) => {
 export default function SideSection({ profile, auth, skills }) {
     return (
         <>
-            <div className="border rounded p-3">
-                <div className="row">
-                    <div className="col-md-4">
-                        <h3>Data Diri</h3>
+            <div className="card shadow-sm mb-4">
+                <div className="card-header d-flex justify-content-between align-items-center">
+                    <h3  className="mb-0">Data Diri</h3>
+                    <button
+                        className="btn btn-light p-2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        type="button"
+                        title="Edit Profil"
+                    >
+                        <FiEdit />
+                    </button>
+                </div>
+                <div className="card-body">
+                    <div className="mb-3">
+                        <strong>Email:</strong>
+                        <p className="mb-0 text-break">{auth?.user?.email || "-"}</p>
                     </div>
-                    <div className="col-md-8 text-end">
-                        <button
-                            className="btn btn-light p-2"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                            type="button"
-                        >
-                            <FiEdit size={20} />
-                        </button>
+                    <div className="mb-3">
+                        <strong>Alamat:</strong>
+                        <p className="mb-0 text-break">
+                            {profile?.city && profile?.province
+                                ? `${profile.city}, ${profile.province}`
+                                : "-"}
+                        </p>
                     </div>
-                </div>
-                <hr />
-                <div className="mb-2">
-                    <strong>Email:</strong>
-                    <p className="text-break">{auth?.user?.email || "-"}</p>
-                </div>
-                <div className="mb-2">
-                    <strong>Alamat:</strong>
-                    <p className="text-break">
-                        {profile?.city && profile?.province
-                            ? `${profile.city}, ${profile.province}`
-                            : "-"}
-                    </p>
-                </div>
-                <div className="mb-2">
-                    <strong>No. Telepon:</strong>
-                    <p className="text-break">{profile?.phone || "-"}</p>
-                </div>
-                <div className="mb-2">
-                    <strong>Tanggal Lahir:</strong>
-                    <p className="text-break">{formatDate(profile?.birth_date)}</p>
-                </div>
-                <div className="mb-2">
-                    <strong>Jenis Kelamin:</strong>
-                    <p className="text-break">{formatGender(profile?.gender)}</p>
-                </div>
-                <div className="mb-2">
-                    <strong>Website:</strong>
-                    <p className="text-break">
-                        <a
-                            href={profile?.website || "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-decoration-none text-darkblue"
-                        >
-                            {profile?.website || "-"}
-                        </a>
-                    </p>
-                </div>
-                <div className="mb-2">
-                    <strong>Sosial Media:</strong>
-                    {renderSocialIcons(profile?.social_links)}
+                    <div className="mb-3">
+                        <strong>No. Telepon:</strong>
+                        <p className="mb-0 text-break">{profile?.phone || "-"}</p>
+                    </div>
+                    <div className="mb-3">
+                        <strong>Tanggal Lahir:</strong>
+                        <p className="mb-0">{formatDate(profile?.birth_date)}</p>
+                    </div>
+                    <div className="mb-3">
+                        <strong>Jenis Kelamin:</strong>
+                        <p className="mb-0">{formatGender(profile?.gender)}</p>
+                    </div>
+                    <div className="mb-3">
+                        <strong>Website:</strong>
+                        <p className="mb-0">
+                            <a
+                                href={profile?.website || "#"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-decoration-none text-darkblue"
+                            >
+                                {profile?.website || "-"}
+                            </a>
+                        </p>
+                    </div>
+                    <div className="mb-2">
+                        <strong>Sosial Media:</strong>
+                        {renderSocialIcons(profile?.social_links)}
+                    </div>
                 </div>
             </div>
 
-            <div className="border rounded p-3 mt-3">
-                <h3>Keahlian</h3>
-                <hr />
+            <div className="card shadow-sm">
+                <div className="card-header">
+                    <h5 className="mb-0">Keahlian</h5>
+                    <div>
+                        <button 
+                            className="btn btn-light p-2" 
+                                // onClick={() => setShowAddModal(true)}
+                            type="button"
+                            title="Tambah Pengalaman"
+                        >
+                            <FaPlus />
+                        </button>
+                        <button
+                            className="btn btn-light"
+                            // onClick={() => setShowEditModal(true)}
+                            type="button"
+                            title="Edit Pengalaman"
+                        >
+                            <FiEdit />
+                        </button>
+                    </div>
+                </div>
+                <div className="card-body">
                 {Array.isArray(skills) && skills.length > 0 ? (
-                    <ul>
+                    <div className="d-flex flex-wrap gap-2">
                         {skills.map((skill, idx) => (
-                            <li key={idx}>{skill.name}</li>
+                            <span key={idx} className="badge bg-darkblue-subtle text-darkblue fw-medium px-3 py-2 rounded-pill">
+                                {skill.name}
+                            </span>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
-                    <p>-</p>
+                    <p className="text-muted fst-italic">Belum ada keahlian.</p>
                 )}
+                </div>
             </div>
         </>
     );
 }
-
