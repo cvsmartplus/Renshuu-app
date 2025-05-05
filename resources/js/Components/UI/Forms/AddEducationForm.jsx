@@ -16,7 +16,10 @@ const AddEducationForm = forwardRef(({ onClose }, ref) => {
     const handleSubmit = (e) => {
         if (e) e.preventDefault();
         post(route('profile.education.store'), {
-            onSuccess: () => onClose(),
+            onSuccess: () => {
+                onClose(),
+                location.reload();
+            },
         });
     };
 

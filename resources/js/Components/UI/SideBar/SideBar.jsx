@@ -4,7 +4,7 @@ import { FaUser, FaFileAlt, FaCog, FaReceipt } from "react-icons/fa";
 export default function SideBar({ isOpen, isMobile }) {
     const menuItems = [
         { name: "Profil", route: route("profile.index"), icon: <FaUser /> },
-        { name: "Dokumen", route: "#", icon: <FaFileAlt /> },
+        { name: "Dokumen", route: route("document.index"), icon: <FaFileAlt /> },
         { name: "Pengaturan Akun", route: "#", icon: <FaCog /> },
         { name: "Riwayat Pembayaran", route: "#", icon: <FaReceipt /> },
     ];

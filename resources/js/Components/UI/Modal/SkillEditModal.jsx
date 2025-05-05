@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "@inertiajs/react";
-import EducationEditForm from "../Forms/EducationEditForm";
-import { FiEdit3, FiTrash2 } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 
-export default function EducationEditModal({ onClose, educations, onDelete }) {
-    const [selectedEducation, setSelectedEducation] = useState(null);
+export default function SkillEditModal({ onClose, skills = [] }) {
     const { delete: destroy, processing } = useForm();
 
     const handleDelete = (id) => {
-        if (confirm("Yakin ingin menghapus pendidikan ini?")) {
-            destroy(route("profile.education.destroy", id), {
-                preserveScroll: true,
-                onSuccess: () => {
-                    setSelectedEducation(null);
-                    if (onDelete) onDelete(id);
-                    onClose();
-                },
-                onError: (errors) => {
-                    alert("Gagal menghapus data. Silakan coba lagi.");
-                },
-            });            
-        }
+        destroy(route("profile.skills.destroy", id), {
+            preserveScroll: true,
+        });
     };
 
     useEffect(() => {
@@ -32,51 +20,46 @@ export default function EducationEditModal({ onClose, educations, onDelete }) {
     }, [onClose]);
 
     return (
-        <div className="modal d-block" style={{ backgroundColor: "rgba(0,0,0,0.6)" }} onClick={onClose}>
-            <div className="modal-dialog modal-dialog-centered" onClick={(e) => e.stopPropagation()}>
+        <div
+            className="modal d-block"
+            style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+            onClick={onClose}
+        >
+            <div
+                className="modal-dialog modal-dialog-centered"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Edit Pendidikan</h5>
-                        <button type="button" className="btn-close" onClick={onClose}></button>
+                        <h5 className="modal-title">Edit Keahlian</h5>
+                        <button
+                            type="button"
+                            className="btn-close"
+                            onClick={onClose}
+                            aria-label="Close"
+                        ></button>
                     </div>
                     <div className="modal-body">
-                        {!selectedEducation ? (
-                            <>
-                                {educations.map((edu) => (
-                                    <div
-                                        key={edu.id}
-                                        className="d-flex justify-content-between align-items-center border-bottom py-2"
+                        {skills.length > 0 ? (
+                            <ul className="list-group">
+                                {skills.map((skill) => (
+                                    <li
+                                        key={skill.id}
+                                        className="list-group-item d-flex justify-content-between align-items-center"
                                     >
-                                        <div>
-                                            <strong>{edu.field_of_study}</strong><br />
-                                            <small>{edu.title} di {edu.institution}</small>
-                                        </div>
-                                        <div className="d-flex gap-2">
-                                            <button
-                                                className="btn btn-sm btn-outline-darkblue"
-                                                onClick={() => setSelectedEducation(edu)}
-                                                title="Edit"
-                                            >
-                                                <FiEdit3 />
-                                            </button>
-                                            <button
-                                                className="btn btn-sm btn-outline-danger"
-                                                onClick={() => handleDelete(edu.id)}
-                                                disabled={processing}
-                                                title="Hapus"
-                                            >
-                                                <FiTrash2 />
-                                            </button>
-                                        </div>
-                                    </div>
+                                        {skill.name}
+                                        <button
+                                            className="btn btn-sm btn-outline-danger"
+                                            onClick={() => handleDelete(skill.id)}
+                                            disabled={processing}
+                                        >
+                                            <FiTrash2 />
+                                        </button>
+                                    </li>
                                 ))}
-                            </>
+                            </ul>
                         ) : (
-                            <EducationEditForm
-                                education={selectedEducation}
-                                onCancel={() => setSelectedEducation(null)}
-                                onClose={onClose}
-                            />
+                            <p className="text-muted">Belum ada keahlian.</p>
                         )}
                     </div>
                 </div>

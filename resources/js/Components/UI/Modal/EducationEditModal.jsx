@@ -7,7 +7,7 @@ export default function EducationEditModal({ onClose, educations, onDelete }) {
 
     const handleDelete = (id) => {
         if (window.confirm("Apakah kamu yakin ingin menghapus pendidikan ini?")) {
-            onDelete(id); // Kirim ke parent (EducationSection)
+            onDelete(id); 
         }
     };
 
