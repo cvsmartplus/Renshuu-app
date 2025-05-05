@@ -6962,7 +6962,7 @@ progress {
   text-decoration: none;
 }
 .btn-darkblue:hover {
-  background-color: #041C52;
+  background-color: rgb(3.5714285714, 25, 71.4285714286);
   transform: translateY(-1px);
   color: white;
   box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
@@ -6986,7 +6986,7 @@ progress {
   text-decoration: none;
 }
 .btn-outline-darkblue:hover {
-  background-color: #041C52;
+  background-color: #062A78;
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
@@ -6999,12 +6999,16 @@ progress {
   cursor: not-allowed;
 }
 
-.bg-darkblue-subtle {
+.bg-darkblue {
   background-color: #062A78 !important;
 }
 
+.bg-darkblue-subtle {
+  background-color: rgb(59.2857142857, 118, 245.2142857143) !important;
+}
+
 .text-darkblue {
-  color: #062A78;
+  color: #062A78 !important;
 }
 
 .nav-item {

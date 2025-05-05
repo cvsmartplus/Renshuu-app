@@ -39,7 +39,7 @@ $stroke: #BDBDBD;
   text-decoration: none;
 
   &:hover {
-    background-color: #041C52;
+    background-color: darken($ctabtn, 10%);
     transform: translateY(-1px);
     color: white;
     box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
@@ -55,6 +55,7 @@ $stroke: #BDBDBD;
     cursor: not-allowed;
   }
 }
+
 .btn-outline-darkblue {
   background-color: transparent;
   color: $ctabtn;
@@ -66,7 +67,7 @@ $stroke: #BDBDBD;
   text-decoration: none;
 
   &:hover {
-    background-color: #041C52;
+    background-color: $ctabtn;
     color: white;
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
@@ -83,14 +84,18 @@ $stroke: #BDBDBD;
   }
 }
 
-.bg-darkblue-subtle
-{
+.bg-darkblue {
   background-color: $ctabtn !important;
 }
 
-.text-darkblue {
-  color: $ctabtn;
+.bg-darkblue-subtle {
+  background-color: lighten($ctabtn, 35%) !important;
 }
+
+.text-darkblue {
+  color: $ctabtn !important;
+}
+
 
 .nav-item {
     display: block;

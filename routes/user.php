@@ -56,6 +56,12 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     Route::prefix('documents')->group(function () {
         Route::get('/', [DocumentController::class, 'index'])->name('document.index');
+        Route::post('/ktp/upload', [DocumentController::class, 'uploadKTP'])->name('document.ktp.upload');
+        Route::delete('/ktp', [DocumentController::class, 'deleteKTP'])->name('document.ktp.delete');
+
+        Route::post('cv/upload', [DocumentController::class, 'uploadCV'])->name('document.cv.upload');
+        Route::delete('cv', [DocumentController::class, 'deleteCV'])->name('document.cv.delete');
+
     });
 });
 
