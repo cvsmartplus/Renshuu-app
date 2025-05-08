@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserSettingsController;
 
 // User routes
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -32,6 +33,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
         Route::put('/data', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('/data/social-links', [ProfileController::class, 'updateSocialLinks'])->name('profile.social-links.update');
         Route::put('/bio', [ProfileController::class, 'updateBio'])->name('profile.bio');
         
         Route::post('/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar.update');
@@ -51,6 +53,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::prefix('skills')->group(function () {
             Route::post('/', [ProfileController::class, 'storeSkill'])->name('profile.skills.store');
             Route::delete('{skill}', [ProfileController::class, 'skillDestroy'])->name('profile.skills.destroy');
+        });
+
+        Route::prefix('settings')->group(function () {
+            Route::get('/', [UserSettingsController::class, 'index'])->name('profile.settings');
         });
     });
 

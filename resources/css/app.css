@@ -7004,7 +7004,8 @@ progress {
 }
 
 .bg-darkblue-subtle {
-  background-color: rgb(59.2857142857, 118, 245.2142857143) !important;
+  background-color: #062A78 !important;
+  color: white !important;
 }
 
 .text-darkblue {

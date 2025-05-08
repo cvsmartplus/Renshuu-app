@@ -1,3 +1,5 @@
+import { FaExclamationTriangle } from "react-icons/fa";
+
 export default function DocumentCard({ title, file, onUpload, onReplace, onDelete }) {
     const getStatusBadge = (status) => {
         switch (status) {
@@ -49,7 +51,9 @@ export default function DocumentCard({ title, file, onUpload, onReplace, onDelet
 
                     {file?.status === 'rejected' && file.rejected_reason && (
                         <div className="alert alert-danger p-2">
-                            <strong>Alasan Penolakan:</strong> {file.rejected_reason}
+                            <strong>
+                                <FaExclamationTriangle className="me-2" />
+                            </strong> {file.rejected_reason}
                         </div>
                     )}
 

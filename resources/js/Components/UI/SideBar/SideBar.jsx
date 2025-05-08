@@ -5,7 +5,7 @@ export default function SideBar({ isOpen, isMobile }) {
     const menuItems = [
         { name: "Profil", route: route("profile.index"), icon: <FaUser /> },
         { name: "Dokumen", route: route("document.index"), icon: <FaFileAlt /> },
-        { name: "Pengaturan Akun", route: "#", icon: <FaCog /> },
+        { name: "Pengaturan Akun", route: route("profile.settings"), icon: <FaCog /> },
         { name: "Riwayat Pembayaran", route: "#", icon: <FaReceipt /> },
     ];
 

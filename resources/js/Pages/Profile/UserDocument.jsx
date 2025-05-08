@@ -20,7 +20,7 @@ export default function UserDocument({ documents }) {
     return (
         <DashboardLayout>
             <Head title="Dokumen Saya" />
-            <div className="container mt-4">
+            <div className="container mt-5">
                 <h2 className="mb-4">Dokumen Saya</h2>
 
                 <div className="row g-4">

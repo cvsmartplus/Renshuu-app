@@ -1,5 +1,6 @@
 import { getSocialIcon } from "@/Utils/socialIcons";
 import { FiEdit } from "react-icons/fi";
+import { Link } from "@inertiajs/react";
 
 const formatGender = (gender) => {
     if (gender === "male") return "Laki-laki";
@@ -66,15 +67,13 @@ export default function PersonalInfoSection({ profile, auth }) {
         <div className="card shadow-sm mb-4">
             <div className="card-header d-flex justify-content-between align-items-center">
                 <h3 className="mb-0">Data Diri</h3>
-                <button
+                <Link
+                    href={route("profile.settings")}
                     className="btn btn-light p-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    type="button"
                     title="Edit Profil"
                 >
                     <FiEdit />
-                </button>
+                </Link>
             </div>
             <div className="card-body">
                 <div className="mb-3"><strong>Email:</strong><p className="mb-0 text-break">{auth?.user?.email || "-"}</p></div>

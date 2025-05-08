@@ -19,22 +19,22 @@
                 </a>
             </li>
             <li class="nav-item mb-3">
-                <a href="#"
+                <a href="{{ route('admin.courses')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.courses') ? 'active' : '' }}">
                     <i class="fas fa-book me-3"></i>
                     <span class="sidebar-text">Kursus</span>
                 </a>
             </li>
             <li class="nav-item mb-3">
-                <a href="#"
+                <a href="{{route('admin.jobs')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.jobs') ? 'active' : '' }}">
                     <i class="fas fa-briefcase me-3"></i>
                     <span class="sidebar-text">Pekerjaan</span>
                 </a>
             </li>
             <li class="nav-item mb-3">
-                <a href="#"
-                   class="nav-bluelink {{ request()->routeIs('admin.article') ? 'active' : '' }}">
+                <a href="{{route('admin.articles')}}"
+                   class="nav-bluelink {{ request()->routeIs('admin.articles') ? 'active' : '' }}">
                     <i class="fas fa-book me-3"></i>
                     <span class="sidebar-text">Artikel</span>
                 </a>

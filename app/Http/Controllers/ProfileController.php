@@ -68,27 +68,42 @@ class ProfileController extends Controller
         $fullName = trim($request->input('first_name') . ' ' . $request->input('last_name'));
 
         $user->name = $fullName;
-
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
-        }
-
         $user->save();
 
         $user->profile()->updateOrCreate(
             ['user_id' => $user->id],
             [
-                'phone'        => $request->input('phone'),
-                'birth_date'   => $request->input('birth_date'),
-                'gender'       => $request->input('gender'),
-                'city'         => $request->input('city'),
-                'province'     => $request->input('province'),
-                'website'      => $request->input('website'),
-                'social_links' => $request->input('social_links'),
+                'phone'      => $request->input('phone'),
+                'birth_date' => $request->input('birth_date'),
+                'gender'     => $request->input('gender'),
+                'city'       => $request->input('city'),
+                'province'   => $request->input('province'),
+                'website'    => $request->input('website'),
             ]
         );
 
         return Redirect::back()->with('success', 'Profil berhasil diperbarui.');
+    }
+
+
+    public function updateSocialLinks(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'social_links' => ['nullable', 'array'],
+            'social_links.facebook' => ['nullable', 'url'],
+            'social_links.twitter' => ['nullable', 'url'],
+            'social_links.instagram' => ['nullable', 'url'],
+            'social_links.linkedin' => ['nullable', 'url'],
+            'social_links.github' => ['nullable', 'url'],
+        ]);
+
+        $user = $request->user();
+        $user->profile()->updateOrCreate(
+            ['user_id' => $user->id],
+            ['social_links' => $validated['social_links']]
+        );
+
+        return Redirect::back()->with('success', 'Tautan sosial media berhasil diperbarui.');
     }
 
     public function updateAvatar(Request $request): RedirectResponse

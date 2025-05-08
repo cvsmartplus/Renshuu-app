@@ -3,7 +3,9 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'croppie/croppie.css';
+import 'react-toastify/dist/ReactToastify.css';
 
+import { ToastContainer } from 'react-toastify';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
@@ -22,6 +24,7 @@ createInertiaApp({
 
         root.render(
             <>
+                <ToastContainer />
                 <App {...props} />
             </>
         );

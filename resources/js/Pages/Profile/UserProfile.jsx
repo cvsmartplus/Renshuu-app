@@ -4,7 +4,6 @@ import ProfileBanner from "@/Components/Profile/ProfileSection/ProfileBanner";
 import AboutSection from "@/Components/Profile/ProfileSection/AboutSection";
 import EducationSection from "@/Components/Profile/ProfileSection/EducationSection";
 import ExperienceSection from "@/Components/Profile/ProfileSection/ExperienceSection";
-import ProfileModal from "@/Components/UI/Modal/ProfileModal";
 import PersonalInfoSection from "@/Components/Profile/ProfileSection/PersonalInfoSection";
 import SkillSection from "@/Components/Profile/ProfileSection/SkillSection";
 
@@ -45,7 +44,6 @@ export default function Profile() {
         </div>
         </div>
       </div>
-      <ProfileModal />
     </DashboardLayout>
   );
 }

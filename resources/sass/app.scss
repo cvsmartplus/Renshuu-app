@@ -89,7 +89,8 @@ $stroke: #BDBDBD;
 }
 
 .bg-darkblue-subtle {
-  background-color: lighten($ctabtn, 35%) !important;
+  background-color: $ctabtn !important;
+  color: white !important;
 }
 
 .text-darkblue {

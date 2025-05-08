@@ -32,7 +32,10 @@ public function store(Request $request)
     ]);
 
     $otp = (int) trim($request->otp);
-    $user = User::where('otp', $otp)->first();
+    $user = User::where('otp', $otp)
+            ->whereNull('email_verified_at')
+            ->first();
+
 
 
     if ($user) {
@@ -52,7 +55,7 @@ public function store(Request $request)
         }
     }
 
-    return redirect()->back()->withErrors(['otp' => 'OTP yang Anda masukkan salah!']);
+    return back()->withErrors(['otp' => 'OTP yang Anda masukkan salah!'])->onlyInput('otp');
 }
 
 }
