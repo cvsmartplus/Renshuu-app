@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <h1>ini Halaman Article</h1>
+        <p>{{ $article }}</p>
     </div>
 @endsection

@@ -6,7 +6,7 @@ export default function SideBar({ isOpen, isMobile }) {
         { name: "Profil", route: route("profile.index"), icon: <FaUser /> },
         { name: "Dokumen", route: route("document.index"), icon: <FaFileAlt /> },
         { name: "Pengaturan Akun", route: route("profile.settings"), icon: <FaCog /> },
-        { name: "Riwayat Pembayaran", route: "#", icon: <FaReceipt /> },
+        { name: "Riwayat Pembayaran", route: route("transaction.index"), icon: <FaReceipt /> },
     ];
 
     return (

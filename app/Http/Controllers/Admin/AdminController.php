@@ -34,6 +34,30 @@ class AdminController extends Controller
         $coursesGrowth = $coursesThisMonth - $coursesLastMonth;
         $articlesGrowth = $articlesThisMonth - $articlesLastMonth;
 
-        return view('admin.dashboard', compact(['users', 'growth'], ['courses', 'coursesGrowth'], ['articles', 'articlesGrowth']));
+        $userMonthly = User::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->groupByRaw('MONTH(created_at)')
+            ->pluck('total', 'month');
+
+        $courseMonthly = Course::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->groupByRaw('MONTH(created_at)')
+            ->pluck('total', 'month');
+
+        $articleMonthly = Article::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->groupByRaw('MONTH(created_at)')
+            ->pluck('total', 'month');
+
+        $userData = [];
+        $courseData = [];
+        $articleData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $userData[] = $userMonthly[$i] ?? 0;
+            $courseData[] = $courseMonthly[$i] ?? 0;
+            $articleData[] = $articleMonthly[$i] ?? 0;
+        }
+
+        return view('admin.dashboard', compact([
+            'users', 'growth', 'courses', 'coursesGrowth', 'articles', 'articlesGrowth',
+            'userData', 'courseData', 'articleData'
+        ]));
     }
 }

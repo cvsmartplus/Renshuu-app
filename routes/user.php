@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserSettingsController;
 
 // User routes
@@ -68,6 +69,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::post('cv/upload', [DocumentController::class, 'uploadCV'])->name('document.cv.upload');
         Route::delete('cv', [DocumentController::class, 'deleteCV'])->name('document.cv.delete');
 
+    });
+
+    Route::prefix('transactions')->group(function () {
+        Route::get('/', [TransactionController::class, 'index'])->name('transaction.index');
     });
 });
 

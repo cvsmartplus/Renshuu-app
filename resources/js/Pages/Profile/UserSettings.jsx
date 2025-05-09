@@ -27,15 +27,13 @@ export default function UserSettings() {
 
           <div className="col-12 col-lg-6">
               <SocialLinksForm profile={profile} />
-              {!auth.user.email_verified_at && (
-                <div className="mb-3">
-                  <VerificationStatus auth={auth} />
-                </div>
-              )}
               <div className="mb-3">
                 <ChangePasswordForm />
               </div>
             </div>
+            {!auth.user.email_verified_at && (
+              <VerificationStatus auth={auth} />
+              )}
             <DeleteUserForm />
         </div>
       </div>

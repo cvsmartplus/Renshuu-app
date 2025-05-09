@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <h1>ini Halaman Kursus</h1>
+        <p>{{ $courses }}</p>
     </div>
 @endsection

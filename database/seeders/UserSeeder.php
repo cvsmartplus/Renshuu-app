@@ -20,19 +20,22 @@ class UserSeeder extends Seeder
                 'email' => 'habibiahmadaziz@gmail.com',
                 'password' => Hash::make("jojomakan"),
                 'otp' => $otp,
-                'role' => 'user'
+                'role' => 'user',
+                'created_at' => now(),
             ],[
                 'name' => 'Smartplus Indonesia',
                 'email' => 'smartplusindonesia@gmail.com',
                 'password' => Hash::make("jojomakan"),
                 'otp' => $otp,
-                'role' => 'company'
+                'role' => 'company',
+                'created_at' => now(),
             ],[
                 'name' => 'Ahmad Aziz',
                 'email' => 'habibi.ahmad1735@smk.belajar.id',
                 'password' => Hash::make("jojomakan"),
                 'otp' => $otp,
-                'role' => 'admin'
+                'role' => 'admin',
+                'created_at' => now(),
             ]]);
     }
 }

@@ -39,6 +39,20 @@
                     <span class="sidebar-text">Artikel</span>
                 </a>
             </li>
+            <li class="nav-item mb-3">
+                <a href="#"
+                   class="nav-bluelink {{ request()->routeIs('admin.company') ? 'active' : '' }}">
+                        <i class="fa-solid fa-building me-3"></i>
+                    <span class="sidebar-text">Perusahaan</span>
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a href="#"
+                   class="nav-bluelink {{ request()->routeIs('admin.user') ? 'active' : '' }}">
+                        <i class="fa-solid fa-building me-3"></i>
+                    <span class="sidebar-text">Pengguna</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('admin.settings') ? 'active' : '' }}">

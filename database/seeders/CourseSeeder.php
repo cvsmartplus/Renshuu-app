@@ -13,7 +13,6 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Ambil data trainer berdasarkan nama
         $trainers = [
             'John Doe' => Trainer::where('name', 'John Doe')->first(),
             'Jane Smith' => Trainer::where('name', 'Jane Smith')->first(),
@@ -36,6 +35,7 @@ class CourseSeeder extends Seeder
                 'level' => 'Beginner',
                 'status' => 'Published',
                 'student' => 100,
+                'created_at' => now()->subDay(1),
             ],
             [
                 'title' => 'Smart Farming',
@@ -50,6 +50,7 @@ class CourseSeeder extends Seeder
                 'level' => 'Intermediate',
                 'status' => 'Published',
                 'student' => 200,
+                'created_at' => now()->subDays(1),
             ],
             [
                 'title' => 'Smart City',
@@ -64,6 +65,7 @@ class CourseSeeder extends Seeder
                 'level' => 'Advanced',
                 'status' => 'Published',
                 'student' => 150,
+                'created_at' => now()->subDays(2),
             ],
             [
                 'title' => 'Smart Factory',
@@ -78,6 +80,7 @@ class CourseSeeder extends Seeder
                 'level' => 'Advanced',
                 'status' => 'Published',
                 'student' => 600,
+                'created_at' => now()->subDays(3),
             ],
         ]);
     }

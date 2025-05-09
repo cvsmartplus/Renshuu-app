@@ -6,6 +6,7 @@ import JobActions from "@/Components/Job/JobAction";
 import JobDescription from "@/Components/Job/JobDescription";
 import JobSkills from "@/Components/Job/JobSkill";
 import CompanyInfo from "@/Components/Job/CompanyInfo";
+import BackButton from "@/Components/UI/BackButton";
 
 export default function SingleJob({ job }) {
     if (!job) return <p>Data pekerjaan tidak tersedia</p>;
@@ -36,6 +37,7 @@ export default function SingleJob({ job }) {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-10">
+                            <BackButton />
                             <div className="card p-4 shadow-sm mb-4">
                                 <JobHeader job={job} address={address} />
                                 <JobInfo job={job} formattedPostedAt={formattedPostedAt} formattedDeadlineAt={formattedDeadlineAt} />
