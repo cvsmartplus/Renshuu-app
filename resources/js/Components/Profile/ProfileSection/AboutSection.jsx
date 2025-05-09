@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import BioEditModal from "@/Components/UI/Modal/BioEditModal";
+import DOMPurify from "dompurify";
 
 export default function AboutSection({ bio }) {
     const [showModal, setShowModal] = useState(false);
@@ -18,9 +19,10 @@ export default function AboutSection({ bio }) {
                             <FiEdit size={20} />
                     </button>
             </div>
-            <div className="card-body">
-                <p style={{ whiteSpace: "pre-line" }}>{bio}</p>
-            </div>
+            <div
+            className="card-body"
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(bio) }}
+            />
         </div>
             {showModal && <BioEditModal onClose={() => setShowModal(false)} bio={bio} />}
         </>

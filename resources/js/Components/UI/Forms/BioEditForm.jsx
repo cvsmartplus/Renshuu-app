@@ -1,16 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "@inertiajs/react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export default function BioEditForm({ onClose, bioValue }) {
     const { data, setData, put, processing, errors } = useForm({
         bio: bioValue || "",
     });
     const [error, setError] = useState("");
-    
-    const handleInputChange = (e) => {
-        setData("bio", e.target.value);
-        setError(""); 
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,25 +22,30 @@ export default function BioEditForm({ onClose, bioValue }) {
                 location.reload();
             },
         });
-        console.log(data);
+    };
+
+    const modules = {
+        toolbar: [
+            ['bold', 'italic'],
+            [{ list: 'bullet' }],
+        ],
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="bio" className="form-label">Bio</label>
-                <textarea
-                    className="form-control"
-                    id="bio"
-                    rows="8"
-                    placeholder="Tulis bio Anda disini..."
+                <ReactQuill
+                    theme="snow"
                     value={data.bio}
-                    onChange={handleInputChange}
+                    onChange={(val) => setData("bio", val)}
+                    modules={modules}
+                    placeholder="Tulis bio Anda di sini..."
                 />
-                {error && <div className="text-danger mt-1">{error}</div>}
-                {errors.bio && <div className="text-danger mt-1">{errors.bio}</div>}
+                {error && <div className="text-danger mt-2">{error}</div>}
+                {errors.bio && <div className="text-danger mt-2">{errors.bio}</div>}
             </div>
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-end mt-3">
                 <button type="button" className="btn btn-secondary me-2" onClick={onClose}>
                     Batal
                 </button>

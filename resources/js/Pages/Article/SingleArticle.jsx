@@ -27,8 +27,8 @@ const SingleArticle = () => {
                             />
                         </div>
 
-                        <h1 className="fw-bold mt-4 text-center">{article.title}</h1>
-                        <p className="text-muted fs-5 text-center">{article.excerpt}</p>
+                        <h1 className="fw-bold mt-4">{article.title}</h1>
+                        <p className="text-muted mt-4">{article.excerpt}</p>
 
                         <div
                             className="content markdown-body mt-4 p-3"
