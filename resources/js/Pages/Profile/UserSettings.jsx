@@ -1,4 +1,5 @@
 import { Head, usePage } from "@inertiajs/react";
+import { profileMenuItems } from "@/Utils/menuItems";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import ProfileForm from "@/Components/Profile/SettingSection/ProfileForm";
 import ChangePasswordForm from "@/Components/UI/Forms/ChangePasswordForm";
@@ -11,7 +12,7 @@ export default function UserSettings() {
   const { auth, profile } = usePage().props;
 
   return (
-    <DashboardLayout>
+    <DashboardLayout menuItems={profileMenuItems}>
       <Head title="Pengaturan Akun" />
 
       <div className="container py-4">

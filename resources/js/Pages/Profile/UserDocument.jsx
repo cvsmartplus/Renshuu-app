@@ -1,6 +1,7 @@
 import { useState } from "react";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Head, router } from "@inertiajs/react";
+import { profileMenuItems } from "@/Utils/menuItems";
+import DashboardLayout from "@/Layouts/DashboardLayout";
 import DocumentCard from "@/Components/UI/Card/DocumentCard";
 import UploadKtpModal from "@/Components/UI/Modal/UploadKtpModal";
 import CameraModal from "@/Components/UI/Modal/CameraModal";
@@ -12,11 +13,14 @@ export default function UserDocument({ documents }) {
     const [showCameraModal, setShowCameraModal] = useState(false);
     const [isReplacingKtp, setIsReplacingKtp] = useState(false);
 
-    const ktp = documents?.find((doc) => doc.document_type === 'KTP');
+    const ktp = documents?.find((doc) => doc.document_type === 'ktp');
     const cv = documents?.find((doc) => doc.document_type === 'cv');
 
+    console.log(ktp);
+    
+
     return (
-        <DashboardLayout>
+        <DashboardLayout menuItems={profileMenuItems}>
             <Head title="Dokumen Saya" />
             <div className="container mt-5">
                 <h2 className="mb-4">Dokumen Saya</h2>

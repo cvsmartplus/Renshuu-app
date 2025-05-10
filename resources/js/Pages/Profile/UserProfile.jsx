@@ -1,4 +1,5 @@
 import { Head, usePage } from "@inertiajs/react";
+import { profileMenuItems } from "@/Utils/menuItems";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import ProfileBanner from "@/Components/Profile/ProfileSection/ProfileBanner";
 import AboutSection from "@/Components/Profile/ProfileSection/AboutSection";
@@ -14,7 +15,7 @@ export default function Profile() {
   const bannerImg = profile?.banner ? `/storage/${profile.banner}` : "/images/placeholder/banner.png";
 
   return (
-    <DashboardLayout>
+    <DashboardLayout menuItems={profileMenuItems}>
       <Head title="Profile" />
       <div className="container mt-2">
         <ProfileBanner

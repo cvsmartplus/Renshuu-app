@@ -4,7 +4,7 @@ import SideBar from "@/Components/UI/SideBar/SideBar";
 import Footer from "@/Components/UI/Footer/Footer";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ children, menuItems }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -37,7 +37,7 @@ export default function DashboardLayout({ children }) {
                 <NavBar />
             </div>
 
-            <SideBar isOpen={isSidebarOpen} isMobile={isMobile} />
+            <SideBar isOpen={isSidebarOpen} isMobile={isMobile} menuItems={menuItems}/>
 
             <button
                 onClick={toggleSidebar}

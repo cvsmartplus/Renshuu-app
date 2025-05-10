@@ -1,14 +1,6 @@
 import { Link } from "@inertiajs/react";
-import { FaUser, FaFileAlt, FaCog, FaReceipt } from "react-icons/fa";
 
-export default function SideBar({ isOpen, isMobile }) {
-    const menuItems = [
-        { name: "Profil", route: route("profile.index"), icon: <FaUser /> },
-        { name: "Dokumen", route: route("document.index"), icon: <FaFileAlt /> },
-        { name: "Pengaturan Akun", route: route("profile.settings"), icon: <FaCog /> },
-        { name: "Riwayat Pembayaran", route: route("transaction.index"), icon: <FaReceipt /> },
-    ];
-
+export default function SideBar({ isOpen, isMobile, menuItems = [] }) {
     return (
         <aside
             className="bg-light border-end"

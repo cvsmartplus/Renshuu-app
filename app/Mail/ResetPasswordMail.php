@@ -2,10 +2,13 @@
 
 namespace App\Mail;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 
-class ResetPasswordMail extends Mailable
+class ResetPasswordMail extends Mailable implements ShouldQueue
 {
+    use Queueable;
     public $token;
     public $email;
 
