@@ -6,58 +6,60 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Course;
 use App\Models\User;
+use App\Models\JobPosition;
+use App\Models\Company;
 use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-    //
-
     public function dashboard()
     {
-        $users = User::count();
-        $courses = Course::count();
-        $articles = Article::count();
+        return view('admin.dashboard', [
+            'users' => User::count(),
+            'growth' => $this->calculateGrowth(User::class),
+            'courses' => Course::count(),
+            'coursesGrowth' => $this->calculateGrowth(Course::class),
+            'articles' => Article::count(),
+            'articlesGrowth' => $this->calculateGrowth(Article::class),
+            'jobs' => JobPosition::count(),
+            'jobsGrowth' => $this->calculateGrowth(JobPosition::class),
+            'companies' => Company::count(),
+            'companiesGrowth' => $this->calculateGrowth(Company::class),
+            'userData' => $this->monthlyChartData(User::class),
+            'courseData' => $this->monthlyChartData(Course::class),
+            'articleData' => $this->monthlyChartData(Article::class),
+            'latestArticles' => Article::latest()->take(5)->get(),
+        ]);
+    }
 
+    private function calculateGrowth($model, $additionalWhere = [])
+    {
         $thisMonth = Carbon::now()->month;
         $lastMonth = Carbon::now()->subMonth()->month;
 
-        $usersThisMonth = User::whereMonth('created_at', $thisMonth)->count();
-        $usersLastMonth = User::whereMonth('created_at', $lastMonth)->count();
+        $thisMonthCount = $model::whereMonth('created_at', $thisMonth)
+            ->when($additionalWhere, fn($q) => $q->where($additionalWhere))
+            ->count();
 
-        $coursesThisMonth = Course::whereMonth('created_at', $thisMonth)->count();
-        $coursesLastMonth = Course::whereMonth('created_at', $lastMonth)->count();
+        $lastMonthCount = $model::whereMonth('created_at', $lastMonth)
+            ->when($additionalWhere, fn($q) => $q->where($additionalWhere))
+            ->count();
 
-        $articlesThisMonth = Article::whereMonth('created_at', $thisMonth)->count();
-        $articlesLastMonth = Article::whereMonth('created_at', $lastMonth)->count();
+        return $thisMonthCount - $lastMonthCount;
+    }
 
-        $growth = $usersThisMonth - $usersLastMonth;
-        $coursesGrowth = $coursesThisMonth - $coursesLastMonth;
-        $articlesGrowth = $articlesThisMonth - $articlesLastMonth;
-
-        $userMonthly = User::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+    private function monthlyChartData($model, $additionalWhere = [])
+    {
+        $data = $model::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->when($additionalWhere, fn($q) => $q->where($additionalWhere))
             ->groupByRaw('MONTH(created_at)')
             ->pluck('total', 'month');
 
-        $courseMonthly = Course::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->groupByRaw('MONTH(created_at)')
-            ->pluck('total', 'month');
-
-        $articleMonthly = Article::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->groupByRaw('MONTH(created_at)')
-            ->pluck('total', 'month');
-
-        $userData = [];
-        $courseData = [];
-        $articleData = [];
+        $result = [];
         for ($i = 1; $i <= 12; $i++) {
-            $userData[] = $userMonthly[$i] ?? 0;
-            $courseData[] = $courseMonthly[$i] ?? 0;
-            $articleData[] = $articleMonthly[$i] ?? 0;
+            $result[] = $data[$i] ?? 0;
         }
 
-        return view('admin.dashboard', compact([
-            'users', 'growth', 'courses', 'coursesGrowth', 'articles', 'articlesGrowth',
-            'userData', 'courseData', 'articleData'
-        ]));
+        return $result;
     }
 }

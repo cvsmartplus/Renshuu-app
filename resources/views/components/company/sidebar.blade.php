@@ -11,28 +11,28 @@
 
     <nav class="flex-grow-1 overflow-auto pt-4">
         <ul class="nav flex-column px-3">
-            <li class="nav-item mb-3">
+            <li class="nav-custom-item mb-3">
                 <a href="{{ route('company.dashboard') }}"
                    class="nav-bluelink {{ request()->routeIs('company.dashboard') ? 'active' : '' }}">
                     <i class="fas fa-home me-3"></i>
                     <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
-            <li class="nav-item mb-3">
+            <li class="nav-custom-item mb-3">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('company.jobs') ? 'active' : '' }}">
                     <i class="fas fa-briefcase me-3"></i>
                     <span class="sidebar-text">Kelola Pekerjaan</span>
                 </a>
             </li>
-            <li class="nav-item mb-3">
+            <li class="nav-custom-item mb-3">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('company.applicants') ? 'active' : '' }}">
                     <i class="fas fa-users me-3"></i>
                     <span class="sidebar-text">Kelola Pelamar</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-custom-item">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('company.settings') ? 'active' : '' }}">
                     <i class="fas fa-cog me-3"></i>

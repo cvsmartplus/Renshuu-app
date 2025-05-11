@@ -3,9 +3,9 @@ import ResponsiveNavLink from "./ResponsiveNavLink";
 export default function NavLink() {
     return (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto align-items-center">
+            <ul className="navbar-nav ms-auto mt-3 mt-lg-0">
                 <li className="nav-item">
-                    <ResponsiveNavLink href="/" active={route().current("/")} className="nav-link mx-2">
+                    <ResponsiveNavLink href="/" active={route().current("/")} className="nav-link">
                         Beranda
                     </ResponsiveNavLink>
                 </li>

@@ -49,16 +49,16 @@ export default function NavBar() {
                     <NavLink />
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto align-items-center">
+                        <ul className="navbar-nav ms-auto ">
                             <li className="nav-item border-end border-grey pe-3">
+                            {user && (
                                 <button type="button" className="btn position-relative">
                                     <FaRegBell />
-                                    {user && (
                                         <span className="position-absolute translate-middle p-1 bg-danger rounded-circle">
                                             <span className="visually-hidden">New alerts</span>
                                         </span>
-                                    )}
-                                </button>
+                                    </button>
+                                )}
                             </li>
 
                             {user ? (

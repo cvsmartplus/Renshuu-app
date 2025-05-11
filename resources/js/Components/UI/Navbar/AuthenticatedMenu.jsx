@@ -36,7 +36,6 @@ export default function AuthenticatedMenu({ user }) {
         }
         : null;
 
-    // Gaya default avatar
     let avatarStyle = {
         width: "30px",
         height: "30px",
@@ -46,7 +45,6 @@ export default function AuthenticatedMenu({ user }) {
         borderRadius: "50%",
     };
 
-    // Terapkan crop manual jika ada
     if (hasAvatar && crop && originalSize) {
         const scaleX = 30 / crop.width;
         const scaleY = 30 / crop.height;

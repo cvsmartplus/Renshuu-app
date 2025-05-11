@@ -9,7 +9,7 @@ export default function ResponsiveNavLink({
     return (
         <Link
             {...props}
-            className={`nav-link mx-2 position-relative custom-navlink ${active ? "active-link" : "inactive-link"} ${className}`}
+            className={`nav-link position-relative custom-navlink ${active ? "active-link" : "inactive-link"} ${className}`}
         >
             <span className="nav-text">{children}</span>
         </Link>

@@ -2,7 +2,11 @@
 
 @section('content')
       <div class="container">
-        <div class="row">
+        <div class="mt-3">
+            <h2>Hai {{ auth()->user()->name }}!</h2>
+            <p>Selamat datang di halaman dashboard admin, berikut adalah beberapa informasi penting:</p>
+      </div>
+        <div class="row g-2 mt-3">
           <div class="col-xl-4 col-lg-4">
               <x-dashboard-card 
                   title="Total Anggota" 
@@ -33,12 +37,27 @@
                   icon-bg="#5e6600" 
                   route="{{ route('admin.articles') }}"/>
           </div>
+          <div class="col-xl-4 col-lg-4">
+            <x-dashboard-card 
+                title="Total Lowongan" 
+                value="{{ $jobs }}" 
+                growth="{{ $jobsGrowth }}" 
+                bg-gradient="#f0e0fa, #ffffff" 
+                icon="fas fa-briefcase" 
+                icon-bg="#5b0080" 
+                route="{{ route('admin.jobs') }}"/>
+        </div>
+        <div class="col-xl-4 col-lg-4">
+            <x-dashboard-card 
+                title="Perusahaan Terverifikasi" 
+                value="{{ $companies }}" 
+                growth="{{ $companiesGrowth }}" 
+                bg-gradient="#e0ecfa, #ffffff" 
+                icon="fas fa-building" 
+                icon-bg="#004080" 
+                route="#"/>
+        </div>
       </div>
-      <div class="mt-3">
-        <h2>Hai {{ auth()->user()->name }}!</h2>
-        <p>Selamat datang di halaman dashboard admin, berikut adalah beberapa informasi penting:</p>
-      </div>
-
       <div class="row">
         <div class="col-lg-6">
           <x-chart-box id="ChartUser" title="Perkembangan Anggota" subtitle="Berdasarkan bulan lalu" />
@@ -55,11 +74,13 @@
 
 @push('scripts')
 <script>
-  const labels = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+    const labels = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
 
-  const userData = @json($userData);
-  const courseData = @json($courseData);
-  const articleData = @json($articleData);
+    const userData = @json($userData);
+    const courseData = @json($courseData);
+    const articleData = @json($articleData);
+    
+    
 
   new Chart(document.getElementById('ChartUser'), {
       type: 'line',

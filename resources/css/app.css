@@ -7012,11 +7012,11 @@ progress {
   color: #062A78 !important;
 }
 
-.nav-item {
+.nav-custom-item {
   display: block;
   width: 100%;
 }
-.nav-item .nav-bluelink {
+.nav-custom-item .nav-bluelink {
   display: flex;
   align-items: center;
   width: 100%;
@@ -7026,15 +7026,15 @@ progress {
   border-radius: 0.35rem;
   transition: all 0.3s ease;
 }
-.nav-item .nav-bluelink.active {
+.nav-custom-item .nav-bluelink.active {
   background-color: #062A78;
   color: white;
 }
-.nav-item .nav-bluelink:hover {
+.nav-custom-item .nav-bluelink:hover {
   background-color: rgb(7.2142857143, 50.5, 144.2857142857);
   color: white;
 }
-.nav-item:hover .nav-bluelink {
+.nav-custom-item:hover .nav-bluelink {
   background-color: rgb(8.4285714286, 59, 168.5714285714);
   color: white;
 }

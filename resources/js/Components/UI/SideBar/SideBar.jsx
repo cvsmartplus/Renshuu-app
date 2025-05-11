@@ -23,7 +23,7 @@ export default function SideBar({ isOpen, isMobile, menuItems = [] }) {
                     {menuItems.map((item, index) => {
                         const isActive = window.location.pathname === new URL(item.route, window.location.origin).pathname;
                         return (
-                            <li key={index} className="nav-item mb-3">
+                            <li key={index} className="nav-custom-item mb-3">
                                 <Link
                                     href={item.route}
                                     className={`nav-bluelink d-flex align-items-center ${isActive ? "active" : ""}`}

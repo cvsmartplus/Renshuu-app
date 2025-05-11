@@ -12,7 +12,7 @@ export default function CourseCard({ course }) {
         <h5 className="card-title fs-4 mb-3">{course.title}</h5>
         <p className="card-text flex-grow-1">{course.description}</p>
         <div className="d-flex align-items-center mb-2">
-            <FaUser /> {course.student}
+            <FaUser className="me-2"/> {course.student}
         </div>
         <hr />
         <div className="d-flex justify-content-between">
