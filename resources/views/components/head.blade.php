@@ -9,8 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     {{-- chart js --}}
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    
+    {{-- data tables --}}
+    <link rel="stylesheet"  href="{{ asset('assets/css/lib/dataTables.min.css') }}">
 
     {{-- Load CSS and JS via Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])

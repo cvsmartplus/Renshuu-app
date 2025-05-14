@@ -14,55 +14,56 @@
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('admin.dashboard') }}"
                    class="nav-bluelink {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                    <i class="fas fa-home me-3"></i>
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('admin.courses')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.courses') ? 'active' : '' }}">
-                    <i class="fas fa-book me-3"></i>
+                    <iconify-icon icon="solar:book-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Kursus</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{route('admin.jobs')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.jobs') ? 'active' : '' }}">
-                    <i class="fas fa-briefcase me-3"></i>
+                    <iconify-icon icon="tabler:briefcase-2" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Pekerjaan</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{route('admin.articles')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.articles') ? 'active' : '' }}">
-                    <i class="fas fa-book me-3"></i>
+                    <iconify-icon icon="solar:document-text-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Artikel</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('admin.company') ? 'active' : '' }}">
-                        <i class="fa-solid fa-building me-3"></i>
+                    <iconify-icon icon="solar:buildings-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Perusahaan</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
-                <a href="#"
-                   class="nav-bluelink {{ request()->routeIs('admin.user') ? 'active' : '' }}">
-                        <i class="fa-solid fa-building me-3"></i>
-                    <span class="sidebar-text">Pengguna</span>
+                <a href="{{route('admin.users')}}"
+                   class="nav-bluelink {{ request()->routeIs('admin.users') ? 'active' : '' }}">
+                    <iconify-icon icon="solar:users-group-rounded-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <span class="sidebar-text">Akun Terdaftar</span>
                 </a>
             </li>
             <li class="nav-custom-item">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('admin.settings') ? 'active' : '' }}">
-                    <i class="fas fa-cog me-3"></i>
+                    <iconify-icon icon="solar:settings-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Pengaturan</span>
                 </a>
             </li>
         </ul>
     </nav>
 </aside>
+
 
 <div id="overlay" class="d-none"></div>
 

@@ -9,7 +9,7 @@
                 </a>
                 <h4 class="mb-2 text-black">Dashboard</h4>
                 <p class="text-darkblue">
-                    Hai Company Admin! Selamat datang di dashboard
+                    Hai {{ $user->name }}! Selamat datang di dashboard
                 </p>
             </div>
         </div>

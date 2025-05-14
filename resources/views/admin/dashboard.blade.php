@@ -6,14 +6,14 @@
             <h2>Hai {{ auth()->user()->name }}!</h2>
             <p>Selamat datang di halaman dashboard admin, berikut adalah beberapa informasi penting:</p>
       </div>
-        <div class="row g-2 mt-3">
+    <div class="row g-2 mt-3">
           <div class="col-xl-4 col-lg-4">
               <x-dashboard-card 
                   title="Total Anggota" 
                   value="{{ $users }}" 
                   growth="{{ $growth }}" 
                   bg-gradient="#e0f7fa, #ffffff" 
-                  icon="fas fa-users" 
+                  icon="gridicons:multiple-users" 
                   icon-bg="#003366" 
                   route="{{ route('admin.dashboard') }}"/>
           </div>
@@ -23,7 +23,7 @@
                   value="{{ $courses }}" 
                   growth="{{ $coursesGrowth }}" 
                   bg-gradient="#e0fae9, #ffffff" 
-                  icon="fas fa-graduation-cap" 
+                  icon="material-symbols:menu-book-outline-rounded" 
                   icon-bg="#00662a" 
                   route="{{ route('admin.courses') }}"/>
           </div>
@@ -33,7 +33,7 @@
                   value="{{ $articles }}" 
                   growth="{{ $articlesGrowth }}" 
                   bg-gradient="#f8fae0, #ffffff" 
-                  icon="fas fa-newspaper" 
+                  icon="material-symbols:article-outline" 
                   icon-bg="#5e6600" 
                   route="{{ route('admin.articles') }}"/>
           </div>
@@ -43,7 +43,7 @@
                 value="{{ $jobs }}" 
                 growth="{{ $jobsGrowth }}" 
                 bg-gradient="#f0e0fa, #ffffff" 
-                icon="fas fa-briefcase" 
+                icon="mdi:briefcase-outline" 
                 icon-bg="#5b0080" 
                 route="{{ route('admin.jobs') }}"/>
         </div>
@@ -53,7 +53,7 @@
                 value="{{ $companies }}" 
                 growth="{{ $companiesGrowth }}" 
                 bg-gradient="#e0ecfa, #ffffff" 
-                icon="fas fa-building" 
+                icon="iconoir:building" 
                 icon-bg="#004080" 
                 route="#"/>
         </div>

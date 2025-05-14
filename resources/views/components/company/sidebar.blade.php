@@ -14,7 +14,7 @@
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('company.dashboard') }}"
                    class="nav-bluelink {{ request()->routeIs('company.dashboard') ? 'active' : '' }}">
-                    <i class="fas fa-home me-3"></i>
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
                     <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
