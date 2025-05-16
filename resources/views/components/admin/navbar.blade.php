@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <div class="container-fluid">
         <button id="sidebarToggle" class="btn me-3" type="button">
             <iconify-icon icon="solar:hamburger-menu-outline" width="28" height="28"></iconify-icon>

@@ -8,15 +8,14 @@
                 value="{{ $courses }}" 
                 growth="{{ $coursesGrowth }}" 
                 bg-gradient="#e0fae9, #ffffff" 
-                icon="fas fa-graduation-cap" 
+                icon="material-symbols:menu-book-outline-rounded" 
                 icon-bg="#00662a" 
                 route="{{ route('admin.courses') }}"/>
         </div>
-        
-        <div class="row">
-            <div class="col-lg-6">
-                <x-chart-box id="ChartCourse" title="Perkembangan Kursus" subtitle="Berdasarkan bulan lalu" />
-            </div>
+        <div>
+            <p>
+                {{ $coursesList }}
+            </p>
         </div>
     </div>
 @endsection

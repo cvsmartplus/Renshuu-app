@@ -14,14 +14,14 @@
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('company.dashboard') }}"
                    class="nav-bluelink {{ request()->routeIs('company.dashboard') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('company.jobs') ? 'active' : '' }}">
-                    <i class="fas fa-briefcase me-3"></i>
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon me-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Kelola Pekerjaan</span>
                 </a>
             </li>

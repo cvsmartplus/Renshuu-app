@@ -14,49 +14,49 @@
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('admin.dashboard') }}"
                    class="nav-bluelink {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{ route('admin.courses')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.courses') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:book-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:book-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Kursus</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{route('admin.jobs')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.jobs') ? 'active' : '' }}">
-                    <iconify-icon icon="tabler:briefcase-2" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="tabler:briefcase-2" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Pekerjaan</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{route('admin.articles')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.articles') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:document-text-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:document-text-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Artikel</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('admin.company') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:buildings-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:buildings-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Perusahaan</span>
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
                 <a href="{{route('admin.users')}}"
                    class="nav-bluelink {{ request()->routeIs('admin.users') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:users-group-rounded-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:users-group-rounded-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Akun Terdaftar</span>
                 </a>
             </li>
             <li class="nav-custom-item">
                 <a href="#"
                    class="nav-bluelink {{ request()->routeIs('admin.settings') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:settings-outline" class="menu-icon me-2 fs-5"></iconify-icon>
+                    <iconify-icon icon="solar:settings-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
                     <span class="sidebar-text">Pengaturan</span>
                 </a>
             </li>

@@ -4,7 +4,6 @@
 <div class="container">
     <h1>Daftar Pengguna</h1>
 
-    {{-- Dashboard Cards --}}
     <div class="row g-2 mb-5 mt-3">
         <div class="col-xl-4 col-lg-4">
             <x-dashboard-card 
@@ -32,38 +31,54 @@
         <ul class="nav nav-tabs mb-3" id="userTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pengguna-tab" data-bs-toggle="tab" data-bs-target="#pengguna" type="button" role="tab">Pengguna</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="perusahaan-tab" data-bs-toggle="tab" data-bs-target="#perusahaan" type="button" role="tab">Perusahaan</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab">Admin</button>
-        </li>
-    </ul>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="perusahaan-tab" data-bs-toggle="tab" data-bs-target="#perusahaan" type="button" role="tab">Perusahaan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab">Admin</button>
+            </li>
+        </ul>
 
-    <div class="tab-content" id="userTabsContent">
-        <div class="tab-pane fade show active" id="pengguna" role="tabpanel">
-            @include('admin.partials.user-table', ['users' => $user->where('role', 'user')])
-        </div>
+        <div class="tab-content" id="userTabsContent">
+            <div class="tab-pane fade show active" id="pengguna" role="tabpanel">
+                @include('admin.partials.user-table', ['users' => $user->where('role', 'user')])
+            </div>
 
-        <div class="tab-pane fade" id="perusahaan" role="tabpanel">
-            @include('admin.partials.user-table', ['users' => $user->where('role', 'company')])
-        </div>
+            <div class="tab-pane fade" id="perusahaan" role="tabpanel">
+                @include('admin.partials.user-table', ['users' => $user->where('role', 'company')])
+            </div>
         
-        <div class="tab-pane fade" id="admin" role="tabpanel">
-            @include('admin.partials.user-table', ['users' => $user->where('role', 'admin')])
+            <div class="tab-pane fade" id="admin" role="tabpanel">
+                @include('admin.partials.user-table', ['users' => $user->where('role', 'admin')])
+            </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
 @endsection
 
 @push('scripts')
 <script>
     $(document).ready(function () {
-        // Initialize DataTables for all tables with class .user-datatable
         $('.user-datatable').DataTable({
             paging: true,
+            autoWidth: true,
+            fixedHeader: false,
+
+            buttons: ['excel', 'csvHtml5', 'print', ],
+            initComplete: function () {
+                var btns = $('.dt-button');
+                btns.addClass('btn-darkblue btn-sm');
+                btns.removeClass('dt-button');
+
+            },
+            layout: {
+                topStart:
+                    ['search', 'buttons']
+                ,
+                topEnd: null
+            },
+            responsive: true
         });
     });
 </script>
