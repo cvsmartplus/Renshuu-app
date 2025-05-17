@@ -1,9 +1,9 @@
 import { useForm } from '@inertiajs/react';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
+import InputField from './ReusableFormComponents/InputField';
 
 export default function ChangePasswordForm() {
-    const { data, setData, put, processing, errors, reset, recentlySuccessful } = useForm({
+    const { data, setData, put, processing, errors, reset } = useForm({
         current_password: '',
         password: '',
         password_confirmation: '',
@@ -18,10 +18,6 @@ export default function ChangePasswordForm() {
                 toast.success("Password berhasil diperbarui", {
                     position: "top-right",
                     autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
                 });
                 reset();
             },
@@ -39,42 +35,36 @@ export default function ChangePasswordForm() {
             <div className="card-body">
                 <h5 className="mb-3 fw-semibold">Ganti Kata Sandi</h5>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label className="form-label">Password Lama</label>
-                        <input
-                            type="password"
-                            name="current_password"
-                            className={`form-control ${errors.current_password ? 'is-invalid' : ''}`}
-                            onChange={(e) => setData('current_password', e.target.value)}
-                        />
-                        {errors.current_password && (
-                            <div className="invalid-feedback">{translateErrors.current_password}</div>
-                        )}
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Password Baru</label>
-                        <input
-                            type="password"
-                            name="password"
-                            className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                            onChange={(e) => setData('password', e.target.value)}
-                        />
-                        {errors.password && (
-                            <div className="invalid-feedback">{translateErrors.password}</div>
-                        )}
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Konfirmasi Password Baru</label>
-                        <input
-                            type="password"
-                            name="password_confirmation"
-                            className={`form-control ${errors.password_confirmation ? 'is-invalid' : ''}`}
-                            onChange={(e) => setData('password_confirmation', e.target.value)}
-                        />
-                        {errors.password_confirmation && (
-                            <div className="invalid-feedback">{translateErrors.password_confirmation}</div>
-                        )}
-                    </div>
+                    <InputField
+                        id="current_password"
+                        label="Password Lama"
+                        type="password"
+                        value={data.current_password}
+                        onChange={(e) => setData('current_password', e.target.value)}
+                        error={errors.current_password && translateErrors.current_password}
+                        required
+                    />
+
+                    <InputField
+                        id="password"
+                        label="Password Baru"
+                        type="password"
+                        value={data.password}
+                        onChange={(e) => setData('password', e.target.value)}
+                        error={errors.password && translateErrors.password}
+                        required
+                    />
+
+                    <InputField
+                        id="password_confirmation"
+                        label="Konfirmasi Password Baru"
+                        type="password"
+                        value={data.password_confirmation}
+                        onChange={(e) => setData('password_confirmation', e.target.value)}
+                        error={errors.password_confirmation && translateErrors.password_confirmation}
+                        required
+                    />
+
                     <button className="btn btn-warning w-100" disabled={processing}>
                         {processing ? 'Mengganti...' : 'Ganti Password'}
                     </button>

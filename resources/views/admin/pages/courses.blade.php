@@ -1,5 +1,7 @@
 @extends('admin.layout.layoutAdmin')
 
+@section('title', 'Manajemen Kursus | Admin')
+
 @section('content')
     <div class="container">
         <div class="col-xl-4 col-lg-4">

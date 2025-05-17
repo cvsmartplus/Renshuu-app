@@ -1,5 +1,6 @@
 import { useForm } from '@inertiajs/react';
 import { useImperativeHandle, forwardRef } from 'react';
+import InputField from './ReusableFormComponents/InputField';
 
 const AddEducationForm = forwardRef(({ onClose }, ref) => {
     const { data, setData, post, processing, errors } = useForm({
@@ -17,7 +18,7 @@ const AddEducationForm = forwardRef(({ onClose }, ref) => {
         if (e) e.preventDefault();
         post(route('profile.education.store'), {
             onSuccess: () => {
-                onClose(),
+                onClose();
                 location.reload();
             },
         });
@@ -30,103 +31,91 @@ const AddEducationForm = forwardRef(({ onClose }, ref) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <select
-                    className={`form-control ${errors.degree ? 'is-invalid' : ''}`}
-                    value={data.degree}
-                    onChange={(e) => setData('degree', e.target.value)}
-                >
-                    <option value="">Pilih Jenjang</option>
-                    <option value="SD">SD</option>
-                    <option value="SMP">SMP</option>
-                    <option value="SMA">SMA</option>
-                    <option value="SMK">SMK</option>
-                    <option value="D1">D1</option>
-                    <option value="D2">D2</option>
-                    <option value="D3">D3</option>
-                    <option value="S1">S1 (Sarjana)</option>
-                    <option value="S2">S2 (Magister)</option>
-                    <option value="S3">S3 (Doktor)</option>
-                </select>
-                {errors.degree && <div className="invalid-feedback">{errors.degree}</div>}
-            </div>
+            <InputField
+                id="degree"
+                label="Jenjang Pendidikan"
+                type="select"
+                value={data.degree}
+                onChange={(e) => setData('degree', e.target.value)}
+                error={errors.degree}
+                options={[
+                    { value: 'SD', label: 'SD' },
+                    { value: 'SMP', label: 'SMP' },
+                    { value: 'SMA', label: 'SMA' },
+                    { value: 'SMK', label: 'SMK' },
+                    { value: 'D1', label: 'D1' },
+                    { value: 'D2', label: 'D2' },
+                    { value: 'D3', label: 'D3' },
+                    { value: 'S1', label: 'S1 (Sarjana)' },
+                    { value: 'S2', label: 'S2 (Magister)' },
+                    { value: 'S3', label: 'S3 (Doktor)' },
+                ]}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Bidang Studi</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors.field_of_study ? 'is-invalid' : ''}`}
-                    value={data.field_of_study}
-                    onChange={(e) => setData('field_of_study', e.target.value)}
-                />
-                {errors.field_of_study && <div className="invalid-feedback">{errors.field_of_study}</div>}
-            </div>
+            <InputField
+                id="field_of_study"
+                label="Bidang Studi"
+                value={data.field_of_study}
+                onChange={(e) => setData('field_of_study', e.target.value)}
+                error={errors.field_of_study}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Institusi</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors.institution ? 'is-invalid' : ''}`}
-                    value={data.institution}
-                    onChange={(e) => setData('institution', e.target.value)}
-                />
-                {errors.institution && <div className="invalid-feedback">{errors.institution}</div>}
-            </div>
+            <InputField
+                id="institution"
+                label="Institusi"
+                value={data.institution}
+                onChange={(e) => setData('institution', e.target.value)}
+                error={errors.institution}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Judul (Title)</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors.title ? 'is-invalid' : ''}`}
-                    value={data.title}
-                    onChange={(e) => setData('title', e.target.value)}
-                />
-                {errors.title && <div className="invalid-feedback">{errors.title}</div>}
-            </div>
+            <InputField
+                id="title"
+                label="Judul (Title)"
+                value={data.title}
+                onChange={(e) => setData('title', e.target.value)}
+                error={errors.title}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Nilai / IPK</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors.grade ? 'is-invalid' : ''}`}
-                    value={data.grade}
-                    onChange={(e) => setData('grade', e.target.value)}
-                />
-                {errors.grade && <div className="invalid-feedback">{errors.grade}</div>}
-            </div>
+            <InputField
+                id="grade"
+                label="Nilai / IPK"
+                value={data.grade}
+                onChange={(e) => setData('grade', e.target.value)}
+                error={errors.grade}
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Tanggal Mulai</label>
-                <input
-                    type="date"
-                    className={`form-control ${errors.start_date ? 'is-invalid' : ''}`}
-                    value={data.start_date}
-                    onChange={(e) => setData('start_date', e.target.value)}
-                />
-                {errors.start_date && <div className="invalid-feedback">{errors.start_date}</div>}
-            </div>
+            <InputField
+                id="start_date"
+                label="Tanggal Mulai"
+                type="date"
+                value={data.start_date}
+                onChange={(e) => setData('start_date', e.target.value)}
+                error={errors.start_date}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Tanggal Selesai</label>
-                <input
-                    type="date"
-                    className={`form-control ${errors.end_date ? 'is-invalid' : ''}`}
-                    value={data.end_date}
-                    onChange={(e) => setData('end_date', e.target.value)}
-                />
-                {errors.end_date && <div className="invalid-feedback">{errors.end_date}</div>}
-            </div>
+            <InputField
+                id="end_date"
+                label="Tanggal Selesai"
+                type="date"
+                value={data.end_date}
+                onChange={(e) => setData('end_date', e.target.value)}
+                error={errors.end_date}
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Deskripsi (Opsional)</label>
-                <textarea
-                    className={`form-control ${errors.description ? 'is-invalid' : ''}`}
-                    value={data.description}
-                    onChange={(e) => setData('description', e.target.value)}
-                    rows="3"
-                ></textarea>
-                {errors.description && <div className="invalid-feedback">{errors.description}</div>}
-            </div>
+            <InputField
+                id="description"
+                label="Deskripsi (Opsional)"
+                type="textarea"
+                value={data.description}
+                onChange={(e) => setData('description', e.target.value)}
+                error={errors.description}
+                rows={3}
+            />
         </form>
     );
 });

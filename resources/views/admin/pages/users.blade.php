@@ -1,5 +1,7 @@
 @extends('admin.layout.layoutAdmin')
 
+@section('title', 'Manajemen Pengguna | Admin')
+
 @section('content')
 <div class="container">
     <h1>Daftar Pengguna</h1>

@@ -1,4 +1,5 @@
 import { useForm } from "@inertiajs/react";
+import InputField from "./ReusableFormComponents/InputField";
 
 export default function ExperienceEditForm({ experience, onClose }) {
     const { data, setData, put, processing, errors } = useForm({
@@ -21,7 +22,6 @@ export default function ExperienceEditForm({ experience, onClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         put(route("profile.experience.update"), {
             preserveScroll: true,
             onSuccess: () => onClose(),
@@ -32,69 +32,52 @@ export default function ExperienceEditForm({ experience, onClose }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label className="form-label">Jabatan / Posisi</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors["experience.0.title"] ? "is-invalid" : ""}`}
-                    value={exp.title}
-                    onChange={(e) => handleChange("title", e.target.value)}
-                />
-                {errors["experience.0.title"] && (
-                    <div className="invalid-feedback">{errors["experience.0.title"]}</div>
-                )}
-            </div>
+            <InputField
+                id="title"
+                label="Jabatan / Posisi"
+                value={exp.title}
+                onChange={(e) => handleChange("title", e.target.value)}
+                error={errors["experience.0.title"]}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Perusahaan</label>
-                <input
-                    type="text"
-                    className={`form-control ${errors["experience.0.company"] ? "is-invalid" : ""}`}
-                    value={exp.company}
-                    onChange={(e) => handleChange("company", e.target.value)}
-                />
-                {errors["experience.0.company"] && (
-                    <div className="invalid-feedback">{errors["experience.0.company"]}</div>
-                )}
-            </div>
+            <InputField
+                id="company"
+                label="Perusahaan"
+                value={exp.company}
+                onChange={(e) => handleChange("company", e.target.value)}
+                error={errors["experience.0.company"]}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Tanggal Mulai</label>
-                <input
-                    type="date"
-                    className={`form-control ${errors["experience.0.start_date"] ? "is-invalid" : ""}`}
-                    value={exp.start_date?.split("T")[0] || ""}
-                    onChange={(e) => handleChange("start_date", e.target.value)}
-                />
-                {errors["experience.0.start_date"] && (
-                    <div className="invalid-feedback">{errors["experience.0.start_date"]}</div>
-                )}
-            </div>
+            <InputField
+                id="start_date"
+                label="Tanggal Mulai"
+                type="date"
+                value={exp.start_date?.split("T")[0] || ""}
+                onChange={(e) => handleChange("start_date", e.target.value)}
+                error={errors["experience.0.start_date"]}
+                required
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Tanggal Selesai (kosongkan jika masih bekerja)</label>
-                <input
-                    type="date"
-                    className={`form-control ${errors["experience.0.end_date"] ? "is-invalid" : ""}`}
-                    value={exp.end_date?.split("T")[0] || ""}
-                    onChange={(e) => handleChange("end_date", e.target.value)}
-                />
-                {errors["experience.0.end_date"] && (
-                    <div className="invalid-feedback">{errors["experience.0.end_date"]}</div>
-                )}
-            </div>
+            <InputField
+                id="end_date"
+                label="Tanggal Selesai (kosongkan jika masih bekerja)"
+                type="date"
+                value={exp.end_date?.split("T")[0] || ""}
+                onChange={(e) => handleChange("end_date", e.target.value)}
+                error={errors["experience.0.end_date"]}
+            />
 
-            <div className="mb-3">
-                <label className="form-label">Deskripsi</label>
-                <textarea
-                    className={`form-control ${errors["experience.0.description"] ? "is-invalid" : ""}`}
-                    value={exp.description}
-                    onChange={(e) => handleChange("description", e.target.value)}
-                />
-                {errors["experience.0.description"] && (
-                    <div className="invalid-feedback">{errors["experience.0.description"]}</div>
-                )}
-            </div>
+            <InputField
+                id="description"
+                label="Deskripsi"
+                as="textarea"
+                value={exp.description}
+                onChange={(e) => handleChange("description", e.target.value)}
+                error={errors["experience.0.description"]}
+                rows={3}
+            />
 
             <div className="d-flex justify-content-end gap-2">
                 <button type="button" className="btn btn-secondary" onClick={onClose}>

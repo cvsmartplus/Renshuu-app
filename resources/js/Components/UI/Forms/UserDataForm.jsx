@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useForm } from "@inertiajs/react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import InputField from "./ReusableFormComponents/InputField";
 
 const UserDataForm = ({ auth, profile }) => {
   const fullName = auth?.user?.name || "";
@@ -25,49 +26,21 @@ const UserDataForm = ({ auth, profile }) => {
   });
 
   const handleInputChange = (key, value) => {
-    setData(prev => ({
-      ...prev,
-      [key]: value,
-    }));
+    setData(prev => ({ ...prev, [key]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     put(route("profile.update"), {
-      onSuccess: () => {
-        toast.success("Profil berhasil diperbarui!", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-      },
-      onError: () => {
-        toast.error("Gagal menyimpan data. Silakan periksa kembali!", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-      },
+      onSuccess: () => toast.success("Profil berhasil diperbarui!", { autoClose: 2000 }),
+      onError: () => toast.error("Gagal menyimpan data. Silakan periksa kembali!", { autoClose: 2000 }),
     });
   };
 
   useEffect(() => {
-    Object.keys(errors).forEach((key) => {
+    Object.keys(errors).forEach(key => {
       if (errors[key]) {
-        toast.error(errors[key], {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.error(errors[key], { autoClose: 2000 });
       }
     });
   }, [errors]);
@@ -75,7 +48,16 @@ const UserDataForm = ({ auth, profile }) => {
   const fields = [
     { id: "phone", label: "Nomor Telepon", type: "tel", placeholder: "Contoh: 081234567890" },
     { id: "birth_date", label: "Tanggal Lahir", type: "date" },
-    { id: "gender", label: "Jenis Kelamin", type: "select" },
+    {
+      id: "gender",
+      label: "Jenis Kelamin",
+      type: "select",
+      options: [
+        { value: "male", label: "Laki-laki" },
+        { value: "female", label: "Perempuan" },
+        { value: "other", label: "Lainnya" },
+      ]
+    },
     { id: "province", label: "Provinsi", type: "text", placeholder: "Contoh: Jawa Barat" },
     { id: "city", label: "Kota", type: "text", placeholder: "Contoh: Karawang" },
     { id: "website", label: "Website", type: "url", placeholder: "https://example.com" },
@@ -88,64 +70,46 @@ const UserDataForm = ({ auth, profile }) => {
 
       <div className="row g-3">
         <div className="col-md-6">
-          <label htmlFor="first_name" className="form-label">Nama Depan</label>
-          <input
-            type="text"
+          <InputField
             id="first_name"
-            placeholder="Nama depan Anda"
-            className={`form-control ${errors.first_name ? "is-invalid" : ""}`}
+            label="Nama Depan"
             value={data.first_name}
             onChange={(e) => handleInputChange("first_name", e.target.value)}
+            error={errors.first_name}
+            placeholder="Nama depan Anda"
           />
-          {errors.first_name && <div className="invalid-feedback">{errors.first_name}</div>}
         </div>
         <div className="col-md-6">
-          <label htmlFor="last_name" className="form-label">Nama Belakang</label>
-          <input
-            type="text"
+          <InputField
             id="last_name"
-            placeholder="Nama belakang Anda"
-            className={`form-control ${errors.last_name ? "is-invalid" : ""}`}
+            label="Nama Belakang"
             value={data.last_name}
             onChange={(e) => handleInputChange("last_name", e.target.value)}
+            error={errors.last_name}
+            placeholder="Nama belakang Anda"
           />
-          {errors.last_name && <div className="invalid-feedback">{errors.last_name}</div>}
         </div>
       </div>
 
       <div className="row mt-3">
-        {fields.map(({ id, label, type, placeholder }) => (
-          <div className="col-md-6 mb-3" key={id}>
-            <label htmlFor={id} className="form-label">{label}</label>
-            {type === "select" ? (
-              <select
-                id={id}
-                className={`form-select ${errors[id] ? "is-invalid" : ""}`}
-                value={data[id]}
-                onChange={(e) => handleInputChange(id, e.target.value)}
-              >
-                <option value="">Pilih jenis kelamin</option>
-                <option value="male">Laki-laki</option>
-                <option value="female">Perempuan</option>
-                <option value="other">Lainnya</option>
-              </select>
-            ) : (
-              <input
-                type={type}
-                placeholder={placeholder}
-                className={`form-control ${errors[id] ? "is-invalid" : ""}`}
-                id={id}
-                value={
-                  id === "birth_date"
-                    ? data.birth_date
-                      ? data.birth_date.split("T")[0]
-                      : ""
-                    : data[id]
-                }
-                onChange={(e) => handleInputChange(id, e.target.value)}
-              />
-            )}
-            {errors[id] && <div className="invalid-feedback">{errors[id]}</div>}
+        {fields.map(({ id, label, type, placeholder, options }) => (
+          <div className="col-md-6" key={id}>
+            <InputField
+              id={id}
+              label={label}
+              type={type}
+              value={
+                id === "birth_date"
+                  ? data.birth_date
+                    ? data.birth_date.split("T")[0]
+                    : ""
+                  : data[id]
+              }
+              onChange={(e) => handleInputChange(id, e.target.value)}
+              placeholder={placeholder}
+              error={errors[id]}
+              options={options}
+            />
           </div>
         ))}
       </div>
