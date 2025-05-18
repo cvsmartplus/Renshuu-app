@@ -28,5 +28,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::prefix('users')->group( function() {
         Route::get('/', [UsersController::class, 'index'])->name('admin.users');
         Route::get('/detail/{id}', [UsersController::class, 'show'])->name('admin.users.detail');
+        Route::patch('/documents/{id}/{document}/verify', [UsersController::class, 'verify'])->name('admin.users.documents.verify');
     });
 });

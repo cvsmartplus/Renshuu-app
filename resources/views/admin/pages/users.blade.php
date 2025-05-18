@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Daftar Pengguna</h1>
+    <h2>Daftar Pengguna</h2>
 
     <div class="row g-2 mb-5 mt-3">
         <div class="col-xl-4 col-lg-4">
@@ -55,6 +55,9 @@
                 @include('admin.partials.user-table', ['users' => $user->where('role', 'admin')])
             </div>
         </div>
+    </div>
+    <div>
+        <h3>dokumen pengguna belum terverfikasi</h3>
     </div>
 </div>
 @endsection
