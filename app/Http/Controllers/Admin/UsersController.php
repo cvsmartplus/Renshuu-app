@@ -48,7 +48,6 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $document = $user->documents()->findOrFail($documentId);
 
-        // Validasi input jika ditolak
         if ($request->input('action') === 'reject') {
             $request->validate([
                 'rejected_reason' => 'required|string|max:255',
@@ -64,7 +63,6 @@ class UsersController extends Controller
             return redirect()->back()->with('status', 'Dokumen ditolak.');
         }
 
-        // Verifikasi
         $document->update([
             'status' => 'verified',
             'verified_at' => now(),

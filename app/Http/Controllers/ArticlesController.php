@@ -9,7 +9,7 @@ class ArticlesController extends Controller
     //
     public function index()
     {
-        $articles = Article::latest()->get();
+        $articles = Article::where('status', 'published')->latest()->get();
         return inertia('Article', [
             'articles' => $articles
         ]);
@@ -17,12 +17,29 @@ class ArticlesController extends Controller
 
     public function show($slug)
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = Article::with(['author', 'category'])->where('slug', $slug)->firstOrFail();
 
-        $relatedArticles = Article::where('id', '!=', $article->id)
+        $relatedArticles = Article::with(['author', 'category'])
+            ->where('id', '!=', $article->id)
             ->latest()
             ->take(4)
-            ->get();
+            ->get()
+            ->map(function ($a) {
+                return [
+                    'id' => $a->id,
+                    'title' => $a->title,
+                    'slug' => $a->slug,
+                    'excerpt' => $a->excerpt,
+                    'media_path' => $a->media_path,
+                    'published_at' => $a->published_at,
+                    'author' => [
+                        'name' => $a->author->name ?? 'Anonim',
+                    ],
+                    'category' => [
+                        'name' => $a->category->name ?? 'Tanpa Kategori',
+                    ],
+                ];
+            });
 
         return inertia('Article/SingleArticle', [
             'article' => [
@@ -32,10 +49,17 @@ class ArticlesController extends Controller
                 'content' => $article->content,
                 'excerpt' => $article->excerpt,
                 'media_path' => $article->media_path,
-                'created_at' => $article->created_at->format('d M Y'),
-                'author' => $article->author->name ?? 'Anonim',
+                'published_at' => $article->published_at,
+                'reading_time' => $article->reading_time,
+                'views_count' => $article->views_count,
+                'author' => [
+                    'name' => $article->author->name ?? 'Anonim',
+                ],
+                'category' => [
+                    'name' => $article->category->name ?? 'Tanpa Kategori',
+                ],
             ],
-            'relatedArticles' => $relatedArticles
+            'relatedArticles' => $relatedArticles,
         ]);
     }
 }

@@ -2,13 +2,12 @@
 
 @section('title', 'Manajemen Artikel | Admin')
 
-
 @section('content')
 <div class="container mt-4">
     <h2>Manajemen Artikel</h2>
 
     <div class="mb-3 text-end">
-        <a href="#" class="btn-darkblue">+ Tambah Artikel</a>
+        <a href="{{ route('admin.articles.create') }}" class="btn-darkblue">+ Tambah Artikel</a>
     </div>
 
     <div class="table-responsive">
@@ -25,12 +24,12 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($article as $index => $item)
+                @forelse($article as $item)
                 <tr>
-                    <td>{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</td>
+                    <td>{{ $item->id }}</td>
                     <td>{{ $item->title }}</td>
-                    <td>{{ $item->author ?? 'Admin' }}</td>
-                    <td>{{ $item->category ?? '-' }}</td>
+                    <td>{{ $item->author->name ?? 'Admin' }}</td>
+                    <td>{{ $item->category->name ?? '-' }}</td>
                     <td>
                         @if($item->status === 'published')
                             <span class="badge bg-success">Published</span>
@@ -42,7 +41,11 @@
                     <td>
                         <a href="#" class="btn btn-sm btn-info">Lihat</a>
                         <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="#" class="btn btn-sm btn-danger">Hapus</a>
+                        <form action="#" method="POST" style="display:inline-block" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
                     </td>
                 </tr>
                 @empty

@@ -10,19 +10,19 @@ class Features extends Component {
                     id: 1,
                     icon: <FaAward size={32} />,
                     title: 'Dapatkan Sertifikat',
-                    text: 'Lorem ipsum dolor sit amet dui consectetuer adipiscing elit.',
+                    text: 'Raih sertifikat yang diakui secara internasional dan tingkatkan peluang karir Anda.',
                 },
                 {
                     id: 2,
                     icon: <FaGraduationCap size={32} />,
                     title: 'Tingkatkan Skill',
-                    text: 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.',
+                    text: 'Ikuti kursus kami untuk mengembangkan keterampilan baru dan memperdalam pengetahuan Anda.',
                 },
                 {
                     id: 3,
                     icon: <FaSearch size={32} />,
                     title: 'Temukan Pekerjaan',
-                    text: 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.',
+                    text: 'Telusuri berbagai lowongan pekerjaan yang sesuai dengan minat dan keahlian Anda.',
                 },
             ]
         }
@@ -36,7 +36,7 @@ class Features extends Component {
                         {this.state.features.map((feature) => (
                             <div className="col-md-4 col-sm-12 d-flex" key={feature.id}>
                                 <div className="d-flex align-items-center rounded p-3 w-100">
-                                    <div className="me-3 d-flex align-items-center justify-content-center p-3" style={{ width: '60px', height: '60px' }}>
+                                    <div className="me-3 d-flex align-items-center justify-content-center p-3" style={{ width: '100px', height: '100px' }}>
                                         {feature.icon}
                                     </div>
                                     <div>

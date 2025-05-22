@@ -15,6 +15,11 @@
     {{-- data tables --}}
     <link rel="stylesheet"  href="{{ asset('assets/css/lib/datatables.min.css') }}">
 
+    <!-- Text Editor css -->
+    <link rel="stylesheet" href="{{ asset('assets/js/richtexteditor/rte_theme_default.css') }}" />
+    <script type="text/javascript" src="{{ asset('assets/js/richtexteditor/rte.js') }}"></script>
+    <script type="text/javascript" src='{{ asset('assets/js/richtexteditor/plugins/all_plugins.js') }}'></script>
+
     {{-- Load CSS and JS via Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>

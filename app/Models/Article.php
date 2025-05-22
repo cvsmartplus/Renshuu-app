@@ -16,10 +16,16 @@ class Article extends Model
         'content',
         'media_path',
         'status',
-        'excerpt'
+        'excerpt',
+        'category_id',
+        'author_id',
+        'published_at',
+        'reading_time',
+        'seo_title',
+        'meta_description'
     ];
 
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
         static::creating(function ($article) {
@@ -44,5 +50,20 @@ class Article extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
