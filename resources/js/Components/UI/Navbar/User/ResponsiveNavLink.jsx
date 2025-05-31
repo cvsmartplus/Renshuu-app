@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/react";
 
 export default function ResponsiveNavLink({
-    active = false,
     className = "",
     children,
     ...props
@@ -9,7 +8,7 @@ export default function ResponsiveNavLink({
     return (
         <Link
             {...props}
-            className={`nav-link position-relative custom-navlink ${active ? "active-link" : "inactive-link"} ${className}`}
+            className={`nav-link position-relative ${className}`}
         >
             <span className="nav-text">{children}</span>
         </Link>

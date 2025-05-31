@@ -1,48 +1,64 @@
-@import "../../node_modules/bootstrap/scss/functions";
-
+// Font
 $font-family-base: 'Open Sans', sans-serif;
-$ctabtn: #062A78;
-$sidbar:  #C5E2FF;
-$fillcont: #E9F4FF;
-$greycom:  #D9D9D9;
+
+// Grayscale
+$greycom: #D9D9D9;
 $stroke: #BDBDBD;
 
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/variables-dark";
+// Semantic Colors
+$sidbar: #C5E2FF;
+$fillcont: #E9F4FF;
 
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
+// Brand Palette
+$brand-50:  #eff8ff;
+$brand-100: #daefff;
+$brand-200: #bee4ff;
+$brand-300: #91d4ff;
+$brand-400: #5dbbfd;
+$brand-500: #379cfa;
+$brand-600: #217def;
+$brand-700: #175fcb;
+$brand-800: #1b53b2;
+$brand-900: #1c488c;
+$brand-950: #162d55;
 
-@import "../../node_modules/bootstrap/scss/utilities";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/images";
-@import "../../node_modules/bootstrap/scss/containers";
-@import "../../node_modules/bootstrap/scss/grid";
-@import "../../node_modules/bootstrap/scss/helpers";
 
-@import "../../node_modules/bootstrap/scss/utilities/api";
+body {
+  font-family: $font-family-base;
+}
+
 
 .bg-bluesky {
   background-color: $sidbar;
 }
 
+.bg-darkblue {
+  background-color: $brand-950 !important;
+}
+
+.bg-darkblue-subtle {
+  background-color: $brand-950 !important;
+  color: white !important;
+}
+
+.text-darkblue {
+  color: $brand-950 !important;
+}
+
 .btn-darkblue {
-  background-color: $ctabtn;
+  background-color: $brand-950;
   color: #fff;
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   border-radius: 0.5rem;
   border: none;
-  transition: all 0.3s ease-in-out;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: darken($ctabtn, 10%);
+    background-color: darken($brand-900, 10%);
     transform: translateY(-1px);
-    color: white;
-    box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
+    box-shadow: 0 4px 10px rgba($brand-950, 0.3);
   }
 
   &:active,
@@ -58,19 +74,19 @@ $stroke: #BDBDBD;
 
 .btn-outline-darkblue {
   background-color: transparent;
-  color: $ctabtn;
+  color: $brand-950;
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   border-radius: 0.5rem;
-  border: 2px solid $ctabtn;
+  border: 2px solid $brand-900;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 
   &:hover {
-    background-color: $ctabtn;
+    background-color: $brand-950;
     color: white;
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(6, 42, 120, 0.3);
+    box-shadow: 0 4px 10px rgba($brand-950, 0.3);
   }
 
   &:active,
@@ -84,57 +100,42 @@ $stroke: #BDBDBD;
   }
 }
 
-.bg-darkblue {
-  background-color: $ctabtn !important;
-}
-
-.bg-darkblue-subtle {
-  background-color: $ctabtn !important;
-  color: white !important;
-}
-
-.text-darkblue {
-  color: $ctabtn !important;
-}
-
-
 .nav-custom-item {
-    display: block;
+  display: block;
+  width: 100%;
+
+  .nav-bluelink {
+    display: flex;
+    align-items: center;
     width: 100%;
+    padding: 0.6rem 1rem;
+    color: black;
+    text-decoration: none;
+    border-radius: 0.35rem;
+    transition: all 0.3s ease;
 
-    .nav-bluelink {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0.6rem 1rem;
-        color: black;
-        text-decoration: none;
-        border-radius: 0.35rem;
-        transition: all 0.3s ease;
-
-        &.active {
-            background-color: $ctabtn;
-            color: white;
-        }
-
-        &:hover {
-            background-color: lighten($ctabtn, 5%);
-            color: white;
-        }
+    &.active {
+      background-color: $brand-950;
+      color: white;
     }
 
-    &:hover .nav-bluelink {
-        background-color: lighten($ctabtn, 10%);
-        color: white;
+    &:hover {
+      background-color: lighten($brand-950, 5%);
+      color: white;
     }
+  }
+
+  &:hover .nav-bluelink {
+    background-color: lighten($brand-950, 10%);
+    color: white;
+  }
 }
 
 .sidebar-text {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .custom-check-blue {
-  -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -145,8 +146,8 @@ $stroke: #BDBDBD;
   position: relative;
 
   &:checked {
-    background-color: #062A78 !important;
-    border-color: #062A78 !important;
+    background-color: $brand-950 !important;
+    border-color: $brand-950 !important;
 
     &::before {
       color: white;
@@ -158,67 +159,59 @@ $stroke: #BDBDBD;
   }
 }
 
-
-
 .grid-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $sidbar;
-    overflow: hidden;
-  }
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $sidbar;
+  overflow: hidden;
+}
 
-  .grid-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: repeat(50, 1fr);
-    grid-template-rows: repeat(50, 1fr);
-    width: 100%;
-    height: 100%;
-    gap: 1px;
-    z-index: 0;
-  }
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
+  grid-template-rows: repeat(50, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 1px;
+  z-index: 0;
+}
 
-  .grid-box {
-    background-color: rgba(255, 255, 255, 0.318);
-    aspect-ratio: 1;
-    transform: scale(0.9);
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
+.grid-box {
+  background-color: rgba(255, 255, 255, 0.318);
+  aspect-ratio: 1;
+  transform: scale(0.9);
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-  .grid-box:hover {
+  &:hover {
     background-color: rgba(255, 255, 255, 0);
     border-radius: 1px;
   }
+}
 
-  .grid-content {
-    position: relative;
-    z-index: 1;
-  }
+.grid-content {
+  position: relative;
+  z-index: 1;
+}
 
+.avatar-profile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 
-  .avatar-profile {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-  
   @media (min-width: 768px) {
-    .avatar-profile {
-      width: 150px;
-      height: 150px;
-    }
+    width: 150px;
+    height: 150px;
   }
-  
+
   @media (min-width: 1200px) {
-    .avatar-profile {
-      width: 200px;
-      height: 200px;
-    }
+    width: 200px;
+    height: 200px;
   }
-  
+}

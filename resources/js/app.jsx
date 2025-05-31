@@ -1,8 +1,6 @@
-import '../css/app.css';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'croppie/croppie.css';
 import 'react-toastify/dist/ReactToastify.css';
+import '../css/app.css';
 
 import { ToastContainer } from 'react-toastify';
 import { createInertiaApp } from '@inertiajs/react';

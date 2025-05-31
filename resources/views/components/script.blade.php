@@ -5,8 +5,6 @@
 
 <script src="{{ asset('assets/js/lib/dataTables.min.js') }}"></script>
 
-<script src="{{ asset('assets/js/lib/jszip.min.js') }}"></script>
-
 <script src="{{ asset('assets/js/lib/buttons.html5.min.js') }}"></script>
 
 <?php echo (isset($script) ? $script : '') ?>

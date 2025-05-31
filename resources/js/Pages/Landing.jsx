@@ -15,13 +15,13 @@ export default function Welcome() {
                 <Head>
                     <title>Beranda</title>
                 </Head>
-                <Banner />
+                {/* <Banner />
                 <Features />
                 <Counter />
                 <StepFlow />
                 <CourseGrids />
                 <Partner />
-                <ArticleGrid />
+                <ArticleGrid /> */}
             </Layout>
         </>
     );

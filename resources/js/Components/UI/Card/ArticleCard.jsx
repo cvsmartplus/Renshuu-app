@@ -6,8 +6,6 @@ const truncateText = (text, maxLength) => {
 };
 
 const ArticleCard = ({ article }) => {
-  console.log(article);
-  
   return (
     <div className="card h-100 shadow-sm p-2">
       <Link

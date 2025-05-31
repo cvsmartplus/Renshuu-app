@@ -20,6 +20,10 @@
     <script type="text/javascript" src="{{ asset('assets/js/richtexteditor/rte.js') }}"></script>
     <script type="text/javascript" src='{{ asset('assets/js/richtexteditor/plugins/all_plugins.js') }}'></script>
 
-    {{-- Load CSS and JS via Vite --}}
+    <link href="{{ asset('assets/css/lib/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="{{ asset('assets/js/lib/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/bootstrap.min.js') }}"></script>
+    
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>

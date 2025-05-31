@@ -13,7 +13,7 @@ export default function UserDocument({ documents }) {
     const [showCameraModal, setShowCameraModal] = useState(false);
     const [isReplacingKtp, setIsReplacingKtp] = useState(false);
 
-    const ktp = documents?.find((doc) => doc.document_type === 'KTP');
+    const ktp = documents?.find((doc) => doc.document_type === 'ktp');
     const cv = documents?.find((doc) => doc.document_type === 'cv');
 
     return (

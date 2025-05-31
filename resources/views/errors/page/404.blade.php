@@ -12,5 +12,14 @@
     <a href="{{ route('welcome') }}" class="btn-darkblue rounded-pill fw-bold text-jost" style="text-decoration: none">
         Pulang ke Beranda
     </a>
+    <?php
+    if (strpos($_SERVER['SERVER_SOFTWARE'] ?? '', 'frankenphp') !== false) {
+        echo "Running on FrankenPHP";
+    } else {
+        echo "Not using FrankenPHP";
+    }
+
+    ?>
+
 </div>
 @endsection

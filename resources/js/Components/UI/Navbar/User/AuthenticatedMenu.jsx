@@ -2,17 +2,15 @@ import { Link } from "@inertiajs/react";
 
 export default function AuthenticatedMenu({ user }) {
     let dashboardRoute = "#";
-    if (user) {
-        switch (user.role) {
-            case "admin":
-                dashboardRoute = route("admin.dashboard");
-                break;
-            case "company":
-                dashboardRoute = route("company.dashboard");
-                break;
-            default:
-                dashboardRoute = route("user.dashboard");
-        }
+    switch (user?.role) {
+        case "admin":
+            dashboardRoute = route("admin.dashboard");
+            break;
+        case "company":
+            dashboardRoute = route("company.dashboard");
+            break;
+        default:
+            dashboardRoute = route("user.dashboard");
     }
 
     const avatarFile = user?.profile?.avatar
@@ -22,18 +20,18 @@ export default function AuthenticatedMenu({ user }) {
     const hasAvatar = !!user?.profile?.avatar;
     const crop = hasAvatar
         ? {
-            x: user.profile.avatar_crop_x,
-            y: user.profile.avatar_crop_y,
-            width: user.profile.avatar_crop_width,
-            height: user.profile.avatar_crop_height,
-        }
+              x: user.profile.avatar_crop_x,
+              y: user.profile.avatar_crop_y,
+              width: user.profile.avatar_crop_width,
+              height: user.profile.avatar_crop_height,
+          }
         : null;
 
     const originalSize = hasAvatar
         ? {
-            width: user.profile.avatar_image_width,
-            height: user.profile.avatar_image_height,
-        }
+              width: user.profile.avatar_image_width,
+              height: user.profile.avatar_image_height,
+          }
         : null;
 
     let avatarStyle = {
@@ -48,7 +46,6 @@ export default function AuthenticatedMenu({ user }) {
     if (hasAvatar && crop && originalSize) {
         const scaleX = 30 / crop.width;
         const scaleY = 30 / crop.height;
-
         const bgSize = `${originalSize.width * scaleX}px ${originalSize.height * scaleY}px`;
         const bgPosition = `-${crop.x * scaleX}px -${crop.y * scaleY}px`;
 
@@ -62,29 +59,34 @@ export default function AuthenticatedMenu({ user }) {
 
     return (
         <>
-            <li className="nav-item dropdown ms-3">
-                <a className="nav-link mx-2" href={dashboardRoute}>
+            <li className="nav-item">
+                <Link className="nav-link" href={dashboardRoute}>
                     Dashboard
-                </a>
+                </Link>
             </li>
-            <li className="nav-item dropdown ms-3">
-                <Link
-                    className="nav-link dropdown-toggle d-flex align-items-center"
-                    id="navbarDropdown"
-                    role="button"
+            <li className="nav-item dropdown">
+                <button
+                    className="nav-link dropdown-toggle border-0 bg-transparent d-flex align-items-center"
+                    id="userDropdown"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
+                    aria-label="Menu pengguna"
                 >
                     <div style={avatarStyle} />
-                </Link>
-                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
                         <Link className="dropdown-item" href={route("profile.index")}>
                             Profil Saya
                         </Link>
                     </li>
                     <li>
-                        <Link className="dropdown-item" href={route("logout")} method="post" as="button">
+                        <Link
+                            className="dropdown-item"
+                            href={route("logout")}
+                            method="post"
+                            as="button"
+                        >
                             Keluar
                         </Link>
                     </li>

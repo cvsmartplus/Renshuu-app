@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import NavBar from "@/Components/UI/Navbar/Navbar";
+import NavBar from "@/Components/UI/Navbar/User/Navbar";
 import SideBar from "@/Components/UI/SideBar/SideBar";
 import Footer from "@/Components/UI/Footer/Footer";
 import { FaBars, FaTimes } from "react-icons/fa";
