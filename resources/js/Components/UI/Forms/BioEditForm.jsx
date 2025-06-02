@@ -49,7 +49,7 @@ export default function BioEditForm({ onClose, bioValue }) {
                 <button type="button" className="btn btn-secondary me-2" onClick={onClose}>
                     Batal
                 </button>
-                <button type="submit" className="btn-darkblue" disabled={processing}>
+                <button type="submit" className="btn-brand-950" disabled={processing}>
                     {processing ? "Menyimpan..." : "Simpan"}
                 </button>
             </div>

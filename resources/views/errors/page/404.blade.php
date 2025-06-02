@@ -9,7 +9,7 @@
     <p class="text-secondary fs-5">
         Kayaknya halaman ini lagi jalan-jalan entah ke mana... <br> Yuk, balik ke tempat yang bener!
     </p>
-    <a href="{{ route('welcome') }}" class="btn-darkblue rounded-pill fw-bold text-jost" style="text-decoration: none">
+    <a href="{{ route('welcome') }}" class="btn-brand-950 rounded-pill fw-bold text-jost" style="text-decoration: none">
         Pulang ke Beranda
     </a>
     <?php

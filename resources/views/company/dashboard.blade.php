@@ -8,7 +8,7 @@
                     <img src="{{ asset('images/renshuu-logo.png') }}" alt="logo" style="max-width: 200px;">
                 </a>
                 <h4 class="mb-2 text-black">Dashboard</h4>
-                <p class="text-darkblue">
+                <p class="text-brand-950">
                     Hai {{ $user->name }}! Selamat datang di dashboard
                 </p>
             </div>

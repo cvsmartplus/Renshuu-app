@@ -133,7 +133,7 @@
             @if($user->userSkills && $user->userSkills->count())
                 <div class="d-flex flex-wrap">
                     @foreach($user->userSkills as $skill)
-                        <span class="badge bg-darkblue m-1 p-2">{{ $skill->name }}</span>
+                        <span class="badge bg-brand-950 m-1 p-2">{{ $skill->name }}</span>
                     @endforeach
                 </div>
             @else
@@ -184,7 +184,7 @@
                                     </div>
 
                                     @if ($doc->status === 'pending')
-                                        <button class="btn-outline-darkblue mt-3 w-100" data-bs-toggle="modal" data-bs-target="#{{ $modalId }}">
+                                        <button class="btn-outline-brand-950 mt-3 w-100" data-bs-toggle="modal" data-bs-target="#{{ $modalId }}">
                                             Verifikasi / Tolak Dokumen
                                         </button>
                                     @elseif($doc->status === 'rejected' && $doc->rejected_reason)

@@ -13,7 +13,7 @@ export default function Logmod() {
                         <LoginForm />
                         <div className='mt-3'>
                             <p className="text-center">
-                                Belum punya akun? Ayo <Link href={route('register')} className="text-decoration-none text-darkblue">Daftar</Link>
+                                Belum punya akun? Ayo <Link href={route('register')} className="text-decoration-none text-brand-950">Daftar</Link>
                             </p>
                         </div>
                     </div>

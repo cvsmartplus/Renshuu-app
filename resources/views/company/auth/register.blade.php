@@ -82,17 +82,17 @@
                     <input class="form-check-input custom-check-blue me-2" type="checkbox" id="condition" required>
                     <label class="form-check-label" for="condition">
                         Dengan ini saya setuju dengan
-                        <a href="#" class="text-darkblue text-decoration-none">Kebijakan Privasi</a> serta
-                        <a href="#" class="text-darkblue text-decoration-none">Syarat dan Ketentuan</a> Kami.
+                        <a href="#" class="text-brand-950 text-decoration-none">Kebijakan Privasi</a> serta
+                        <a href="#" class="text-brand-950 text-decoration-none">Syarat dan Ketentuan</a> Kami.
                     </label>
                 </div>
 
-                <button type="submit" class="btn-darkblue text-center w-100 radius-12">Daftar</button>
+                <button type="submit" class="btn-brand-950 text-center w-100 radius-12">Daftar</button>
 
                 <div class="mt-4 text-center">
                     <p class="mb-0 text-sm">
                         Sudah punya akun?
-                        <a href="/login" class="text-darkblue fw-semibold">Masuk</a>
+                        <a href="/login" class="text-brand-950 fw-semibold">Masuk</a>
                     </p>
                 </div>
             </form>

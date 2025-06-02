@@ -105,7 +105,7 @@ export default function RegisterForm() {
                 </div>
 
                 <div className="mb-3">
-                    <button type="submit" className="btn-darkblue w-100" disabled={pending}>
+                    <button type="submit" className="btn-brand-950 w-100" disabled={pending}>
                         {pending ? "Loading..." : "Daftar"}
                     </button>
                 </div>

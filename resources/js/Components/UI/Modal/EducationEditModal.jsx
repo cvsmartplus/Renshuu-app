@@ -33,7 +33,7 @@ export default function EducationEditModal({ onClose, educations, onDelete }) {
                                         </div>
                                         <div className="d-flex gap-2">
                                             <button
-                                                className="btn-outline-darkblue"
+                                                className="btn-outline-brand-950"
                                                 onClick={() => setSelectedEducation(edu)}
                                             >
                                                 <FiEdit3 />

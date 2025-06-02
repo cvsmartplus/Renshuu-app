@@ -78,7 +78,7 @@ const SocialLinksForm = ({ profile }) => {
         ))}
       </div>
       <div className="w-100 mt-3">
-        <button type="submit" className="btn-darkblue w-100" disabled={processing}>
+        <button type="submit" className="btn-brand-950 w-100" disabled={processing}>
           {processing ? "Menyimpan..." : "Simpan"}
         </button>
       </div>

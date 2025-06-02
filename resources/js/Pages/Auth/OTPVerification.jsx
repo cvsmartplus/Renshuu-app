@@ -90,7 +90,7 @@ export default function OTPVerification({ email }) {
                                         <p className="fs-6 text-danger">{errors.otp}</p>
                                         <button
                                             type="submit"
-                                            className="btn-darkblue w-100 mt-3 py-2 rounded"
+                                            className="btn-brand-950 w-100 mt-3 py-2 rounded"
                                             disabled={processing}
                                         >
                                             Verifikasi

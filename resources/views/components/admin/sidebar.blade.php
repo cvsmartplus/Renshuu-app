@@ -19,13 +19,6 @@
                 </a>
             </li>
             <li class="nav-custom-item mb-3">
-                <a href="{{ route('admin.courses') }}"
-                class="nav-bluelink {{ request()->is('admin/courses*') ? 'active' : '' }}">
-                    <iconify-icon icon="solar:book-outline" class="menu-icon mx-2 fs-5"></iconify-icon>
-                    <span class="sidebar-text">Kursus</span>
-                </a>
-            </li>
-            <li class="nav-custom-item mb-3">
                 <a href="{{ route('admin.jobs') }}"
                 class="nav-bluelink {{ request()->is('admin/jobs*') ? 'active' : '' }}">
                     <iconify-icon icon="tabler:briefcase-2" class="menu-icon mx-2 fs-5"></iconify-icon>

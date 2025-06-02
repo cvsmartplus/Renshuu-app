@@ -45,7 +45,7 @@ export default function ProfileForm({ auth }) {
 
                     <div className="d-flex justify-content-end">
                         <button
-                            className="btn-darkblue"
+                            className="btn-brand-950"
                             type="submit"
                             disabled={processing}
                         >

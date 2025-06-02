@@ -9,7 +9,7 @@ const ArticleGrid = () => {
         <div className="container text-center my-5">
             <h2 className="fw-bold mb-5">Baca juga informasi beragam informasinya</h2>
             <ArticleGrids articles={articles} />
-            <Link href={route("article.index")} className="btn-darkblue text-decoration-none mt-5">
+            <Link href={route("article.index")} className="btn-brand-950 text-decoration-none mt-5">
                 Lihat Selengkapnya
             </Link>
         </div>

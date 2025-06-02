@@ -7,7 +7,7 @@
     <h2>Manajemen Artikel</h2>
 
     <div class="mb-3 text-end">
-        <a href="{{ route('admin.articles.create') }}" class="btn-darkblue">+ Tambah Artikel</a>
+        <a href="{{ route('admin.articles.create') }}" class="btn-brand-950">+ Tambah Artikel</a>
     </div>
 
     <div class="table-responsive">
@@ -72,7 +72,7 @@
             buttons: ['excel', 'csvHtml5', 'print'],
             initComplete: function () {
                 var btns = $('.dt-button');
-                btns.addClass('btn-darkblue btn-sm');
+                btns.addClass('btn-brand-950 btn-sm');
                 btns.removeClass('dt-button');
             }
         });

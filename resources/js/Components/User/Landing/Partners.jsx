@@ -2,8 +2,8 @@ import React from "react";
 
 const Partner = () => {
   return (
-    <section className="d-flex flex-column align-items-center py-5 bg-bluesky">
-      <h2 className="fw-bold mb-4 text-center">Partner Kami</h2>
+    <section className="d-flex flex-column align-items-center py-5 bg-brand-950">
+      <h2 className="fw-bold mb-4 text-center text-brand-100">Partner Kami</h2>
 
       <div className="d-flex flex-wrap justify-content-center gap-4">
         {[

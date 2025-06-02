@@ -33,7 +33,7 @@ const ArticleCard = ({ article }) => {
         </p>
         <Link
           href={route("article.show", article.slug)}
-          className="text-darkblue text-decoration-none mt-auto"
+          className="text-brand-950 text-decoration-none mt-auto"
         >
           Selengkapnya &gt;
         </Link>

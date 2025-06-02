@@ -90,7 +90,7 @@ export default function EducationEditForm({ education, onCancel, onClose }) {
                 >
                     Batal
                 </button>
-                <button type="submit" className="btn-darkblue">
+                <button type="submit" className="btn-brand-950">
                     Simpan Perubahan
                 </button>
             </div>

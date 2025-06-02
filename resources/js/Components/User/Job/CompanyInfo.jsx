@@ -22,7 +22,7 @@ export default function CompanyInfo({ company, address }) {
                         {address.street}, {address.city}, {address.province}, {address.postal_code}
                     </p>
                     <p className="mb-0">
-                        <a href={company.website} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-darkblue">
+                        <a href={company.website} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-brand-950">
                             {company.website}
                         </a>
                     </p>

@@ -83,7 +83,7 @@ export default function ExperienceEditForm({ experience, onClose }) {
                 <button type="button" className="btn btn-secondary" onClick={onClose}>
                     Batal
                 </button>
-                <button type="submit" className="btn-darkblue" disabled={processing}>
+                <button type="submit" className="btn-brand-950" disabled={processing}>
                     {processing ? "Menyimpan..." : "Simpan"}
                 </button>
             </div>

@@ -35,7 +35,7 @@ export default function SkillSection({ skills, availableSkills }) {
                     {Array.isArray(skills) && skills.length > 0 ? (
                         <div className="d-flex flex-wrap gap-2">
                             {skills.map((skill, idx) => (
-                                <span key={idx} className="badge bg-darkblue-subtle fw-medium px-3 py-2 rounded-pill">
+                                <span key={idx} className="badge bg-brand-950-subtle fw-medium px-3 py-2 rounded-pill">
                                     {skill.name}
                                 </span>
                             ))}

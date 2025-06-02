@@ -1,7 +1,9 @@
-export default function ApplicationLogo(props) {
+export default function ApplicationLogo( {scrolled , ...props} ) {
+    const image = scrolled ? '../images/renshuu-logo.png' : '../images/renshuu-logo-white.png';
+    
     return (
         <>
-            <img src="../images/renshuu-logo.png" alt="Renshuu Logo"
+            <img src={ image }
             {...props}
             />
         </>

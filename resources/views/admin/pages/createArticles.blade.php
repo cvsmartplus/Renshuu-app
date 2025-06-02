@@ -54,7 +54,7 @@
                     <label>Upload Thumbnail</label>
                     <input type="file" name="media_path" class="form-control">
                 </div>
-                <button type="submit" class="btn-darkblue mt-4">Unggah</button>
+                <button type="submit" class="btn-brand-950 mt-4">Unggah</button>
             </form>
         </div>
     </div>

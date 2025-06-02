@@ -34,7 +34,7 @@ export default function AddEducationModal({ onClose }) {
                         </button>
                         <button
                             type="button"
-                            className="btn-darkblue"
+                            className="btn-brand-950"
                             onClick={() => formRef.current?.submit()}
                             disabled={formRef.current?.processing}
                         >

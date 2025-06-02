@@ -106,7 +106,7 @@ export default function ImageUploadModal({ show, onClose, onSave }) {
             <button className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body text-center">
-            <button className="btn-outline-darkblue mb-3" onClick={() => fileRef.current.click()}>
+            <button className="btn-outline-brand-950 mb-3" onClick={() => fileRef.current.click()}>
               <IoMdCloudUpload className="me-2 fs-5" />
               Upload
             </button>
@@ -121,7 +121,7 @@ export default function ImageUploadModal({ show, onClose, onSave }) {
           </div>
           <div className="modal-footer justify-content-between">
             <button className="btn btn-secondary" onClick={onClose}>Batal</button>
-            <button className="btn-darkblue" onClick={handleSave}>Simpan</button>
+            <button className="btn-brand-950" onClick={handleSave}>Simpan</button>
           </div>
         </div>
       </div>

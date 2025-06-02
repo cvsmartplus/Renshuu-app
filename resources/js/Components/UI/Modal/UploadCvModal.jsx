@@ -93,7 +93,7 @@ export default function UploadCvModal({ show, onClose, onFileClick }) {
             <p>Pilih file CV yang akan diunggah (PDF, DOC, DOCX, RTF, TXT, ODT):</p>
             <div className="d-flex flex-column gap-3">
               <button
-                className="btn-darkblue d-flex align-items-center justify-content-center gap-2"
+                className="btn-brand-950 d-flex align-items-center justify-content-center gap-2"
                 onClick={() => document.getElementById('fileInput').click()}
               >
                 <FaUpload /> Unggah File
@@ -111,7 +111,7 @@ export default function UploadCvModal({ show, onClose, onFileClick }) {
               {error && <div className="alert alert-danger mt-3">{error}</div>}
 
               {file && (
-                <button className="btn-darkblue mt-3" onClick={handleUpload}>
+                <button className="btn-brand-950 mt-3" onClick={handleUpload}>
                   Simpan dan Unggah
                 </button>
               )}

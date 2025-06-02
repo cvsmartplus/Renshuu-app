@@ -1,0 +1,38 @@
+.navbar-transparent {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-transparent .navbar-brand,
+.navbar-transparent .navbar-toggler,
+.navbar-transparent .btn,
+.navbar-transparent .nav-link {
+  color: #fff !important;
+}
+
+.navbar-scrolled {
+  background-color: #fff !important;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-scrolled .navbar-brand,
+.navbar-scrolled .navbar-toggler,
+.navbar-scrolled,
+.navbar-scrolled .nav-link {
+  color: #ffffff;
+}
+
+.icon-hover-white:hover {
+  color: white !important;
+}
+
+.dropdown-hover:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-hover .dropdown-menu {
+    margin-top: 0.5rem;
+    display: none;
+    position: absolute;
+}

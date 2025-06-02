@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
-use App\Models\Course;
 use App\Models\User;
 use App\Models\JobPosition;
 use App\Models\Company;
@@ -17,8 +16,6 @@ class AdminController extends Controller
         return view('admin.dashboard', [
             'users' => User::count(),
             'growth' => $this->calculateGrowth(User::class),
-            'courses' => Course::count(),
-            'coursesGrowth' => $this->calculateGrowth(Course::class),
             'articles' => Article::count(),
             'articlesGrowth' => $this->calculateGrowth(Article::class),
             'jobs' => JobPosition::count(),
@@ -26,7 +23,6 @@ class AdminController extends Controller
             'companies' => Company::count(),
             'companiesGrowth' => $this->calculateGrowth(Company::class),
             'userData' => $this->monthlyChartData(User::class),
-            'courseData' => $this->monthlyChartData(Course::class),
             'articleData' => $this->monthlyChartData(Article::class),
             'latestArticles' => Article::latest()->take(5)->get(),
         ]);

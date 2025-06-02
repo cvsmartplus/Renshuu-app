@@ -2,7 +2,6 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\JobController;
@@ -17,12 +16,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');
         })->name('user.dashboard');
-    });
-
-    // Courses routes
-    Route::prefix('courses')->group(function () {
-        Route::get('/', [CourseController::class, 'index'])->name('course.index');
-        Route::get('{slug}', [CourseController::class, 'show'])->name('course.show');
     });
 
     // Jobs routes

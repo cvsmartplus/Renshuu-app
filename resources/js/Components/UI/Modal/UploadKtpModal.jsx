@@ -92,7 +92,7 @@ export default function UploadKtpModal({ show, onClose, onCameraClick, onFileCli
                         <p>Pilih metode upload KTP:</p>
                         <div className="d-flex flex-column gap-3">
                             <button
-                                className="btn-darkblue d-flex align-items-center justify-content-center gap-2"
+                                className="btn-brand-950 d-flex align-items-center justify-content-center gap-2"
                                 onClick={onCameraClick}
                             >
                                 <FaCamera /> Gunakan Kamera
@@ -116,7 +116,7 @@ export default function UploadKtpModal({ show, onClose, onCameraClick, onFileCli
                             {error && <div className="alert alert-danger mt-3">{error}</div>}
 
                             {file && (
-                                <button className="btn-darkblue mt-3" onClick={handleUpload}>
+                                <button className="btn-brand-950 mt-3" onClick={handleUpload}>
                                     Simpan dan Unggah
                                 </button>
                             )}

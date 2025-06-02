@@ -13,11 +13,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::prefix('dashboard')->group( function() {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     });
-
-    Route::prefix('courses')->group( function() {
-        Route::get('/', [CourseController::class, 'index'])->name('admin.courses');
-    });
-
+    
     Route::prefix('jobs')->group( function() {
         Route::get('/', [JobController::class, 'index'])->name('admin.jobs');
     });

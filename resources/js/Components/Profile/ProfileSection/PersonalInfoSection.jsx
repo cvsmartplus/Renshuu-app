@@ -83,7 +83,7 @@ export default function PersonalInfoSection({ profile, auth }) {
                 <div className="mb-3"><strong>Jenis Kelamin:</strong><p className="mb-0">{formatGender(profile?.gender)}</p></div>
                 <div className="mb-3"><strong>Website:</strong>
                     <p className="mb-0">
-                        <a href={profile?.website || "#"} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-darkblue">
+                        <a href={profile?.website || "#"} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-brand-950">
                             {profile?.website || "-"}
                         </a>
                     </p>

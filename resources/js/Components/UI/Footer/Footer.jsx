@@ -6,10 +6,11 @@ export default function Footer() {
             <section className="footer pt-5 ">
                 <div className="footer-mid">
                     <div className="container">
+                        <hr/>
                         <div className="row">
                             <div className="col-xl-3 me-auto col-sm-8">
                                 <div className="footer-logo mb-3">
-                                    <ApplicationLogo className="img-fluid w-50" />
+                                    <ApplicationLogo className="img-fluid w-50" scrolled={true}/>
                                 </div>
                                 <div className="widget footer-widget mb-5 mb-lg-0">
                                     <p>Grand Cikarang City Blok G12 No.4 Bekasi-Indonesia</p>
@@ -60,7 +61,7 @@ export default function Footer() {
                                     className="mb-0 text-center py-3"
                                     style={{ fontSize: "14px", color: "#666" }}
                                 >
-                                    Copyright &copy; {new Date().getFullYear()} Renshuu adalah merek dari <a href="https://cvsmartplus.com" target="_blank" className="text-darkblue">CV Smartplus Indonesia</a>
+                                    Copyright &copy; {new Date().getFullYear()} Renshuu adalah merek dari <a href="https://cvsmartplus.com" target="_blank" className="text-brand-950">CV Smartplus Indonesia</a>
                                 </p>
                             </div>
                         </div>

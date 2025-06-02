@@ -3,6 +3,6 @@
     <div class="card-body d-flex flex-column text-start">
         <h5 class="card-title fs-5 text-start">{{  $title }}</h5>
         <p class="card-text flex-grow-1 text-start">{{ $excerpt }}</p>
-        <a href="{{ route('#', $slug) }}" class="text-darkblue text-decoration-none">Selengkapnya</a>
+        <a href="{{ route('#', $slug) }}" class="text-brand-950 text-decoration-none">Selengkapnya</a>
     </div>
 </div>

@@ -119,7 +119,7 @@ export default function AddSkillModal({ onClose, availableSkills = [] }) {
                             
                             <div className="mb-2 d-flex flex-wrap gap-2">
                                 {skillList.map((skill, idx) => (
-                                    <span key={idx} className="badge bg-darkblue-subtle text-white d-flex align-items-center">
+                                    <span key={idx} className="badge bg-brand-950-subtle text-white d-flex align-items-center">
                                         {skill}
                                         <button
                                             type="button"
@@ -172,7 +172,7 @@ export default function AddSkillModal({ onClose, availableSkills = [] }) {
                             <button type="button" className="btn btn-secondary" onClick={onClose}>
                                 Batal
                             </button>
-                            <button type="submit" className="btn-darkblue" disabled={processing}>
+                            <button type="submit" className="btn-brand-950" disabled={processing}>
                                 {processing ? "Menyimpan..." : "Simpan"}
                             </button>
                         </div>

@@ -70,7 +70,7 @@ export default function LoginForm({ onSuccess }) {
             </div>
 
             <div className="mb-3">
-                <button type="submit" className="btn-darkblue w-100" disabled={processing}>
+                <button type="submit" className="btn-brand-950 w-100" disabled={processing}>
                     {processing ? "Loading..." : "Login"}
                 </button>
             </div>

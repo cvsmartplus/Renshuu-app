@@ -1,105 +1,112 @@
 // Font
 $font-family-base: 'Open Sans', sans-serif;
 
-// Grayscale
-$greycom: #D9D9D9;
-$stroke: #BDBDBD;
-
-// Semantic Colors
-$sidbar: #C5E2FF;
-$fillcont: #E9F4FF;
-
-// Brand Palette
-$brand-50:  #eff8ff;
-$brand-100: #daefff;
-$brand-200: #bee4ff;
-$brand-300: #91d4ff;
-$brand-400: #5dbbfd;
-$brand-500: #379cfa;
-$brand-600: #217def;
-$brand-700: #175fcb;
-$brand-800: #1b53b2;
-$brand-900: #1c488c;
-$brand-950: #162d55;
-
-
 body {
   font-family: $font-family-base;
 }
 
+// Brand Palette Map
+$brand-colors: (
+  50:   #eff8ff,
+  100: #daefff,
+  200: #bee4ff,
+  300: #91d4ff,
+  400: #5dbbfd,
+  500: #379cfa,
+  600: #217def,
+  700: #175fcb,
+  800: #1b53b2,
+  900: #1c488c,
+  950: #162d55
+);
 
-.bg-bluesky {
-  background-color: $sidbar;
-}
-
-.bg-darkblue {
-  background-color: $brand-950 !important;
-}
-
-.bg-darkblue-subtle {
-  background-color: $brand-950 !important;
-  color: white !important;
-}
-
-.text-darkblue {
-  color: $brand-950 !important;
-}
-
-.btn-darkblue {
-  background-color: $brand-950;
-  color: #fff;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background-color: darken($brand-900, 10%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba($brand-950, 0.3);
+@each $key, $value in $brand-colors {
+  .bg-brand-#{$key} {
+    background-color: #{$value} !important;
   }
 
-  &:active,
-  &:focus {
-    box-shadow: none;
+  .bg-outline-brand-#{$key} {
+    background-color: transparent;
+    border: 2px solid #{$value};
+    &:hover {
+      color: white;
+    }
   }
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  .text-brand-#{$key} {
+    color: #{$value} !important;
   }
 }
 
-.btn-outline-darkblue {
-  background-color: transparent;
-  color: $brand-950;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: 2px solid $brand-900;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
+// Dynamic Brand Buttons
+@each $key, $value in $brand-colors {
+  .btn-brand-#{$key} {
+    background-color: $value;
+    color: #fff; 
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
-  &:hover {
-    background-color: $brand-950;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba($brand-950, 0.3);
+    &:hover {
+      // Darken the color slightly on hover, ensuring it doesn't go below 0% lightness
+      background-color: darken($value, 10%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba($value, 0.3);
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 
-  &:active,
-  &:focus {
-    box-shadow: none;
-  }
+  .btn-outline-brand-#{$key} {
+    background-color: transparent;
+    color: $value; // Text color is the brand color
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid $value; // Border color is the brand color
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-flex; // Ensures padding and height are respected
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    &:hover {
+      background-color: $value; // Fill with brand color on hover
+      color: white; // Text becomes white on hover
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba($value, 0.3);
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 }
 
+
+// Navigation
 .nav-custom-item {
   display: block;
   width: 100%;
@@ -115,26 +122,28 @@ body {
     transition: all 0.3s ease;
 
     &.active {
-      background-color: $brand-950;
+      background-color: map-get($brand-colors, 950);
       color: white;
     }
 
     &:hover {
-      background-color: lighten($brand-950, 5%);
+      background-color: lighten(map-get($brand-colors, 950), 5%);
       color: white;
     }
   }
 
   &:hover .nav-bluelink {
-    background-color: lighten($brand-950, 10%);
+    background-color: lighten(map-get($brand-colors, 950), 10%);
     color: white;
   }
 }
 
+// Sidebar
 .sidebar-text {
   font-size: 1rem;
 }
 
+// Checkbox
 .custom-check-blue {
   appearance: none;
   background-color: #fff;
@@ -146,10 +155,11 @@ body {
   position: relative;
 
   &:checked {
-    background-color: $brand-950 !important;
-    border-color: $brand-950 !important;
+    background-color: map-get($brand-colors, 950) !important;
+    border-color: map-get($brand-colors, 950) !important;
 
     &::before {
+      content: '✓'; // Unicode checkmark
       color: white;
       position: absolute;
       left: 0.25em;
@@ -159,6 +169,7 @@ body {
   }
 }
 
+// Grid Background
 .grid-container {
   position: relative;
   width: 100%;
@@ -166,7 +177,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $sidbar;
+  background-color: map-get($brand-colors, 300);
   overflow: hidden;
 }
 
@@ -200,6 +211,7 @@ body {
   z-index: 1;
 }
 
+// Avatar
 .avatar-profile {
   width: 100px;
   height: 100px;

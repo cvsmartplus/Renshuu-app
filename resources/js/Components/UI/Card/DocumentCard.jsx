@@ -17,7 +17,7 @@ export default function DocumentCard({ title, file, onUpload, onReplace, onDelet
     return (
         <div className="col-md-6">
             <div className="card">
-                <div className="card-header bg-darkblue text-white d-flex justify-content-between align-items-center">
+                <div className="card-header bg-brand-950 text-white d-flex justify-content-between align-items-center">
                     <strong>{title}</strong>
                     {file && getStatusBadge(file.status)}
                 </div>
@@ -59,7 +59,7 @@ export default function DocumentCard({ title, file, onUpload, onReplace, onDelet
 
                     <div className="d-flex justify-content-center gap-2">
                         {!file && (
-                            <button className="btn-darkblue" onClick={onUpload}>
+                            <button className="btn-brand-950" onClick={onUpload}>
                                 Upload
                             </button>
                         )}

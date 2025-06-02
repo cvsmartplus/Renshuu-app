@@ -33,7 +33,7 @@ export default function ForgotPasswordForm({ setIsLoading }) {
             </div>
 
             <div className="d-grid">
-                <button className="btn-darkblue" disabled={processing}>
+                <button className="btn-brand-950" disabled={processing}>
                     <FaPaperPlane className="me-2" />
                     Kirim Link Reset
                 </button>

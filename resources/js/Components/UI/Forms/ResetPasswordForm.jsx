@@ -53,7 +53,7 @@ export default function ResetPasswordForm({ data, setData, post, processing, err
             </div>
 
             <div className="d-grid">
-                <button className="btn-darkblue" disabled={processing}>
+                <button className="btn-brand-950" disabled={processing}>
                     Reset
                 </button>
             </div>

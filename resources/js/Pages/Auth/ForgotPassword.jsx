@@ -47,7 +47,7 @@ export default function ForgotPassword({ status }) {
                 <p>
                     Belum punya akun? Ayo{" "}
                     <Link
-                        className="text-decoration-none text-darkblue"
+                        className="text-decoration-none text-brand-950"
                         href={route("register")}
                     >
                         Daftar

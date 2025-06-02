@@ -73,7 +73,7 @@
             buttons: ['excel', 'csvHtml5', 'print', ],
             initComplete: function () {
                 var btns = $('.dt-button');
-                btns.addClass('btn-darkblue btn-sm');
+                btns.addClass('btn-brand-950 btn-sm');
                 btns.removeClass('dt-button');
 
             },

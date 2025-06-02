@@ -1,7 +1,10 @@
 import { Link } from "@inertiajs/react";
 
-export default function AuthenticatedMenu({ user }) {
+export default function AuthenticatedMenu({ user, scrolled }) {
     let dashboardRoute = "#";
+
+    const textColorClass = scrolled ? "text-dark" : "text-light";
+
     switch (user?.role) {
         case "admin":
             dashboardRoute = route("admin.dashboard");
@@ -59,21 +62,14 @@ export default function AuthenticatedMenu({ user }) {
 
     return (
         <>
-            <li className="nav-item">
-                <Link className="nav-link" href={dashboardRoute}>
-                    Dashboard
-                </Link>
-            </li>
-            <li className="nav-item dropdown">
-                <button
-                    className="nav-link dropdown-toggle border-0 bg-transparent d-flex align-items-center"
+            <li className="nav-item dropdown dropdown-hover position-relative">
+                <div
+                    className={`nav-link border-0 bg-transparent d-flex align-items-center ${textColorClass}`}
                     id="userDropdown"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
                     aria-label="Menu pengguna"
                 >
                     <div style={avatarStyle} />
-                </button>
+                </div>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
                         <Link className="dropdown-item" href={route("profile.index")}>
