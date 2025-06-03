@@ -32,8 +32,6 @@ const Counter = () => {
       className="d-flex flex-column justify-content-center py-5"
       style={{
         background: "linear-gradient(to right, #1c488c, #082f49)",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
-        borderTop: 'none',
       }}
     >
       <div className="container text-center text-white">
@@ -88,11 +86,12 @@ const Card = ({ data }) => {
     <div className="col-12 col-md-4">
       <div
         ref={cardRef}
-        className="p-4 rounded-4 shadow-lg text-white text-center"
+        className="p-4 shadow-lg text-white text-center"
         style={{
           background: "rgba(255, 255, 255, 0.05)",
           backdropFilter: "blur(12px)",
           border: "1px solid rgba(255, 255, 255, 0.1)",
+          borderRadius: '2%',
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
           willChange: "transform, box-shadow",
           minHeight: "250px",

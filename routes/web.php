@@ -3,14 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Article;
+use App\Models\JobPosition;
 
 Route::domain(env('APP_URL'))->group(function () {
         Route::get('/', function () {
         $articles = Article::latest()->take(4)->get();
+        $jobs = JobPosition::latest()->take(4)->get();
 
         return Inertia::render('Landing', [
             'title' => 'Selamat Datang!',
             'articles' => $articles,
+            'jobs' => $jobs
         ]);
     })->middleware('onlyUser')->name('welcome');
 });

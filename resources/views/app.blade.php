@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=open-sans:400,600" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=poppins:200,600" rel="stylesheet" />
 
         <link href="{{ asset('assets/css/lib/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <!-- Scripts -->

@@ -3,9 +3,9 @@ import { Head, usePage } from "@inertiajs/react";
 import Layout from '@/Layouts/Layout';
 import TitlePage from "@/Components/UI/TitlePage";
 import SearchFilterBar from '@/Components/UI/Filter/SearchFilterBar';
-import JobFilters from '@/Components/Job/JobFilters';
-import JobList from '@/Components/Job/JobList';
-import Pagination from '@/Components/Job/Pagination';
+import JobFilters from '@/Components/User/Job/JobFilters';
+import JobList from '@/Components/User/Job/JobList';
+import Pagination from '@/Components/User/Job/Pagination';
 
 export default function Job() {
     const { Jobs } = usePage().props;

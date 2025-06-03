@@ -1,27 +1,19 @@
 import { Link } from "@inertiajs/react";
 
 export default function AuthenticatedMenu({ user, scrolled }) {
-    let dashboardRoute = "#";
-
     const textColorClass = scrolled ? "text-dark" : "text-light";
 
-    switch (user?.role) {
-        case "admin":
-            dashboardRoute = route("admin.dashboard");
-            break;
-        case "company":
-            dashboardRoute = route("company.dashboard");
-            break;
-        default:
-            dashboardRoute = route("user.dashboard");
-    }
+    const dashboardRoute = user?.role === "admin"
+        ? route("admin.dashboard")
+        : user?.role === "company"
+        ? route("company.dashboard")
+        : route("user.dashboard");
 
     const avatarFile = user?.profile?.avatar
         ? `/storage/${user.profile.avatar}`
         : "/images/placeholder/default-profile.jpg";
 
-    const hasAvatar = !!user?.profile?.avatar;
-    const crop = hasAvatar
+    const crop = user?.profile?.avatar
         ? {
               x: user.profile.avatar_crop_x,
               y: user.profile.avatar_crop_y,
@@ -30,7 +22,7 @@ export default function AuthenticatedMenu({ user, scrolled }) {
           }
         : null;
 
-    const originalSize = hasAvatar
+    const originalSize = user?.profile?.avatar
         ? {
               width: user.profile.avatar_image_width,
               height: user.profile.avatar_image_height,
@@ -46,48 +38,43 @@ export default function AuthenticatedMenu({ user, scrolled }) {
         borderRadius: "50%",
     };
 
-    if (hasAvatar && crop && originalSize) {
+    if (crop && originalSize) {
         const scaleX = 30 / crop.width;
         const scaleY = 30 / crop.height;
-        const bgSize = `${originalSize.width * scaleX}px ${originalSize.height * scaleY}px`;
-        const bgPosition = `-${crop.x * scaleX}px -${crop.y * scaleY}px`;
-
         avatarStyle = {
             ...avatarStyle,
-            backgroundSize: bgSize,
-            backgroundPosition: bgPosition,
+            backgroundSize: `${originalSize.width * scaleX}px ${originalSize.height * scaleY}px`,
+            backgroundPosition: `-${crop.x * scaleX}px -${crop.y * scaleY}px`,
             backgroundRepeat: "no-repeat",
         };
     }
 
     return (
-        <>
-            <li className="nav-item dropdown dropdown-hover position-relative">
-                <div
-                    className={`nav-link border-0 bg-transparent d-flex align-items-center ${textColorClass}`}
-                    id="userDropdown"
-                    aria-label="Menu pengguna"
-                >
-                    <div style={avatarStyle} />
-                </div>
-                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <li>
-                        <Link className="dropdown-item" href={route("profile.index")}>
-                            Profil Saya
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="dropdown-item"
-                            href={route("logout")}
-                            method="post"
-                            as="button"
-                        >
-                            Keluar
-                        </Link>
-                    </li>
-                </ul>
-            </li>
-        </>
+        <li className="nav-item dropdown-hover position-relative">
+            <div
+                className={`nav-link d-flex align-items-center ${textColorClass}`}
+                id="userDropdown"
+                aria-label="Menu pengguna"
+            >
+                <div style={avatarStyle} />
+            </div>
+            <ul className="dropdown-menu user-dropdown-menu" aria-labelledby="userDropdown">
+                <li>
+                    <Link className="dropdown-item" href={route("profile.index")}>
+                        Profil Saya
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className="dropdown-item"
+                        href={route("logout")}
+                        method="post"
+                        as="button"
+                    >
+                        Keluar
+                    </Link>
+                </li>
+            </ul>
+        </li>
     );
 }

@@ -41,23 +41,17 @@ class StepFlow extends Component {
         id="how-it-works"
         style={{ background: 'linear-gradient(to right, #1c488c, #082f49)' }}
       >
-        <div className="container">
+        <div className="container"
+        >
           <div
-            className="row align-items-center p-4"
-            style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              color: '#fff',
-              borderRadius: '0 0 20px 20px',
-            }}
+            className="row align-items-center "
+
           >
             <div className="col-12 col-lg-5 text-center">
               <img
                 src="./assets/images/ilustration/how-it-works.svg"
                 alt="Job Search Illustration"
-                className="img-fluid rounded"
+                className="img-fluid"
                 style={{ maxHeight: '300px', objectFit: 'contain' }}
               />
             </div>

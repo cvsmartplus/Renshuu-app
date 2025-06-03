@@ -27,12 +27,116 @@
   color: white !important;
 }
 
-.dropdown-hover:hover > .dropdown-menu {
+/* Umum */
+.nav-dropdown-hover {
+    position: relative;
+}
+
+.nav-dropdown-hover .nav-dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1050;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-hover:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .nav-dropdown-hover .nav-dropdown-menu {
+        position: static;
+        min-width: 100%;
+        padding: 1rem;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        border-radius: 0;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+.user-dropdown-menu {
+    top: 100%;
+    right: 0;
+    left: auto;
+    position: absolute;
+    min-width: 180px;
+    z-index: 1050;
+    display: none;
+}
+
+.dropdown-hover:hover > .user-dropdown-menu {
     display: block;
 }
 
-.dropdown-hover .dropdown-menu {
-    margin-top: 0.5rem;
-    display: none;
-    position: absolute;
+.custom-dropdown {
+  background-color: #f1f1f1;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  min-width: 600px;
+
+  .dropdown-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .dropdown-column {
+    flex: 1 1 200px;
+  }
+
+  .dropdown-heading {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    color: #4b5563; 
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: #f3f4f6;
+      color: #111827; 
+      padding-left: 0.75rem;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .custom-dropdown {
+    min-width: 100% !important;
+    padding: 1.5rem;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #f8f9fa;
+
+    .dropdown-grid {
+      flex-direction: column;
+    }
+  }
 }

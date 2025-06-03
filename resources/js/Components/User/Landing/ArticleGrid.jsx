@@ -1,6 +1,6 @@
 import { Link, usePage } from "@inertiajs/react";
 import React from "react";
-import ArticleGrids from "../UI/GridCard/ArticleGrid";
+import ArticleGrids from "@/Components/UI/GridCard/ArticleGrid";
 
 const ArticleGrid = () => {
     const { articles } = usePage().props;

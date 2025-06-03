@@ -45,7 +45,7 @@ class Features extends Component {
       width: '60px',
       height: '60px',
       borderRadius: '50%',
-    background: "linear-gradient(135deg, #217def 0%, #379cfa 100%)",
+      background: "linear-gradient(135deg, #217def 0%, #379cfa 100%)",
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -55,14 +55,9 @@ class Features extends Component {
 
     return (
       <section
-        className="py-5"
+        className="pb-5 mt-0 mt-md-n5"
         style={{
           background: 'linear-gradient(to right, #1c488c, #082f49)',
-          marginTop: '-120px',
-          borderTopLeftRadius: '20px',
-          borderTopRightRadius: '20px',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          borderBottom: 'none',
         }}
       >
         <div className="container">

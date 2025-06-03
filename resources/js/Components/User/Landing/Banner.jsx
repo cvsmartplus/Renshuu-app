@@ -4,20 +4,20 @@ import { Link } from "@inertiajs/react";
 const Banner = () => {
   return (
     <section
-      className="d-flex align-items-center justify-content-center text-center py-3 py-md-5 py-xl-8"
+      className="d-flex justify-content-center align-items-center text-center py-3 py-md-5 py-xl-8"
       style={{
         minHeight: "95vh",
         overflow: "hidden",
-        background: "linear-gradient(to right, #1c488c, #082f49)"
+        background: "linear-gradient(to right, #1c488c, #082f49)",
       }}
     >
       <div className="container">
-        <div className="row gy-4 align-items-center justify-content-between text-md-start mb-5">
-          <div className="col-8 col-lg-6 text-center text-lg-start">
+        <div className="row gy-5 flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+          <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center text-center text-lg-start">
             <BannerContent />
           </div>
 
-          <div className="col-10 col-lg-5 d-flex justify-content-center">
+          <div className="col-12 col-lg-6 d-flex justify-content-center">
             <BannerImage />
           </div>
         </div>
@@ -27,11 +27,10 @@ const Banner = () => {
 };
 
 const BannerContent = () => (
-    <div className="banner-content">
-      <FloatingHeader />
-      <FadingParagraph />
-    </div>
-    
+  <div className="banner-content px-3 pb-5">
+    <FloatingHeader />
+    <FadingParagraph />
+  </div>
 );
 
 const FloatingHeader = () => (
