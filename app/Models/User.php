@@ -25,8 +25,9 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'password',
-        'otp',
-        'role',
+        'otp_verified',
+        // 'otp',
+        // 'role',
     ];
 
     /**
@@ -50,6 +51,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function otps()
+    {
+        return $this->hasMany(Otp::class);
+    }
+
+    // User.php
+
+    public function hasVerifiedOtp()
+    {
+        return (bool) $this->otp_verified;
     }
     
     public function company()

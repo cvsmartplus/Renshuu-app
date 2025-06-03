@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('otp')->nullable();
-            $table->enum('role', ['admin', 'company' , 'user'])->default('user');
-            $table->rememberToken();
+            $table->boolean('otp_verified')->default(false);
+            // $table->integer('otp')->nullable();
+            // $table->enum('role', ['admin', 'company' , 'user'])->default('user');
             $table->timestamps();
         });
 

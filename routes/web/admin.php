@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\UsersController;
-use Illuminate\Support\Facades\Redis;
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
