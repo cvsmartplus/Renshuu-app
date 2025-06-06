@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -830,7 +829,6 @@ body {
   border-color: #162d55 !important;
 }
 .custom-check-blue:checked::before {
-  content: "✓";
   color: white;
   position: absolute;
   left: 0.25em;

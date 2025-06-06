@@ -159,7 +159,6 @@ $brand-colors: (
     border-color: map-get($brand-colors, 950) !important;
 
     &::before {
-      content: '✓'; // Unicode checkmark
       color: white;
       position: absolute;
       left: 0.25em;

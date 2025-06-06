@@ -25,9 +25,6 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'password',
-        'otp_verified',
-        // 'otp',
-        // 'role',
     ];
 
     /**
@@ -62,7 +59,7 @@ class User extends Authenticatable
 
     public function hasVerifiedOtp()
     {
-        return (bool) $this->otp_verified;
+        return (bool) $this->email_verified_at;
     }
     
     public function company()

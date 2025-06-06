@@ -1,47 +1,68 @@
 import React, { useState } from "react";
-import { useForm } from "@inertiajs/react";
 import InputField from "./ReusableFormComponents/InputField";
-import CheckBox from "./ReusableFormComponents/CheckBox"; 
+import CheckBox from "./ReusableFormComponents/CheckBox";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { router } from "@inertiajs/react";
+import { api } from "@/lib/axios";
 
 export default function RegisterForm() {
-    const { data, setData, post, processing, errors: inertiaErrors, reset } = useForm({
+    const [form, setForm] = useState({
         name: "",
         email: "",
         password: "",
         password_confirmation: "",
         terms: false,
-        role: "user",
     });
+
 
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
-    const [pending, setPending] = useState(false);
-
-    const submit = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        setPending(true);
-
-        post(route("register"), {
-            onError: (errors) => setErrors(errors),
-            onFinish: () => {
-                setIsLoading(false);
-                setPending(false);
-                reset("password", "password_confirmation");
-            },
-        });
-    };
 
     const handleChange = (field, value) => {
-        setData(field, value);
-
+        setForm((prev) => ({ ...prev, [field]: value }));
         if (errors[field]) {
             setErrors((prev) => ({ ...prev, [field]: undefined }));
         }
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        try {
+            await api.post("/register", form);
+
+            toast.success("Registrasi berhasil! Silakan cek email Anda.", {
+                position: "top-right",
+                onClose: () => {
+                    router.visit(`/OTP-verification?email=${form.email}`);
+                },
+            });
+
+            setForm({
+                name: "",
+                email: "",
+                password: "",
+                password_confirmation: "",
+                terms: false,
+            });
+        } catch (error) {
+            if (error.response?.data?.errors) {
+                setErrors(error.response.data.errors);
+            } else if (error.response?.data?.message) {
+                toast.error(error.response.data.message, { position: "top-right" });
+            } else {
+                toast.error("Terjadi kesalahan saat mendaftar.", { position: "top-right" });
+            }
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <>
+            <ToastContainer />
             {isLoading && (
                 <div className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style={{ zIndex: 1050 }}>
                     <div className="spinner-border text-light" role="status" style={{ width: "4rem", height: "4rem" }}>
@@ -50,11 +71,11 @@ export default function RegisterForm() {
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form onSubmit={handleSubmit}>
                 <InputField
                     id="name"
                     label="Nama"
-                    value={data.name}
+                    value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     error={errors.name}
                     placeholder="Nama Lengkap"
@@ -65,7 +86,7 @@ export default function RegisterForm() {
                     id="email"
                     label="Email"
                     type="email"
-                    value={data.email}
+                    value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     error={errors.email}
                     placeholder="Alamat Email"
@@ -76,7 +97,7 @@ export default function RegisterForm() {
                     id="password"
                     label="Kata Sandi"
                     type="password"
-                    value={data.password}
+                    value={form.password}
                     onChange={(e) => handleChange("password", e.target.value)}
                     error={errors.password}
                     placeholder="Kata Sandi"
@@ -87,7 +108,7 @@ export default function RegisterForm() {
                     id="password_confirmation"
                     label="Konfirmasi"
                     type="password"
-                    value={data.password_confirmation}
+                    value={form.password_confirmation}
                     onChange={(e) => handleChange("password_confirmation", e.target.value)}
                     error={errors.password_confirmation}
                     placeholder="Konfirmasi"
@@ -99,14 +120,15 @@ export default function RegisterForm() {
                         id="terms"
                         name="terms"
                         label="Saya menyetujui syarat & ketentuan"
-                        checked={data.terms}
+                        checked={form.terms}
                         onChange={(e) => handleChange("terms", e.target.checked)}
+                        error={errors.terms}
                     />
                 </div>
 
                 <div className="mb-3">
-                    <button type="submit" className="btn-brand-950 w-100" disabled={pending}>
-                        {pending ? "Loading..." : "Daftar"}
+                    <button type="submit" className="btn-brand-950 w-100" disabled={isLoading}>
+                        {isLoading ? "Loading..." : "Daftar"}
                     </button>
                 </div>
             </form>

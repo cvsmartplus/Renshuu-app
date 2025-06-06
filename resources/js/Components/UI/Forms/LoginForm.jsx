@@ -1,24 +1,48 @@
-import { Link, useForm } from '@inertiajs/react';
+import { Link, router, useForm } from '@inertiajs/react';
 import React from 'react';
 import InputField from './ReusableFormComponents/InputField';
 import CheckBox from './ReusableFormComponents/CheckBox';
+import { api, csrf } from '@/lib/axios';
+import { toast } from 'react-toastify';
 
 export default function LoginForm({ onSuccess }) {
-    const { data, setData, post, processing, errors, reset, clearErrors } = useForm({
+    const { data, setData, post, processing, errors, reset, clearErrors, setError } = useForm({
         email: '',
         password: '',
         remember: false,
     });
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
-        post(route('login'), {
-            onSuccess: () => {
-                if (onSuccess) onSuccess();
-                window.location.reload();
-            },
-            onFinish: () => reset('password'),
-        });
+
+        try {
+            await csrf.get('/sanctum/csrf-cookie');
+
+            await api.post('/login', data);
+
+            toast.success("Login berhasil");
+
+            if (onSuccess) onSuccess();
+
+            router.visit('/user/dashboard');
+        } catch (error) {
+            const status = error.response?.status;
+            const responseData = error.response?.data;
+
+            if (status === 422 && responseData.errors) {
+                Object.entries(responseData.errors).forEach(([field, messages]) => {
+                    setError(field, messages[0]);
+                });
+            } else if (status === 403 && responseData.message) {
+                toast.error(responseData.message,{
+                    onClick: () => {
+                        router.visit(`/OTP-verification?email=${responseData.email}`);
+                    }
+                });
+            } else {
+                toast.error(responseData?.message || "Login gagal");
+            }
+        }
     };
 
     return (

@@ -10,7 +10,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserSettingsController;
 
 // User routes
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     
     Route::prefix('user')->group(function () {
         Route::get('/dashboard', function () {

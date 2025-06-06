@@ -1,9 +1,12 @@
-import { Head, useForm } from "@inertiajs/react";
-import { useRef, useEffect } from "react";
-import { toast } from "react-toastify"; 
+import { Head, Link, router } from "@inertiajs/react";
+import { useRef, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { api,  csrf } from "@/lib/axios";
 
 export default function OTPVerification({ email }) {
-    const { data, setData, post, processing, errors } = useForm({ otp: "" });
+    const [otp, setOtp] = useState("");
+    const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     const inputRefs = useRef([]);
 
     useEffect(() => {
@@ -21,9 +24,9 @@ export default function OTPVerification({ email }) {
 
     const handleChange = (e, index) => {
         const value = e.target.value.replace(/[^0-9]/g, "");
-        const newOtp = data.otp.split("");
+        const newOtp = otp.split("");
         newOtp[index] = value;
-        setData("otp", newOtp.join(""));
+        setOtp(newOtp.join(""));
 
         if (value && index < 5) {
             inputRefs.current[index + 1]?.focus();
@@ -31,14 +34,62 @@ export default function OTPVerification({ email }) {
     };
 
     const handleKeyDown = (e, index) => {
-        if (e.key === "Backspace" && !data.otp[index] && index > 0) {
+        if (e.key === "Backspace" && !otp[index] && index > 0) {
             inputRefs.current[index - 1]?.focus();
         }
     };
 
-    const submit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        post(route("otp.verify.post"));
+        setIsLoading(true);
+        setErrors({});
+
+        try {
+            await csrf.get("/sanctum/csrf-cookie");
+
+            await api.post("/otp-verification", { email, otp });
+
+            toast.success("OTP berhasil diverifikasi!", {
+                position: "top-right",
+            });
+
+            router.visit("/user/dashboard");
+
+        } catch (error) {
+            if (error.response?.data?.errors) {
+                setErrors(error.response.data.errors);
+            } else if (error.response?.data?.message) {
+                setErrors({ otp: error.response.data.message });
+            } else {
+                toast.error("Terjadi kesalahan saat verifikasi.", {
+                    position: "top-right",
+                });
+            }
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleResend = async () => {
+        setIsLoading(true);
+
+        try {
+            await csrf.get("/sanctum/csrf-cookie");
+
+            const response = await api.post("/resend-otp", { email });
+
+            toast.success(response.data.message || "OTP berhasil dikirim ulang.", {
+                position: "top-right",
+                autoClose: 2000,
+            });
+        } catch (error) {
+            toast.error(
+                error.response?.data?.message || "Gagal mengirim ulang OTP.",
+                { position: "top-right" }
+            );
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -66,7 +117,7 @@ export default function OTPVerification({ email }) {
                                     </p>
                                 </div>
                                 <div className="card-body">
-                                    <form onSubmit={submit} className="text-center">
+                                    <form onSubmit={handleSubmit} className="text-center">
                                         <div className="d-flex justify-content-center gap-2 mb-3">
                                             {[...Array(6)].map((_, index) => (
                                                 <input
@@ -80,7 +131,7 @@ export default function OTPVerification({ email }) {
                                                         height: "50px",
                                                         fontSize: "1.5rem",
                                                     }}
-                                                    value={data.otp[index] || ""}
+                                                    value={otp[index] || ""}
                                                     onChange={(e) => handleChange(e, index)}
                                                     onKeyDown={(e) => handleKeyDown(e, index)}
                                                     required
@@ -91,11 +142,24 @@ export default function OTPVerification({ email }) {
                                         <button
                                             type="submit"
                                             className="btn-brand-950 w-100 mt-3 py-2 rounded"
-                                            disabled={processing}
+                                            disabled={isLoading}
                                         >
-                                            Verifikasi
+                                            {isLoading ? "Memverifikasi..." : "Verifikasi"}
                                         </button>
                                     </form>
+                                </div>
+                                <div>
+                                    <p className="text-center">
+                                        Belum menerima OTP?{" "}
+                                        <button
+                                            type="button"
+                                            className="btn btn-link p-0 m-0 align-baseline text-brand-950 fw-semibold"
+                                            onClick={handleResend}
+                                            disabled={isLoading}
+                                        >
+                                            Kirim ulang
+                                        </button>
+                                    </p>
                                 </div>
                             </div>
                         </div>

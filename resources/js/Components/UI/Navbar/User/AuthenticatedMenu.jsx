@@ -1,13 +1,9 @@
-import { Link } from "@inertiajs/react";
+import { api, csrf } from "@/lib/axios";
+import { Link, router } from "@inertiajs/react";
+import { toast } from "react-toastify";
 
 export default function AuthenticatedMenu({ user, scrolled }) {
     const textColorClass = scrolled ? "text-dark" : "text-light";
-
-    const dashboardRoute = user?.role === "admin"
-        ? route("admin.dashboard")
-        : user?.role === "company"
-        ? route("company.dashboard")
-        : route("user.dashboard");
 
     const avatarFile = user?.profile?.avatar
         ? `/storage/${user.profile.avatar}`
@@ -49,6 +45,18 @@ export default function AuthenticatedMenu({ user, scrolled }) {
         };
     }
 
+    const handleLogout = async () => {
+        try {
+            await csrf.get("/sanctum/csrf-cookie");
+            await api.post("/logout");
+            toast.success("Berhasil logout");
+            router.visit("/");
+        } catch (error) {
+            toast.error("Gagal logout");
+            console.error(error);
+        }
+    };
+
     return (
         <li className="nav-item dropdown-hover position-relative">
             <div
@@ -65,14 +73,12 @@ export default function AuthenticatedMenu({ user, scrolled }) {
                     </Link>
                 </li>
                 <li>
-                    <Link
-                        className="dropdown-item"
-                        href={route("logout")}
-                        method="post"
-                        as="button"
+                    <button
+                    className="dropdown-item"
+                    onClick={handleLogout}
                     >
                         Keluar
-                    </Link>
+                    </button>
                 </li>
             </ul>
         </li>

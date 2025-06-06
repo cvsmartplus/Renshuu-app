@@ -11,19 +11,27 @@ use Inertia\Inertia;
 class OTPVerificationController extends Controller
 {
     //
-    public function create()
-{
-    $email = session('otp_email');
+    public function create(Request $request)
+    {
+        $email = $request->query('email');
 
-    if (!$email) {
-        return redirect(route('register'))->withErrors(['error' => 'Sesi anda telah berakhir, silahkan coba lagi']);
+        if (!$email) {
+            return redirect(route('register'))->withErrors([
+                'error' => 'Email tidak ditemukan. Silakan daftar ulang.'
+            ]);
+        }
+
+        if (!User::where('email', $email)->exists()) {
+            return redirect(route('register'))->withErrors([
+                'error' => 'Email tidak ditemukan. Silakan daftar ulang.'
+            ]);
+        }
+
+
+        return Inertia::render('Auth/OTPVerification', [
+            'email' => $email
+        ]);
     }
-
-    return Inertia::render('Auth/OTPVerification', [
-        'email' => $email
-    ]);
-}
-
 
 public function store(Request $request)
 {

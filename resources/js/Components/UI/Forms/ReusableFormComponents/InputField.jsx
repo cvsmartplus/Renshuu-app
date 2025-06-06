@@ -7,7 +7,7 @@ export default function InputField({
     onFocus,
     error,
     placeholder,
-    autoComplete,
+    autoComplete = "off",
     required = false,
     options = [],
     as = "input", 
