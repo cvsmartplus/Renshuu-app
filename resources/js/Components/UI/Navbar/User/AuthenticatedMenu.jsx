@@ -1,4 +1,4 @@
-import { api, csrf } from "@/lib/axios";
+import { api } from "@/lib/axios";
 import { Link, router } from "@inertiajs/react";
 import { toast } from "react-toastify";
 
@@ -47,7 +47,7 @@ export default function AuthenticatedMenu({ user, scrolled }) {
 
     const handleLogout = async () => {
         try {
-            await csrf.get("/sanctum/csrf-cookie");
+            await api.get("/csrf-cookie");
             await api.post("/logout");
             toast.success("Berhasil logout");
             router.visit("/");

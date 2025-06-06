@@ -2,7 +2,7 @@ import { Link, router, useForm } from '@inertiajs/react';
 import React from 'react';
 import InputField from './ReusableFormComponents/InputField';
 import CheckBox from './ReusableFormComponents/CheckBox';
-import { api, csrf } from '@/lib/axios';
+import { api } from '@/lib/axios';
 import { toast } from 'react-toastify';
 
 export default function LoginForm({ onSuccess }) {
@@ -16,7 +16,7 @@ export default function LoginForm({ onSuccess }) {
         e.preventDefault();
 
         try {
-            await csrf.get('/sanctum/csrf-cookie');
+            await api.get('/csrf-cookie');
 
             await api.post('/login', data);
 
@@ -84,10 +84,6 @@ export default function LoginForm({ onSuccess }) {
                 <Link
                     href={route('password.request')}
                     className="text-decoration-none text-danger"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = route('password.request');
-                    }}
                 >
                     Lupa Kata Sandi?
                 </Link>

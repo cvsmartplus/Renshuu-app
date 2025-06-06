@@ -1,6 +1,6 @@
 import RegisterForm from "@/Components/UI/Forms/RegisterForm";
 import Layout from "@/Layouts/Layout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function Register() {
     return (
@@ -29,9 +29,12 @@ export default function Register() {
                                         <div className="mt-3">
                                             <p className="text-center">
                                                 Sudah punya akun?{" "}
-                                                <a className="text-decoration-none text-brand-950" data-bs-toggle="modal" data-bs-target="#loginModal" style={{ cursor: "pointer" }}>
+                                                <Link
+                                                    href={route("login")}
+                                                    className="text-decoration-none text-brand-950"
+                                                >
                                                     Masuk
-                                                </a>
+                                                </Link>
                                             </p>
                                         </div>
                                     </div>

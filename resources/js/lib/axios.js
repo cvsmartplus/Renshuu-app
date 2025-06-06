@@ -8,13 +8,6 @@ const api = axios.create({
       'Accept': 'application/json',
   },
 });
- 
-const csrf = axios.create({
-  baseURL: import.meta.env.VITE_APP_URL,
-  withCredentials: true,
-  headers: {
-      'Accept': 'application/json',
-  },
-});
 
-export { api, csrf };
+
+export { api };

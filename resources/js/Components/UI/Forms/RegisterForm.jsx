@@ -62,7 +62,6 @@ export default function RegisterForm() {
 
     return (
         <>
-            <ToastContainer />
             {isLoading && (
                 <div className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style={{ zIndex: 1050 }}>
                     <div className="spinner-border text-light" role="status" style={{ width: "4rem", height: "4rem" }}>

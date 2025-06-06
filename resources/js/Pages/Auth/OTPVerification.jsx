@@ -1,7 +1,7 @@
 import { Head, Link, router } from "@inertiajs/react";
 import { useRef, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { api,  csrf } from "@/lib/axios";
+import { api } from "@/lib/axios";
 
 export default function OTPVerification({ email }) {
     const [otp, setOtp] = useState("");
@@ -45,7 +45,7 @@ export default function OTPVerification({ email }) {
         setErrors({});
 
         try {
-            await csrf.get("/sanctum/csrf-cookie");
+            await api.get("/csrf-cookie");
 
             await api.post("/otp-verification", { email, otp });
 
@@ -74,7 +74,7 @@ export default function OTPVerification({ email }) {
         setIsLoading(true);
 
         try {
-            await csrf.get("/sanctum/csrf-cookie");
+            await api.get("/csrf-cookie");
 
             const response = await api.post("/resend-otp", { email });
 
