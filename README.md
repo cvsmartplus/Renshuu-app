@@ -164,9 +164,4 @@ Proyek ini didistribusikan dengan lisensi **MIT**. Silakan lihat file `LICENSE` 
 
 **Renshuu** berkomitmen menjadi mitra terpercaya bagi pencari kerja di Indonesia dengan menghadirkan pengalaman pencarian kerja yang cepat, terkurasi, dan menyenangkan melalui teknologi yang relevan dan berkelanjutan.
 
-```
-
----
-
 Jika kamu juga ingin versi `CONTRIBUTING.md` yang sesuai dengan aturan internal (misalnya format commit, struktur folder yang boleh diubah, dll), tinggal bilang saja!
-```
