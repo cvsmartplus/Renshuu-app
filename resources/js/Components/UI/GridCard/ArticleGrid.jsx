@@ -2,11 +2,11 @@ import ArticleCard from "../Card/ArticleCard";
 
 export default function ArticleGrids({ articles }) {
     return (
-        <div className="container my-5">
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div className="position-relative">
+            <div className="row g-4 position-relative" style={{ zIndex: 1 }}>
                 {articles.length > 0 ? (
                     articles.map((article) => (
-                        <div key={article.id} className="col">
+                        <div key={article.id} className="col-12 col-md-6 col-lg-3">
                             <ArticleCard article={article} />
                         </div>
                     ))

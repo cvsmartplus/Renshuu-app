@@ -69,7 +69,17 @@ class StepFlow extends Component {
               <div className="row g-4">
                 {this.state.steps.map((step) => (
                   <div className="col-12 col-md-6" key={step.id}>
-                    <div className="p-3 bg-white rounded-4 shadow-sm h-100 text-dark">
+                    <div
+                      className="p-3 rounded-4 h-100 text-dark"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        borderRadius: '1rem',
+                        backdropFilter: 'blur(10px)',
+                        WebkitBackdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
+                      }}
+                    >
                       <div
                         className="d-flex align-items-center justify-content-center mb-2"
                         style={{
@@ -82,14 +92,13 @@ class StepFlow extends Component {
                       >
                         {step.icon}
                       </div>
-                      <h6 className="fw-semibold mb-1">{step.title}</h6>
-                      <p className="small text-muted mb-0">{step.description}</p>
+                      <h6 className="fw-semibold mb-1 text-light">{step.title}</h6>
+                      <p className="small text-muted mb-0 text-brand-100">{step.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>

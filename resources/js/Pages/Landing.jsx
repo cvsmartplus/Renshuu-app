@@ -8,6 +8,8 @@ import Partner from '@/Components/User/Landing/Partners';
 import ArticleGrid from '@/Components/User/Landing/ArticleGrid';
 import UserTertimonial from '@/Components/User/Landing/UserTestimonial';
 import FeaturedJob from '@/Components/User/Landing/FeaturedJob';
+import AboutUs from '@/Components/User/Landing/About';
+import FrequentlyAsked from '@/Components/User/Landing/frequentlyAsked';
 
 export default function Welcome() {
     return (
@@ -18,11 +20,13 @@ export default function Welcome() {
                 </Head>
                 <Banner />
                 <Features />
-                <Counter />
                 <StepFlow />
-                <UserTertimonial />
+                <Counter />
                 <FeaturedJob />
                 <Partner />
+                <AboutUs />
+                <UserTertimonial />
+                <FrequentlyAsked />
                 <ArticleGrid />
             </Layout>
         </>

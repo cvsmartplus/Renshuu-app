@@ -34,7 +34,6 @@ export default function Footer() {
                                     <h5 className="widget-title">Kategori</h5>
                                     <ul className="list-unstyled footer-links">
                                         <li><p>Pekerjaan</p></li>
-                                        <li><p>Pembelajaran</p></li>
                                         <li><p>Artikel</p></li>
                                     </ul>
                                 </div>

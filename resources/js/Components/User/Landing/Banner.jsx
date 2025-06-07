@@ -8,7 +8,7 @@ const Banner = () => {
       style={{
         minHeight: "95vh",
         overflow: "hidden",
-        background: "linear-gradient(to right, #1c488c, #082f49)",
+        background: "linear-gradient(to right, #1c488c, #082f49, #082f49)",
       }}
     >
       <div className="container">
@@ -43,7 +43,7 @@ const FloatingHeader = () => (
 
 const FadingParagraph = () => (
   <p
-    className="mb-5 text-brand-200"
+    className="mb-5 text-brand-100"
   >
     Ribuan lowongan kerja terpercaya dari perusahaan ternama menunggumu. Daftar sekarang, mulai karirmu hari ini!
   </p>
@@ -81,8 +81,8 @@ const BannerImage = () => (
         backgroundImage: 'url("/assets/images/ilustration/jumbotron-banner.svg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
-        width: "100%",
-        height: "100%",
+        width: "80%",
+        height: "80%",
         borderRadius: "1rem",
         zIndex: 1,
       }}

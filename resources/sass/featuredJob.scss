@@ -1,0 +1,39 @@
+.job-tile {
+    background: #ffffff;
+    border-radius: 10px;
+    height: 100px;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+}
+
+.icon-wrapper {
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-hover {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+    background: white;
+}
+
+.job-content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.job-tile:hover .job-hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.job-tile:hover .job-content {
+    opacity: 0;
+}

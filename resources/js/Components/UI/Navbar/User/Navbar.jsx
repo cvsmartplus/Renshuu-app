@@ -42,7 +42,7 @@ export default function NavBar() {
           <ApplicationLogo
             id="Renshuu-logo"
             alt="Renshuu Logo"
-            width={150}
+            width={120}
             draggable="false"
             scrolled={scrolled}
           />

@@ -25,7 +25,6 @@ export default function JobCard({ job }) {
                     <div className="d-flex align-items-center">
                         <img
                             src={companyLogo}
-                            // alt={companyName}
                             style={{ width: 50, height: 50, borderRadius: "5px", objectFit: "cover" }}
                         />
                         <div className="ms-3">

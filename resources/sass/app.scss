@@ -36,6 +36,10 @@ $brand-colors: (
   .text-brand-#{$key} {
     color: #{$value} !important;
   }
+
+  .border-brand-#{$key} {
+    border-color: #{$value} !important;
+  }
 }
 
 // Dynamic Brand Buttons

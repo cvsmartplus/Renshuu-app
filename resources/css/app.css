@@ -18,6 +18,10 @@ body {
   color: #eff8ff !important;
 }
 
+.border-brand-50 {
+  border-color: #eff8ff !important;
+}
+
 .bg-brand-100 {
   background-color: #daefff !important;
 }
@@ -32,6 +36,10 @@ body {
 
 .text-brand-100 {
   color: #daefff !important;
+}
+
+.border-brand-100 {
+  border-color: #daefff !important;
 }
 
 .bg-brand-200 {
@@ -50,6 +58,10 @@ body {
   color: #bee4ff !important;
 }
 
+.border-brand-200 {
+  border-color: #bee4ff !important;
+}
+
 .bg-brand-300 {
   background-color: #91d4ff !important;
 }
@@ -64,6 +76,10 @@ body {
 
 .text-brand-300 {
   color: #91d4ff !important;
+}
+
+.border-brand-300 {
+  border-color: #91d4ff !important;
 }
 
 .bg-brand-400 {
@@ -82,6 +98,10 @@ body {
   color: #5dbbfd !important;
 }
 
+.border-brand-400 {
+  border-color: #5dbbfd !important;
+}
+
 .bg-brand-500 {
   background-color: #379cfa !important;
 }
@@ -96,6 +116,10 @@ body {
 
 .text-brand-500 {
   color: #379cfa !important;
+}
+
+.border-brand-500 {
+  border-color: #379cfa !important;
 }
 
 .bg-brand-600 {
@@ -114,6 +138,10 @@ body {
   color: #217def !important;
 }
 
+.border-brand-600 {
+  border-color: #217def !important;
+}
+
 .bg-brand-700 {
   background-color: #175fcb !important;
 }
@@ -128,6 +156,10 @@ body {
 
 .text-brand-700 {
   color: #175fcb !important;
+}
+
+.border-brand-700 {
+  border-color: #175fcb !important;
 }
 
 .bg-brand-800 {
@@ -146,6 +178,10 @@ body {
   color: #1b53b2 !important;
 }
 
+.border-brand-800 {
+  border-color: #1b53b2 !important;
+}
+
 .bg-brand-900 {
   background-color: #1c488c !important;
 }
@@ -162,6 +198,10 @@ body {
   color: #1c488c !important;
 }
 
+.border-brand-900 {
+  border-color: #1c488c !important;
+}
+
 .bg-brand-950 {
   background-color: #162d55 !important;
 }
@@ -176,6 +216,10 @@ body {
 
 .text-brand-950 {
   color: #162d55 !important;
+}
+
+.border-brand-950 {
+  border-color: #162d55 !important;
 }
 
 .btn-brand-50 {
