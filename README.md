@@ -1,66 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<img src="https://github.com/user-attachments/assets/653a2601-28e4-4580-8286-17a35e828be1" alt="Renshuu Preview" />
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Renshuu - Platform Pencarian Kerja Digital
 
-## About Laravel
+**Renshuu** adalah platform digital yang dirancang untuk mempermudah pencari kerja dalam menemukan peluang yang sesuai dengan minat, keahlian, dan tujuan karier mereka. Aplikasi ini dikembangkan sebagai bagian dari inisiatif **CV SmartPlus Indonesia**, dengan memanfaatkan teknologi modern seperti Laravel 11, Inertia.js, React, Bootstrap, Laravel Breeze, dan Laravel Sanctum.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Latar Belakang
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Di era digital saat ini, masih banyak pencari kerja menghadapi tantangan seperti:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Informasi lowongan yang tersebar di berbagai platform dan tidak terpusat.
+- Ketidaksesuaian antara keahlian individu dan kebutuhan industri.
+- Proses lamaran yang panjang dan tidak efisien.
 
-## Learning Laravel
+**Renshuu** hadir sebagai solusi terintegrasi untuk mengatasi permasalahan tersebut. Melalui kurasi lowongan secara cerdas dan antarmuka pengguna yang intuitif, Renshuu membantu pencari kerja menemukan peluang yang relevan dengan cara yang cepat, terpercaya, dan mudah.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Fitur Utama
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Pencocokan Lowongan Secara Cerdas**  
+  Menyediakan rekomendasi pekerjaan berdasarkan data profil pengguna dan keahlian yang diinputkan.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Desain Antarmuka Modern dan Responsif**  
+  Dibangun dengan React dan Bootstrap untuk pengalaman pengguna yang optimal di berbagai perangkat.
 
-## Laravel Sponsors
+- **Autentikasi dan Keamanan**  
+  Menggunakan Laravel Sanctum untuk manajemen otentikasi dan perlindungan data pengguna.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Dashboard Personal**  
+  Menyediakan tampilan progres lamaran dan notifikasi lowongan yang sesuai secara real-time.
 
-### Premium Partners
+- **Dukungan Multi-Sektor**  
+  Menjangkau berbagai bidang pekerjaan, mulai dari teknologi, industri kreatif, hingga sektor profesional lainnya.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Teknologi yang Digunakan
 
-## Contributing
+- **Backend**: Laravel 11
+- **Frontend**: Inertia.js, React, Bootstrap
+- **Autentikasi**: Laravel Breeze & Laravel Sanctum
+- **Database**: MySQL
+- **Build Tools**: Composer, npm, Vite
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Panduan Instalasi
 
-## Code of Conduct
+### Prasyarat
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Pastikan Anda telah menginstal:
 
-## Security Vulnerabilities
+- PHP 8.2 atau lebih tinggi
+- Composer
+- Node.js dan npm
+- MySQL
+- Git
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Langkah-langkah
 
-## License
+1. **Klon repositori**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/cvsmartplus/Renshuu-app.git
+cd renshuu
+````
+
+2. **Instalasi dependensi PHP**
+
+```bash
+composer install
+```
+
+3. **Instalasi dependensi JavaScript**
+
+```bash
+npm install
+```
+
+4. **Salin dan konfigurasikan file environment**
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+> Konfigurasi `.env` hanya tersedia bagi pengembang resmi. Hubungi tim pengembang untuk mendapatkan akses jika Anda memiliki kewenangan.
+
+5. **Edit kredensial database di `.env`**
+
+```
+DB_DATABASE=nama_database
+DB_USERNAME=username
+DB_PASSWORD=password
+```
+
+6. **Jalankan migrasi dan seeder database**
+
+```bash
+php artisan migrate --seed
+```
+
+7. **Bangun aset front-end dengan Vite**
+
+```bash
+npm run dev
+```
+
+8. **Jalankan server lokal**
+
+```bash
+php artisan serve
+```
+
+9. **Akses aplikasi**
+
+Buka browser dan arahkan ke: [http://localhost:8000](http://localhost:8000)
+
+## Cara Penggunaan
+
+1. **Daftar & Masuk**
+   Gunakan formulir autentikasi untuk membuat akun atau masuk ke dalam sistem.
+
+2. **Lengkapi Profil**
+   Tambahkan informasi keterampilan, minat kerja, dan preferensi Anda.
+
+3. **Cari Lowongan**
+   Telusuri atau filter lowongan berdasarkan sektor, lokasi, dan kata kunci.
+
+4. **Lamar Pekerjaan**
+   Ajukan lamaran langsung dari dashboard pengguna.
+
+5. **Pantau Progres**
+   Lacak status aplikasi dan respons dari perusahaan melalui sistem pelacakan internal.
+
+## Struktur Proyek
+
+```
+renshuu/
+├── app/                  # Logika aplikasi Laravel
+├── bootstrap/            # File inisialisasi aplikasi
+├── config/               # Konfigurasi sistem
+├── database/             # Migrasi dan seeder
+├── public/               # Aset publik (gambar, JS, dll.)
+├── resources/            # Komponen React, views, dan styling
+├── routes/               # Definisi rute aplikasi
+├── storage/              # Penyimpanan sementara dan log
+├── tests/                # Unit & feature tests
+├── .env                  # Variabel environment
+├── package.json          # Konfigurasi npm
+├── vite.config.js        # Konfigurasi Vite
+├── README.md             # Dokumentasi utama proyek
+└── CONTRIBUTING.md       # Panduan kontribusi (khusus internal)
+```
+
+## Kontribusi
+
+Pengembangan proyek **Renshuu** dilakukan secara internal oleh tim yang memiliki kewenangan resmi dari **CV SmartPlus Indonesia**.
+
+> Untuk menjaga integritas, keamanan, dan konsistensi aplikasi, kontribusi dari pihak eksternal saat ini tidak dibuka untuk umum.
+
+Jika Anda merupakan bagian dari tim resmi pengembang dan ingin melakukan kontribusi, silakan mengacu pada panduan internal yang tersedia di `CONTRIBUTING.md`.
+
+## Lisensi
+
+Proyek ini didistribusikan dengan lisensi **MIT**. Silakan lihat file `LICENSE` untuk informasi lebih lanjut.
+
+---
+
+**Renshuu** berkomitmen menjadi mitra terpercaya bagi pencari kerja di Indonesia dengan menghadirkan pengalaman pencarian kerja yang cepat, terkurasi, dan menyenangkan melalui teknologi yang relevan dan berkelanjutan.
+
+```
+
+---
+
+Jika kamu juga ingin versi `CONTRIBUTING.md` yang sesuai dengan aturan internal (misalnya format commit, struktur folder yang boleh diubah, dll), tinggal bilang saja!
+```
