@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputField from "./ReusableFormComponents/InputField";
 import CheckBox from "./ReusableFormComponents/CheckBox";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { router } from "@inertiajs/react";
 import { api } from "@/lib/axios";
@@ -74,10 +74,11 @@ export default function RegisterForm() {
                 <InputField
                     id="name"
                     label="Nama"
+                    placeholder="Nama Lengkap"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     error={errors.name}
-                    placeholder="Nama Lengkap"
+                    labelColor="text-light"
                     required
                 />
 
@@ -89,6 +90,7 @@ export default function RegisterForm() {
                     onChange={(e) => handleChange("email", e.target.value)}
                     error={errors.email}
                     placeholder="Alamat Email"
+                    labelColor="text-light"
                     required
                 />
 
@@ -100,6 +102,7 @@ export default function RegisterForm() {
                     onChange={(e) => handleChange("password", e.target.value)}
                     error={errors.password}
                     placeholder="Kata Sandi"
+                    labelColor="text-light"
                     required
                 />
 
@@ -111,6 +114,7 @@ export default function RegisterForm() {
                     onChange={(e) => handleChange("password_confirmation", e.target.value)}
                     error={errors.password_confirmation}
                     placeholder="Konfirmasi"
+                    labelColor="text-light"
                     required
                 />
 
@@ -122,6 +126,7 @@ export default function RegisterForm() {
                         checked={form.terms}
                         onChange={(e) => handleChange("terms", e.target.checked)}
                         error={errors.terms}
+                        labelColor="text-light"
                     />
                 </div>
 

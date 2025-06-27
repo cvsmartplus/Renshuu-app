@@ -9,19 +9,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserSettingsController;
 
-// User routes
 Route::middleware(['auth:sanctum'])->group(function () {
     
     Route::prefix('user')->group(function () {
         Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');
         })->name('user.dashboard');
-    });
-
-    // Jobs routes
-    Route::prefix('jobs')->group(function () {
-        Route::get('/', [JobController::class, 'index'])->name('job.index');
-        Route::get('{slug}', [JobController::class, 'show'])->name('job.show');
     });
 
     Route::prefix('profile')->group(function () {
@@ -72,4 +65,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::prefix('article')->group(function () {
     Route::get('/', [ArticlesController::class, 'index'])->name('article.index');
     Route::get('{slug}', [ArticlesController::class, 'show'])->name('article.show');
+});
+
+Route::prefix('jobs')->group(function () {
+    Route::get('/', [JobController::class, 'index'])->name('job.index');
+    Route::get('{slug}', [JobController::class, 'show'])->name('job.show');
 });

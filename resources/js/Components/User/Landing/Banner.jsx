@@ -8,7 +8,7 @@ const Banner = () => {
       style={{
         minHeight: "95vh",
         overflow: "hidden",
-        background: "linear-gradient(to right, #1c488c, #082f49, #082f49)",
+        background: "linear-gradient(to right, #1c488c, #082f49)",
       }}
     >
       <div className="container">

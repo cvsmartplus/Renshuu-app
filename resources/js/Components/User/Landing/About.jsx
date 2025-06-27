@@ -3,7 +3,7 @@ import { FaBriefcase, FaMagic, FaLaptopCode } from 'react-icons/fa';
 
 export default function AboutUs() {
     return (
-        <section id="about" className="py-5 bg-brand-50">
+        <section id="about" className="py-5 bg-brand-100" style={{ scrollMarginTop: "80px" }}>
             <div className="container">
                 <div className="row align-items-center g-5">
                     <div className="col-lg-6">

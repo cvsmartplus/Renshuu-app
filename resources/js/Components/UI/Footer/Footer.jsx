@@ -3,7 +3,7 @@ import ApplicationLogo from "../AplicationLogo";
 export default function Footer() {
     return (
         <>
-            <section className="footer pt-5 ">
+            <section className="footer pt-5 bg-brand-50">
                 <div className="footer-mid">
                     <div className="container">
                         <hr/>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
@@ -20,3 +21,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', LogoutController::class);
     Route::get('/user', fn (Request $request) => $request->user());
 });
+
+
+Route::get('/article', [ArticleController::class, 'index']);

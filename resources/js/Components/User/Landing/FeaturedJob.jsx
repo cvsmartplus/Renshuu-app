@@ -17,13 +17,13 @@ export default function JobCategorySection() {
   ];
 
   return (
-    <section className="py-5 bg-brand-50">
+    <section className="py-5 bg-brand-100">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-6 d-flex align-items-center mb-4 mb-lg-0">
             <div className="text-center text-lg-start w-100 pe-lg-5">
               <h2 className="fw-bold text-dark">Pilih Jenis Pekerjaanmu</h2>
-              <p className="text-muted">
+              <p className="text-brand-950">
                 Temukan berbagai jenis pekerjaan yang sesuai dengan kebutuhan dan gaya hidupmu.
               </p>
             </div>

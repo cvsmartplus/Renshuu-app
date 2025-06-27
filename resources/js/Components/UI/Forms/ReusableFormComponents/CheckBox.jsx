@@ -1,4 +1,14 @@
-export default function CheckBox({ id, name, className = '', label, checked, onChange, error, ...props }) {
+export default function CheckBox({ 
+        id, 
+        name, 
+        className = '', 
+        label, 
+        checked, 
+        onChange, 
+        error, 
+        labelColor = 'text-muted',
+        ...props 
+    }) {
     return (
         <div className="form-check">
             <input
@@ -10,7 +20,7 @@ export default function CheckBox({ id, name, className = '', label, checked, onC
                 checked={checked}
                 onChange={onChange}
             />
-            {label && <label htmlFor={id} className="form-check-label">{label}</label>}
+            {label && <label htmlFor={id} className={`form-check-label mx-2 ${labelColor}`}>{label}</label>}
             {error && <div className="invalid-feedback d-block">{error}</div>}
         </div>
     );

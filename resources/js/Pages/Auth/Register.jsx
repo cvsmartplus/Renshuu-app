@@ -6,8 +6,8 @@ export default function Register() {
     return (
         <>
             <Head title="Register" />
-            <Layout>
-                <section className="py-3 py-md-5 py-xl-8">
+            <Layout withNavigation={false}>
+                <section style={{ background: "linear-gradient(to right, #1c488c, #082f49, #082f49)", padding: "15vh 0" }}>
                     <div className="container">
                         <div className="row gy-4 align-items-center">
                             <div className="col-12 col-md-6 col-xl-7 d-flex justify-content-center">
@@ -17,21 +17,31 @@ export default function Register() {
                             </div>
 
                             <div className="col-12 col-md-6 col-xl-5 d-flex justify-content-center">
-                                <div className="card p-3 shadow-sm" style={{ maxWidth: "480px", width: "100%" }}>
+                                <div className="card p-3"
+                                    style={{
+                                        maxWidth: "500px",
+                                        background: "rgba(255, 255, 255, 0.1)",
+                                        backdropFilter: "blur(12px)",
+                                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                                        borderRadius: '2%',
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        willChange: "transform, box-shadow",
+                                    }}
+                                >
                                     <div className="align-items-center d-flex justify-content-center flex-wrap">
-                                        <h2 className="text-bold">Daftar</h2>
-                                        <p className="text-muted text-center">Ayo bergabung bersama kami dan dapatkan pengalaman baru</p>
+                                        <h2 className="text-light">Daftar</h2>
+                                        <p className="text-light text-center">Ayo bergabung bersama kami dan dapatkan pengalaman baru</p>
                                     </div>
 
                                     <div className="card-body">
                                         <RegisterForm />
 
                                         <div className="mt-3">
-                                            <p className="text-center">
+                                            <p className="text-center text-light">
                                                 Sudah punya akun?{" "}
                                                 <Link
                                                     href={route("login")}
-                                                    className="text-decoration-none text-brand-950"
+                                                    className="text-decoration-none text-brand-200"
                                                 >
                                                     Masuk
                                                 </Link>

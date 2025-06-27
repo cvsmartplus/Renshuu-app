@@ -9,13 +9,16 @@ export default function InputField({
     placeholder,
     autoComplete = "off",
     required = false,
+    labelColor = "text-muted",
     options = [],
-    as = "input", 
+    as = "input",
     ...props
 }) {
     return (
         <div className="mb-3">
-            <label htmlFor={id} className="form-label">{label}</label>
+            <label htmlFor={id} className={`form-label ${labelColor}`}>
+                {label}
+            </label>
 
             {as === "select" ? (
                 <select

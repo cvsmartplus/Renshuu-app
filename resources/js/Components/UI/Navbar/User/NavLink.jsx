@@ -13,7 +13,7 @@ export default function NavLink({ scrolled }) {
                     <div className="dropdown-grid">
                         <div className="dropdown-column">
                             <h6 className="dropdown-heading">Cari Lowongan</h6>
-                            <Link href="#" className="dropdown-item">Semua Pekerjaan</Link>
+                            <Link href={route("job.index")} className="dropdown-item">Semua Pekerjaan</Link>
                             <Link href="#" className="dropdown-item">Kategori</Link>
                             <Link href="#" className="dropdown-item">Populer</Link>
                         </div>
@@ -47,6 +47,9 @@ export default function NavLink({ scrolled }) {
                         </div>
                     </div>
                 </div>
+            </li>
+            <li>
+                <Link href={"#about"} className="nav-link">Tentang</Link>
             </li>
         </ul>
     );

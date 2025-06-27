@@ -2,14 +2,14 @@ import React from "react";
 
 const GridBackground = ({ children }) => {
   return (
-    <div className="grid-container">
-      <div className="grid-overlay">
-        {Array.from({ length: 2000 }).map((_, index) => (
-          <div key={index} className="grid-box"></div>
-        ))}
+    <section
+      className="min-vh-100 d-flex align-items-center justify-content-center position-relative"
+      style={{ background: "linear-gradient(to right, #1c488c, #082f49)" }}
+    >
+      <div className="position-relative z-1 w-100 d-flex justify-content-center px-3">
+        {children}
       </div>
-      <div className="grid-content">{children}</div>
-    </div>
+    </section>
   );
 };
 

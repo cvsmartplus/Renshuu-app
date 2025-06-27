@@ -57,6 +57,7 @@ export default function LoginForm({ onSuccess }) {
                 error={errors.email}
                 placeholder="Masukkan email Anda"
                 autoComplete="off"
+                labelColor='text-light'
                 required
             />
 
@@ -70,6 +71,7 @@ export default function LoginForm({ onSuccess }) {
                 error={errors.password}
                 placeholder="Masukkan kata sandi"
                 autoComplete="off"
+                labelColor='text-light'
                 required
             />
 
@@ -79,6 +81,7 @@ export default function LoginForm({ onSuccess }) {
                     name="remember"
                     label="Ingatkan saya"
                     checked={data.remember}
+                    labelColor='text-light'
                     onChange={(e) => setData("remember", e.target.checked)}
                 />
                 <Link
@@ -96,12 +99,12 @@ export default function LoginForm({ onSuccess }) {
             </div>
 
             <div className="d-flex align-items-center my-3">
-                <hr className="flex-grow-1" />
-                <span className="mx-2">atau</span>
-                <hr className="flex-grow-1" />
+                <hr className="flex-grow-1 border-light" />
+                <span className="mx-2 text-light">atau</span>
+                <hr className="flex-grow-1 border-light" />
             </div>
 
-            <button type="button" className="btn-outline- p-1 rounded w-100">
+            <button type="button" className="btn btn-light d-flex align-items-center justify-content-center p-1 rounded w-100">
                 <img
                     src="./images/assets/icons/Google.png"
                     width="20"

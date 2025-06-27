@@ -57,7 +57,7 @@ class Features extends Component {
       <section
         className="pb-5 mt-0 mt-md-n5"
         style={{
-          background: 'linear-gradient(to right, #1c488c, #082f49, #082f49)',
+          background: 'linear-gradient(to right, #1c488c, #082f49)',
         }}
       >
         <div className="container">

@@ -1,41 +1,84 @@
-import { Head, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { Head, Link } from "@inertiajs/react";
 import Layout from "@/Layouts/Layout";
-import TitlePage from "@/Components/UI/TitlePage"
-import SearchFilterBar from "@/Components/UI/Filter/SearchFilterBar";
-import ArticleGrids from "@/Components/UI/GridCard/ArticleGrid";
+import { useState } from "react";
+import '../../sass/articlePage.scss';
 
-export default function Article(){
-    const { articles } = usePage().props;
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filter, setFilter] = useState("Semua");
-
-    const filters = ["Semua", "Terbaru", "Terlama" ];
-    const PageTitle = "Artikel";
-
-    const filteredArticles = articles
-        .filter(article =>
-            article?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            article?.description?.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        .sort((a, b) => {
-            if (filter === "Terbaru") return new Date(b.created_at) - new Date(a.created_at);
-            if (filter === "Terlama") return new Date(a.created_at) - new Date(b.created_at);
-            return 0;
-        });
+export default function Article() {
+    const [category, setCategory] = useState("all");
+    const [sort, setSort] = useState("latest");
+    const [search, setSearch] = useState("");
 
     return (
-        <Layout title="Article">
-            <Head title={PageTitle} />
-            <TitlePage title={PageTitle}/>
-                <SearchFilterBar
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
-                    filters={filters}
-                    setFilter={setFilter}
-                    placeholder={"Cari Artikel.."}
-                />
-            <ArticleGrids articles={filteredArticles} />
+        <Layout>
+            <Head title="Artikel" />
+            <section
+                className="text-light"
+                style={{
+                    background: "linear-gradient(to right, #1c488c, #082f49)",
+                    padding: "15vh 0",
+                }}
+            >
+                <div className="container">
+                    <h1 className="text-start mb-4" style={{ fontSize: "3rem" }}>
+                        Temukan Berbagai Artikel Menarik
+                    </h1>
+
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
+                                <Link href={route("welcome")} className="text-light text-decoration-none">
+                                    Beranda
+                                </Link>
+                            </li>
+                            <li className="breadcrumb-item active text-light" aria-current="page">
+                                Artikel
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <div className="filter-wrapper">
+                        <div className="filter-group">
+                            <label htmlFor="searchInput" className="filter-label">Cari Artikel</label>
+                            <input
+                                id="searchInput"
+                                type="text"
+                                placeholder="Tulis judul atau kata kunci..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="filter-input"
+                            />
+                        </div>
+
+                        <div className="filter-group">
+                            <label htmlFor="categorySelect" className="filter-label">Kategori</label>
+                            <select
+                                id="categorySelect"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                className="filter-input"
+                            >
+                                <option value="all">Semua</option>
+                                <option value="tech">Teknologi</option>
+                                <option value="education">Edukasi</option>
+                                <option value="culture">Budaya</option>
+                            </select>
+                        </div>
+
+                        <div className="filter-group">
+                            <label htmlFor="sortSelect" className="filter-label">Urutkan</label>
+                            <select
+                                id="sortSelect"
+                                value={sort}
+                                onChange={(e) => setSort(e.target.value)}
+                                className="filter-input"
+                            >
+                                <option value="latest">Terbaru</option>
+                                <option value="popular">Terpopuler</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </Layout>
     );
 }
