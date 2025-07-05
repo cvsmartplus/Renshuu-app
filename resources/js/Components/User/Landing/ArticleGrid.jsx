@@ -1,43 +1,32 @@
 import { Link } from "@inertiajs/react";
-import React from "react";
-import ArticleGrids from "@/Components/UI/GridCard/ArticleGrid";
-
-const dummyArticles = [
-    {
-        id: 1,
-        slug: "judul-artikel-1",
-        title: "Judul Artikel Pertama",
-        excerpt: "Ini adalah cuplikan singkat dari artikel pertama.",
-        media_path: "https://placehold.co/600x400?text=Artikel+1",
-        author: { name: "Penulis A" },
-    },
-    {
-        id: 2,
-        slug: "judul-artikel-2",
-        title: "Judul Artikel Kedua",
-        excerpt: "Cuplikan kedua ini memberikan wawasan menarik.",
-        media_path: "https://placehold.co/600x400?text=Artikel+2",
-        author: { name: "Penulis B" },
-    },
-    {
-        id: 3,
-        slug: "judul-artikel-3",
-        title: "Judul Artikel Ketiga",
-        excerpt: "Cuplikan ini membahas topik ketiga dengan singkat.",
-        media_path: "https://placehold.co/600x400?text=Artikel+3",
-        author: null,
-    },
-    {
-        id: 4,
-        slug: "judul-artikel-4",
-        title: "Judul Artikel Keempat",
-        excerpt: "Artikel keempat sangat informatif untuk dibaca.",
-        media_path: "https://placehold.co/600x400?text=Artikel+4",
-        author: { name: "Penulis D" },
-    },
-];
+import React, { useEffect, useState } from "react";
+import ArticleCardPlaceholder from "@/Components/UI/Card/ArticleCardPlaceholder";
+import ArticleCard from "@/Components/UI/Card/ArticleCard";
+import { api } from "@/lib/axios";
 
 const ArticleGrid = () => {
+    const [loading, setLoading] = useState(true);
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                await api.get("/csrf-cookie");
+                const response = await api.get("/articles", {
+                    params: {
+                        latest: 3,
+                    },
+                });
+                setArticles(response.data.data.articles);
+            } catch (error) {
+                console.error("Gagal fetch articles:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchArticles();
+    }, []);
     return (
         <section className="py-5 position-relative overflow-hidden">
             <div className="position-absolute d-none d-md-grid" style={{
@@ -61,7 +50,16 @@ const ArticleGrid = () => {
                     Baca Juga Artikel Menarik Lainnya
                 </h2>
                 <hr className="my-5"/>
-                <ArticleGrids articles={dummyArticles} />
+                <div className="row">
+                    {loading
+                        ? Array.from({ length: 4 }).map((_, i) => <ArticleCardPlaceholder key={i} />)
+                        :   articles? articles.map((article) => (
+                                <ArticleCard key={article.id} article={article} />
+                            ))
+                            : 
+                                <p className="text-center w-100">Artikel tidak ditemukan</p>
+                    }
+                </div>
                 <div className="text-center mt-4">
                     <Link
                         href="#"

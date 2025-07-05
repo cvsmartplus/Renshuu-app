@@ -6,7 +6,7 @@ export default function ArticleGrids({ articles }) {
             <div className="row g-4 position-relative" style={{ zIndex: 1 }}>
                 {articles.length > 0 ? (
                     articles.map((article) => (
-                        <div key={article.id} className="col-12 col-md-6 col-lg-3">
+                        <div className="col-md-3 mb-4" key={article.id}>
                             <ArticleCard article={article} />
                         </div>
                     ))

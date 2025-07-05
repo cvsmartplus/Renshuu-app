@@ -1,29 +1,49 @@
 .filter-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 50px;
 }
 
 .filter-group {
-    flex: 1 1 200px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+
+  // Semua input default basis-nya 200px
+  flex: 1 1 200px;
+
+  &.search {
+    // Buat input search lebih besar, misalnya 2x lebih besar
+    flex: 2 1 400px;
+  }
 }
 
 .filter-label {
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .filter-input {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    background-color: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background-color: #f8fafc;
+  width: 100%;
+}
+
+// Responsive behavior
+@media (max-width: 768px) {
+  .filter-wrapper {
+    flex-direction: column;
+  }
+
+  .filter-group,
+  .filter-group.search {
+    flex: 1 1 100%;
+  }
 }

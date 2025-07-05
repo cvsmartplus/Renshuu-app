@@ -62,7 +62,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 });
 
-Route::prefix('article')->group(function () {
+Route::prefix('articles')->group(function () {
     Route::get('/', [ArticlesController::class, 'index'])->name('article.index');
     Route::get('{slug}', [ArticlesController::class, 'show'])->name('article.show');
 });

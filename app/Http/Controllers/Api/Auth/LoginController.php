@@ -26,7 +26,9 @@ class LoginController extends Controller
 
         if (!$user) {
             return response()->json([
+                'success' => false,
                 'message' => 'Email ini belum terdaftar.',
+                'data' => null,
                 'errors' => [
                     'email' => ['Email ini belum terdaftar.']
                 ]
@@ -35,7 +37,9 @@ class LoginController extends Controller
 
         if (!Hash::check($request->password, $user->password)) {
             return response()->json([
+                'success' => false,
                 'message' => 'Kata sandi salah.',
+                'data' => null,
                 'errors' => [
                     'password' => ['Kata sandi salah.']
                 ]
@@ -44,8 +48,12 @@ class LoginController extends Controller
 
         if (!$user->hasVerifiedOtp()) {
             return response()->json([
+                'success' => false,
                 'message' => 'Anda belum memverifikasi OTP! Silahkan cek email Anda.',
-                'email' => $user->email,
+                'data' => [
+                    'email' => $user->email,
+                ],
+                'errors' => null
             ], 403);
         }
 
@@ -53,8 +61,12 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         return response()->json([
-            'message' => 'Login berhasil',
-            'user' => $user,
-        ]);
+            'success' => true,
+            'message' => 'Login berhasil.',
+            'data' => [
+                'user' => $user
+            ],
+            'errors' => null
+        ], 200);
     }
 }

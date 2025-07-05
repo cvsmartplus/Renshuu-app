@@ -4,66 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Article extends Model
 {
+    //
     use HasFactory;
-
     protected $fillable = [
+        'author',
         'title',
         'slug',
+        'description',
+        'image',
         'content',
-        'media_path',
-        'status',
-        'excerpt',
-        'category_id',
-        'author_id',
-        'published_at',
-        'reading_time',
-        'seo_title',
-        'meta_description'
     ];
 
-    protected static function boot()
+    public function categories()
     {
-        parent::boot();
-        static::creating(function ($article) {
-            $article->slug = self::generateUniqueSlug($article->title);
-        });
+        return $this->belongsToMany(ArticlesCategory::class, 'article_category', 'article_id', 'category_id');
+    }
+    // Di app/Models/Article.php
+    public function scopeLatestLimit($query, $limit = 3)
+    {
+        return $query->latest()->take($limit);
     }
 
-    private static function generateUniqueSlug($title)
-    {
-        $originalSlug = Str::slug($title);
-        $slug = $originalSlug;
-        $count = 1;
-
-        while (Article::where('slug', $slug)->exists()) {
-            $slug = $originalSlug . '-' . $count;
-            $count++;
-        }
-
-        return $slug;
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function author()
-    {
-        return $this->belongsTo(User::class, 'author_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 }

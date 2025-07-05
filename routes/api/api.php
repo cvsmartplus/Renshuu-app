@@ -23,4 +23,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 
-Route::get('/article', [ArticleController::class, 'index']);
+Route::get('/articles', [ArticleController::class, 'index']);
